@@ -20,14 +20,86 @@ package game.engine
       public static var SndFallingLand:Sfx;
       
       public static var L1:Class = Assets_L1;
-      
+      public static var L2:Class = Assets_L2;
+      public static var L3:Class = Assets_L3;
+      public static var L4:Class = Assets_L4;
+      public static var L5:Class = Assets_L5;
+      public static var L6:Class = Assets_L6;
+      public static var L7:Class = Assets_L7;
+      public static var L8:Class = Assets_L8;
+      public static var L9:Class = Assets_L9;
+      public static var L10:Class = Assets_L10;
+      public static var L11:Class = Assets_L11;
+      public static var L12:Class = Assets_L12;
+      public static var L13:Class = Assets_L13;
+      public static var L14:Class = Assets_L14;
+      public static var L15:Class = Assets_L15;
+      public static var L16:Class = Assets_L16;
+      public static var L17:Class = Assets_L17;
+      public static var L18:Class = Assets_L18;
+      public static var L19:Class = Assets_L19;
+      public static var L20:Class = Assets_L20;
+      public static var L21:Class = Assets_L21;
+      public static var L22:Class = Assets_L22;
+      public static var L23:Class = Assets_L23;
+      public static var L24:Class = Assets_L24;
+      public static var L25:Class = Assets_L25;
+      public static var L26:Class = Assets_L26;
+      public static var L27:Class = Assets_L27;
+      public static var L28:Class = Assets_L28;
+      public static var L29:Class = Assets_L29;
+      public static var L30:Class = Assets_L30;
+      public static var L31:Class = Assets_L31;
+      public static var L32:Class = Assets_L32;
+      public static var L33:Class = Assets_L33;
+      public static var L34:Class = Assets_L34;
+      public static var L35:Class = Assets_L35;
+      public static var L36:Class = Assets_L36;
+      public static var L37:Class = Assets_L37;
+      public static var L38:Class = Assets_L38;
+      public static var L39:Class = Assets_L39;
+      public static var L40:Class = Assets_L40;
+      public static var L41:Class = Assets_L41;
+      public static var L42:Class = Assets_L42;
+      public static var L43:Class = Assets_L43;
+      public static var L44:Class = Assets_L44;
+      public static var L45:Class = Assets_L45;
+      public static var L46:Class = Assets_L46;
+      public static var L47:Class = Assets_L47;
+      public static var L48:Class = Assets_L48;
+      public static var L49:Class = Assets_L49;
+      public static var L50:Class = Assets_L50;
+      public static var L51:Class = Assets_L51;
+      public static var L52:Class = Assets_L52;
+      public static var L53:Class = Assets_L53;
+      public static var L54:Class = Assets_L54;
+      public static var L55:Class = Assets_L55;
+      public static var L56:Class = Assets_L56;
+      public static var L57:Class = Assets_L57;
+      public static var L58:Class = Assets_L58;
+      public static var L59:Class = Assets_L59;
+      public static var L60:Class = Assets_L60;
+      public static var L61:Class = Assets_L61;
 
-      
+      public static var H1:Class = Assets_H1;
+      public static var H2:Class = Assets_H2;
+      public static var H3:Class = Assets_H3;
+      public static var H4:Class = Assets_H4;
+      public static var H5:Class = Assets_H5;
+      public static var H6:Class = Assets_H6;
+      public static var H7:Class = Assets_H7;
+      public static var H8:Class = Assets_H8;
+      public static var H9:Class = Assets_H9;
+      public static var H10:Class = Assets_H10;
+      public static var H11:Class = Assets_H11;
+      public static var H12:Class = Assets_H12;
+      public static var H13:Class = Assets_H13;
 
-      
+      public static var E1:Class = Assets_E1;
+      public static var E2:Class = Assets_E2;
 
-      
-
+      public static var S2:Class = Assets_S2;
+      public static var S3:Class = Assets_S3;
       
       private static var VcPlayerDeath16:Sfx;
       
@@ -851,6 +923,7 @@ package game.engine
          SndJetpackDrop = new Sfx(Assets_SJetpackDrop);
          SndCloudTalk = new Sfx(Assets_SCloudTalk);
          SndLeverBottom = new Sfx(Assets_SLeverBottom);
+         SndLeverTop = new Sfx(Assets_SLeverTop);
          SndMenuSelect = new Sfx(Assets_SMenuSelect);
          SndKeyFlyBy = new Sfx(Assets_SKeyFlyBy);
          SndFallingFall= new Sfx(Assets_SFallingFall);
@@ -894,6 +967,7 @@ package game.engine
          SndMenuMouse = new Sfx(Assets_SMenuMouse);
          SndTutorialEnter = new Sfx(Assets_STutorialEnter);
          SndCoinBlockDone = new Sfx(Assets_SCoinBlockDone);
+         SndCoinBlock = new Sfx(Assets_SCoinBlock);
          SndBossLand = new Sfx(Assets_SBossLand);
          SndWarp = new Sfx(Assets_SWarp);
          SndCoin = new Sfx(Assets_SCoin);

@@ -28,7 +28,7 @@ package game.menus
          this.two.y = this.two.y + 28;
          this.list.add(this.two);
          Text.size = 24;
-         this.text = new Text("Gur2Rainer");
+         this.text = new Text("Gur2rainer");
          this.text.color = 16777215;
          this.text.centerOO();
          this.list.add(this.text);
