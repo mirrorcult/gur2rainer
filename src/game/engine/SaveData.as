@@ -91,7 +91,7 @@ package game.engine
          Main.saveGame();
       }
       
-      public function beatLevel(coins:uint, time:uint) : void
+      public function advanceLevels(coins:uint, time:uint, levels:int) : void
       {
          this.coins = this.coins + coins;
          if(!this.keyLevel && !this.startLevel)
@@ -104,14 +104,14 @@ package game.engine
          {
             this.startLevel = false;
          }
-         else if(this.keyLevel)
+         else if(this.keyLevel && levels == 1)
          {
             this.startLevel = true;
             this.keyLevel = false;
          }
          else
          {
-            this.level++;
+            this.level += levels;
             if(this.mode == 0 && (this.level == Level.WORLD2 || this.level == Level.WORLD3))
             {
                this.keyLevel = true;

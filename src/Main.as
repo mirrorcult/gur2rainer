@@ -98,6 +98,10 @@ package
          Input.define("up",Key.UP);
          Input.define("down",Key.DOWN);
          Input.define("shoot",Key.A,Key.Z);
+         Input.define("return", Key.ESCAPE);
+         Input.define("back", Key.BACKSPACE);
+         Input.define("next", Key.TAB);
+         Input.define("restart", Key.R);
          BDScreen = new ImgScreen().bitmapData;
          new Assets();
          Assets.voice = Assets.VcPowerOn;

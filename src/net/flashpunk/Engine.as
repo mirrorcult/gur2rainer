@@ -109,7 +109,7 @@ package net.flashpunk
          stage.frameRate = FP.assignedFrameRate;
          stage.align = StageAlign.TOP_LEFT;
          stage.quality = StageQuality.HIGH;
-         stage.scaleMode = StageScaleMode.NO_SCALE;
+         stage.scaleMode = StageScaleMode.SHOW_ALL;
          stage.displayState = StageDisplayState.NORMAL;
       }
       

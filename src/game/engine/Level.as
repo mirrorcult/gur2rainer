@@ -103,12 +103,12 @@ package game.engine
       
       public var countTime:Boolean;
       
-      public function Level(mode:uint, num:uint, practice:Boolean = false, str:String = null)
+      public function Level(mode:uint, num:uint, alwaysPractice:Boolean = false, str:String = null)
       {
          super();
          this.mode = mode;
          this.levelNum = num;
-         this.practice = practice;
+         this.practice = Options.practiceMode || alwaysPractice;
          this.custom = false;
          if(str == null)
          {
@@ -195,10 +195,26 @@ package game.engine
                this.drawTime.updateTotal();
             }
          }
-         if(Input.pressed(Key.ESCAPE))
+         if(Input.pressed("return"))
          {
             Assets.MusPowerOn.stop();
             add(new Transition(new MainMenu()));
+         }
+         if(Input.pressed("next"))
+         {
+            if (levelExists(mode, levelNum + 1)) 
+            {
+               Main.saveData.advanceLevels(player.coins, time, 1);
+               add(new Transition(new Level(mode, levelNum + 1)));
+            }
+         }
+         if(Input.pressed("back"))
+         {
+            if (levelExists(mode, levelNum - 1))
+            {
+               Main.saveData.advanceLevels(0, 0, -1);
+               add(new Transition(new Level(mode, levelNum - 1)));
+            }
          }
       }
       
@@ -558,10 +574,14 @@ package game.engine
             this.restart();
          }
       }
+
+      protected function levelExists(mode:uint, num:uint) : Boolean
+      {
+         return Assets[Assets.PREFIX[mode] + num] != null;
+      }
       
       protected function loadLevel(mode:uint, num:uint) : void
       {
-         //this.load()
          this.load(new Assets[Assets.PREFIX[mode] + num]());
       }
    }

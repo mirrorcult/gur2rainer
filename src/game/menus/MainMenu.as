@@ -57,19 +57,15 @@ package game.menus
          this.addButton(hard = new MenuButton(160,130,"New HARD Game",!!Main.saveExists()?this.gotoConfirmNewHard:this.newHardGame,!!Main.saveExists()?Assets.SndMenuSelect:Assets.SndNewHardGame));
          this.addButton(load = new MenuButton(160,150,"Continue",this.gotoConfirmContinue,Assets.SndMenuSelect));
          this.addButton(stats = new MenuButton(160,170,"Stats",this.gotoStats,Assets.SndMenuSelect));
-         this.addButton(new MenuButton(160,190,"Options",this.gotoOptions,Assets.SndMenuSelect));
-         this.addButton(new MenuButton(160,210,"Credits",this.gotoCredits,Assets.SndMenuSelect));
-         this.addButton(new MenuButton(160,230,"More Games",function(m:MenuButton):void
-         {
-            Main.link("mainmenu");
-         },Assets.SndMenuSelect));
+         this.addButton(new MenuButton(160,190,"Level Select",this.gotoLevelSelector,Assets.SndMenuSelect));
+         this.addButton(new MenuButton(160,210,"Options",this.gotoOptions,Assets.SndMenuSelect));
+         this.addButton(new MenuButton(160,230,"Credits",this.gotoCredits,Assets.SndMenuSelect));
          if(!Main.saveExists())
          {
             load.deactivate();
          }
          if(!Main.beatenNormal())
          {
-            hard.deactivate();
             stats.deactivate();
          }
       }
@@ -85,11 +81,17 @@ package game.menus
          Options.particles = !Options.particles;
          button.setText("Particles: " + this.getBoolName(Options.particles));
       }
+
+      private function togglePractice(button:MenuButton) : void
+      {
+         Options.practiceMode = !Options.practiceMode;
+         button.setText("Practice Mode: " + this.getBoolName(Options.practiceMode))
+      }
       
       override public function update() : void
       {
          super.update();
-         if(this.options && Input.pressed(Key.DELETE) && Input.check(Key.CONTROL) && Input.check(Key.SHIFT))
+         if(this.options && Input.pressed(Key.DELETE) && Input.check(Key.SHIFT))
          {
             Main.clearEverything();
             Assets.setMusic(Assets.MusMenu);
@@ -99,10 +101,15 @@ package game.menus
          }
          if(this.credits && Input.pressed(Key.INSERT) && Input.check(Key.CONTROL) && CustomStage.customStage == null)
          {
-            Assets.SndMenuSelect.play();
-            FP.stage.addChild(new CustomStage(this));
-            this.deactivateAllButtons();
+            openCustomStage();
          }
+      }
+
+      private function openCustomStage()
+      {
+         Assets.SndMenuSelect.play();
+         FP.stage.addChild(new CustomStage(this));
+         this.deactivateAllButtons();
       }
       
       private function gotoConfirmNewNormal(m:MenuButton = null) : void
@@ -135,6 +142,11 @@ package game.menus
          this.toRemove.push(add(new Title(16,"Current savefile will be deleted!",160,116,false)));
          this.addButton(new MenuButton(160,170,"Do It!",this.newHardGame,Assets.SndNewHardGame));
          this.addButton(new MenuButton(160,195,"Cancel",this.gotoMain,Assets.SndMenuCancel));
+      }
+
+      private function gotoLevelSelector(m:MenuButton = null) : void
+      {
+         this.clearButtons()
       }
       
       private function toggleShowCoins(button:MenuButton) : void
@@ -297,12 +309,7 @@ package game.menus
          this.addButton(new MenuButton(160,140,"Robot Voice: " + this.getBoolName(Options.voices),this.toggleVoice,Assets.SndMenuSelect));
          this.addButton(new MenuButton(160,160,"Audio: " + this.getVolumeName(),this.switchVolume,Assets.SndMenuSelect));
          this.addButton(new MenuButton(160,180,"Particles: " + this.getBoolName(Options.particles),this.toggleParticles,Assets.SndMenuSelect));
-         var sounds:MenuButton = new MenuButton(160,200,"Sound Test",this.gotoSoundTest,Assets.SndMenuSelect);
-         this.addButton(sounds);
-         if(!Main.beatenNormal())
-         {
-            sounds.deactivate();
-         }
+         this.addButton(new MenuButton(160,200,"Practice Mode: " + this.getBoolName(Options.practiceMode),this.togglePractice,Assets.SndMenuSelect));
       }
       
       private function gotoStats(m:MenuButton = null) : void

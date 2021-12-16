@@ -843,6 +843,7 @@ package game.engine
          VcPlayerDeath17 = new Sfx(Assets_VPlayerDeath17);
          VcPlayerDeath18 = new Sfx(Assets_VPlayerDeath18);
          VcPlayerDeath19 = new Sfx(Assets_VPlayerDeath19);
+         VcPlayerDeath20 = new Sfx(Assets_VPlayerDeath20);
 
          SndWorldComplete = new Sfx(Assets_SWorldComplete)
          SndBossLaser = new Sfx(Assets_SBossLaser)

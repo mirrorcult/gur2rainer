@@ -17,7 +17,8 @@ package game
       public static var showTime:Boolean;
       
       public static var particles:Boolean;
-       
+
+      public static var practiceMode:Boolean;
       
       public function Options()
       {
@@ -52,6 +53,7 @@ package game
          obj.data.options.volume = FP.volume;
          obj.data.options.voices = voices;
          obj.data.options.particles = particles;
+         obj.data.options.practiceMode = practiceMode;
       }
       
       public static function loadOptions() : void
@@ -65,6 +67,7 @@ package game
             FP.volume = 1;
             voices = true;
             particles = true;
+            practiceMode = false;
          }
          else
          {
@@ -74,6 +77,7 @@ package game
             FP.volume = obj.data.options.volume;
             voices = obj.data.options.voices;
             particles = obj.data.options.particles;
+            practiceMode = obj.data.options.practiceMode;
          }
       }
    }

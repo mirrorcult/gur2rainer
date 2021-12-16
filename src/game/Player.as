@@ -386,6 +386,11 @@ package game
          var below:Block = getBelow();
          this.onGround = below != null;
          this.canGrapple = true;
+         if(Input.check("restart"))
+         {
+            this.die();
+            return;
+         }
          if(y >= this.level.height + 10)
          {
             this.die();
@@ -738,7 +743,7 @@ package game
          }
          else
          {
-            Main.saveData.beatLevel(this.coins,this.level.time);
+            Main.saveData.advanceLevels(this.coins,this.level.time, 1);
          }
          FP.world.add(new Win());
          if(this.level.levelNum == 6 && this.level.mode == 0)
