@@ -1,0 +1,90 @@
+<level>
+  <width>960</width>
+  <height>240</height>
+  <solids>
+    <rect x="0" y="0" w="144" h="16"/>
+    <rect x="0" y="16" w="128" h="80"/>
+    <rect x="0" y="160" w="40" h="32"/>
+    <rect x="0" y="192" w="32" h="48"/>
+    <rect x="888" y="128" w="72" h="32"/>
+    <rect x="896" y="160" w="64" h="80"/>
+  </solids>
+  <objects>
+    <player x="8" y="152"/>
+    <saw x="136" y="144" flip="true" speed="0.5" dontMove="false" stopAtEnd="false"/>
+    <conveyor270 x="128" y="16" width="16" height="120" speed="1.2"/>
+    <conveyor90 x="440" y="64" width="16" height="48" speed="0.6"/>
+    <saw x="448" y="56" flip="true" speed="0.5" dontMove="false" stopAtEnd="false"/>
+    <conveyor0 x="736" y="48" width="88" height="16" speed="1.2"/>
+    <coinBlock x="824" y="48" coins="2"/>
+    <noGrapple x="264" y="80" width="40" height="40"/>
+    <noGrapple x="272" y="120" width="40" height="40"/>
+    <noGrapple x="264" y="160" width="40" height="40"/>
+    <noGrapple x="272" y="200" width="40" height="40"/>
+    <coin x="280" y="32"/>
+    <coin x="264" y="40"/>
+    <coin x="296" y="32"/>
+    <coin x="312" y="40"/>
+    <coin x="552" y="96"/>
+    <coin x="552" y="112"/>
+    <coin x="544" y="104"/>
+    <coin x="560" y="88"/>
+    <coin x="568" y="96"/>
+    <coin x="576" y="104"/>
+    <coin x="568" y="112"/>
+    <coin x="560" y="120"/>
+    <coin x="584" y="64"/>
+    <coin x="584" y="80"/>
+    <coin x="576" y="72"/>
+    <coin x="592" y="56"/>
+    <coin x="600" y="64"/>
+    <coin x="608" y="72"/>
+    <coin x="600" y="80"/>
+    <coin x="592" y="88"/>
+    <coin x="616" y="96"/>
+    <coin x="616" y="112"/>
+    <coin x="608" y="104"/>
+    <coin x="624" y="88"/>
+    <coin x="632" y="96"/>
+    <coin x="640" y="104"/>
+    <coin x="632" y="112"/>
+    <coin x="624" y="120"/>
+    <coin x="584" y="128"/>
+    <coin x="584" y="144"/>
+    <coin x="576" y="136"/>
+    <coin x="592" y="120"/>
+    <coin x="600" y="128"/>
+    <coin x="608" y="136"/>
+    <coin x="600" y="144"/>
+    <coin x="592" y="152"/>
+    <coin x="576" y="88"/>
+    <coin x="608" y="88"/>
+    <coin x="608" y="120"/>
+    <coin x="576" y="120"/>
+    <coin x="432" y="120"/>
+    <coin x="424" y="128"/>
+    <coin x="560" y="104"/>
+    <coin x="624" y="104"/>
+    <coin x="592" y="136"/>
+    <coin x="592" y="104"/>
+    <coin x="584" y="96"/>
+    <coin x="600" y="96"/>
+    <coin x="600" y="112"/>
+    <coin x="584" y="112"/>
+    <coin x="568" y="80"/>
+    <coin x="616" y="80"/>
+    <coin x="592" y="72"/>
+    <coin x="616" y="128"/>
+    <coin x="568" y="128"/>
+    <coin x="120" y="120"/>
+    <coin x="112" y="128"/>
+    <noGrapple x="424" y="24" width="48" height="24"/>
+    <noGrapple x="408" y="48" width="24" height="24"/>
+    <noGrapple x="464" y="48" width="24" height="24"/>
+    <noGrapple x="424" y="72" width="16" height="16"/>
+    <noGrapple x="456" y="72" width="16" height="16"/>
+    <laserV x="744" y="0" height="48" onOff="false" startOff="false"/>
+    <laserV x="800" y="0" height="48" onOff="false" startOff="false"/>
+    <noGrapple x="432" y="0" width="32" height="24"/>
+  </objects>
+</level>

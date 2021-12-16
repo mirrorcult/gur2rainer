@@ -1,0 +1,36 @@
+<level>
+  <width>480</width>
+  <height>240</height>
+  <solids>
+    <rect x="0" y="192" w="32" h="32"/>
+    <rect x="0" y="224" w="24" h="16"/>
+    <rect x="448" y="192" w="32" h="32"/>
+    <rect x="456" y="224" w="24" h="16"/>
+  </solids>
+  <objects>
+    <player x="8" y="184"/>
+    <warpBlock x="88" y="104">
+      <node x="232" y="104"/>
+      <node x="376" y="104"/>
+    </warpBlock>
+    <laserV x="160" y="0" height="240" onOff="false" startOff="false"/>
+    <laserV x="304" y="0" height="240" onOff="false" startOff="false"/>
+    <coin x="208" y="160"/>
+    <coin x="216" y="168"/>
+    <coin x="224" y="160"/>
+    <coin x="232" y="168"/>
+    <coin x="240" y="160"/>
+    <coin x="248" y="168"/>
+    <coin x="256" y="160"/>
+    <coin x="264" y="168"/>
+    <coin x="272" y="160"/>
+    <coin x="208" y="176"/>
+    <coin x="224" y="176"/>
+    <coin x="240" y="176"/>
+    <coin x="256" y="176"/>
+    <coin x="272" y="176"/>
+    <noGrapple x="200" y="128" width="80" height="16"/>
+    <noGrapple x="200" y="192" width="80" height="16"/>
+    <noGrapple x="336" y="144" width="48" height="48"/>
+  </objects>
+</level>

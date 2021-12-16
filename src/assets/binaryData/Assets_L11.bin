@@ -1,0 +1,28 @@
+<level>
+  <width>320</width>
+  <height>240</height>
+  <solids>
+    <rect x="0" y="168" w="48" h="72"/>
+    <rect x="48" y="192" w="128" h="48"/>
+    <rect x="96" y="168" w="80" h="24"/>
+    <rect x="144" y="136" w="32" h="32"/>
+    <rect x="272" y="136" w="48" h="104"/>
+  </solids>
+  <objects>
+    <fireBall x="56" y="184"/>
+    <fireBall x="72" y="184"/>
+    <fireBall x="88" y="184"/>
+    <player x="8" y="160"/>
+    <coin x="72" y="136"/>
+    <coin x="64" y="128"/>
+    <coin x="72" y="120"/>
+    <coin x="80" y="128"/>
+    <coinBlock x="216" y="48" coins="2"/>
+    <fireBall x="216" y="72"/>
+    <fireBall x="208" y="56"/>
+    <fireBall x="216" y="40"/>
+    <fireBall x="232" y="40"/>
+    <fireBall x="240" y="56"/>
+    <fireBall x="232" y="72"/>
+  </objects>
+</level>

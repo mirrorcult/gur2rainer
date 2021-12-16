@@ -1,0 +1,56 @@
+<level>
+  <width>640</width>
+  <height>240</height>
+  <solids>
+    <rect x="0" y="0" w="80" h="56"/>
+    <rect x="0" y="56" w="16" h="8"/>
+    <rect x="0" y="136" w="48" h="64"/>
+    <rect x="0" y="200" w="40" h="40"/>
+    <rect x="32" y="56" w="16" h="8"/>
+    <rect x="64" y="56" w="16" h="8"/>
+    <rect x="568" y="160" w="72" h="32"/>
+    <rect x="576" y="192" w="64" h="48"/>
+  </solids>
+  <objects>
+    <player x="8" y="128"/>
+    <launcher x="40" y="168" angle="-45"/>
+    <launcher x="72" y="32" angle="0"/>
+    <coin x="288" y="136"/>
+    <coin x="304" y="136"/>
+    <coin x="320" y="136"/>
+    <coin x="336" y="136"/>
+    <coin x="352" y="136"/>
+    <coin x="296" y="144"/>
+    <coin x="312" y="144"/>
+    <coin x="328" y="144"/>
+    <coin x="344" y="144"/>
+    <coin x="288" y="152"/>
+    <coin x="304" y="152"/>
+    <coin x="320" y="152"/>
+    <coin x="336" y="152"/>
+    <coin x="352" y="152"/>
+    <coin x="296" y="160"/>
+    <coin x="312" y="160"/>
+    <coin x="328" y="160"/>
+    <coin x="344" y="160"/>
+    <coin x="336" y="168"/>
+    <coin x="320" y="168"/>
+    <coin x="304" y="168"/>
+    <coin x="288" y="112"/>
+    <coin x="288" y="96"/>
+    <coin x="288" y="80"/>
+    <coin x="296" y="88"/>
+    <coin x="304" y="80"/>
+    <coin x="304" y="96"/>
+    <coin x="296" y="104"/>
+    <coin x="304" y="112"/>
+    <coin x="336" y="112"/>
+    <coin x="336" y="96"/>
+    <coin x="336" y="80"/>
+    <coin x="344" y="88"/>
+    <coin x="344" y="104"/>
+    <coin x="352" y="112"/>
+    <coin x="352" y="96"/>
+    <coin x="352" y="80"/>
+  </objects>
+</level>

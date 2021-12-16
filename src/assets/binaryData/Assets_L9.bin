@@ -1,0 +1,23 @@
+<level>
+  <width>320</width>
+  <height>240</height>
+  <solids>
+    <rect x="0" y="160" w="56" h="80"/>
+    <rect x="56" y="208" w="264" h="32"/>
+    <rect x="240" y="128" w="80" h="80"/>
+  </solids>
+  <objects>
+    <player x="8" y="152"/>
+    <saw x="144" y="136" flip="true"/>
+    <coin x="136" y="152"/>
+    <coin x="128" y="160"/>
+    <coin x="144" y="200"/>
+    <coin x="160" y="200"/>
+    <coin x="176" y="192"/>
+    <coin x="192" y="176"/>
+    <coin x="200" y="160"/>
+    <coin x="208" y="144"/>
+    <coin x="208" y="128"/>
+    <coin x="128" y="200"/>
+  </objects>
+</level>

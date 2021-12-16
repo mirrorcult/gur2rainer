@@ -1,0 +1,32 @@
+<level>
+  <width>320</width>
+  <height>240</height>
+  <solids>
+    <rect x="0" y="0" w="8" h="240"/>
+    <rect x="8" y="40" w="8" h="200"/>
+    <rect x="16" y="120" w="8" h="120"/>
+    <rect x="24" y="152" w="24" h="48"/>
+    <rect x="24" y="200" w="16" h="24"/>
+    <rect x="24" y="224" w="8" h="16"/>
+    <rect x="48" y="160" w="24" h="24"/>
+    <rect x="72" y="168" w="16" h="24"/>
+    <rect x="88" y="176" w="24" h="24"/>
+    <rect x="112" y="184" w="208" h="8"/>
+    <rect x="112" y="192" w="112" h="8"/>
+    <rect x="128" y="200" w="72" h="8"/>
+    <rect x="152" y="208" w="48" h="8"/>
+    <rect x="160" y="216" w="32" h="24"/>
+    <rect x="248" y="176" w="72" h="8"/>
+    <rect x="288" y="64" w="32" h="64"/>
+    <rect x="288" y="192" w="32" h="16"/>
+    <rect x="296" y="32" w="24" h="32"/>
+    <rect x="296" y="208" w="24" h="8"/>
+    <rect x="304" y="0" w="16" h="32"/>
+    <rect x="304" y="216" w="16" h="24"/>
+  </solids>
+  <objects>
+    <door x="296" y="128"/>
+    <player x="32" y="144"/>
+    <lever x="152" y="16" distance="32" stayDown="true" controlDoors="false"/>
+  </objects>
+</level>

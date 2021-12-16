@@ -1,0 +1,32 @@
+<level>
+  <width>488</width>
+  <height>240</height>
+  <solids>
+    <rect x="0" y="160" w="48" h="80"/>
+    <rect x="440" y="160" w="48" h="80"/>
+  </solids>
+  <objects>
+    <player x="8" y="152"/>
+    <fallingPlat x="96" y="40" width="56" height="40"/>
+    <fallingPlat x="336" y="40" width="56" height="40"/>
+    <fallingPlat x="216" y="40" width="56" height="40"/>
+    <coin x="112" y="144"/>
+    <coin x="136" y="144"/>
+    <coin x="232" y="144"/>
+    <coin x="256" y="144"/>
+    <coin x="352" y="144"/>
+    <coin x="376" y="144"/>
+    <coin x="120" y="136"/>
+    <coin x="128" y="136"/>
+    <coin x="128" y="152"/>
+    <coin x="120" y="152"/>
+    <coin x="240" y="152"/>
+    <coin x="248" y="152"/>
+    <coin x="248" y="136"/>
+    <coin x="240" y="136"/>
+    <coin x="360" y="136"/>
+    <coin x="368" y="136"/>
+    <coin x="368" y="152"/>
+    <coin x="360" y="152"/>
+  </objects>
+</level>

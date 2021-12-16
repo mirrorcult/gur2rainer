@@ -1,0 +1,86 @@
+<level>
+  <width>320</width>
+  <height>640</height>
+  <solids>
+    <rect x="0" y="0" w="120" h="16"/>
+    <rect x="0" y="16" w="40" h="288"/>
+    <rect x="0" y="304" w="24" h="280"/>
+    <rect x="0" y="616" w="40" h="24"/>
+    <rect x="24" y="368" w="16" h="216"/>
+    <rect x="168" y="48" w="152" h="16"/>
+    <rect x="280" y="64" w="40" h="240"/>
+    <rect x="280" y="368" w="40" h="272"/>
+    <rect x="296" y="304" w="24" h="64"/>
+  </solids>
+  <objects>
+    <player x="8" y="608"/>
+    <jetpack x="160" y="576"/>
+    <conveyor0 x="40" y="616" width="80" height="8" speed="1.2"/>
+    <movingPlat x="120" y="616" width="80" height="16" speed="2" dontMove="true" stopAtEnd="true">
+      <node x="120" y="512"/>
+    </movingPlat>
+    <coin x="152" y="592"/>
+    <coin x="168" y="592"/>
+    <coin x="176" y="576"/>
+    <coin x="168" y="560"/>
+    <coin x="152" y="560"/>
+    <coin x="144" y="576"/>
+    <conveyor180 x="200" y="616" width="80" height="8" speed="1.2"/>
+    <noGrapple x="40" y="512" width="80" height="32"/>
+    <noGrapple x="200" y="512" width="80" height="32"/>
+    <noGrapple x="112" y="432" width="96" height="32"/>
+    <noGrapple x="40" y="440" width="32" height="32"/>
+    <noGrapple x="248" y="440" width="32" height="32"/>
+    <coin x="88" y="464"/>
+    <coin x="96" y="456"/>
+    <coin x="88" y="448"/>
+    <coin x="232" y="464"/>
+    <coin x="224" y="456"/>
+    <coin x="232" y="448"/>
+    <conveyor0 x="24" y="304" width="120" height="16" speed="1.2"/>
+    <conveyor180 x="176" y="304" width="120" height="16" speed="1.2"/>
+    <coin x="160" y="312"/>
+    <coin x="160" y="328"/>
+    <coin x="160" y="296"/>
+    <noGrapple x="40" y="280" width="104" height="24"/>
+    <noGrapple x="176" y="280" width="104" height="24"/>
+    <noGrapple x="40" y="256" width="104" height="24"/>
+    <noGrapple x="184" y="256" width="96" height="24"/>
+    <noGrapple x="40" y="232" width="96" height="24"/>
+    <noGrapple x="200" y="232" width="80" height="24"/>
+    <coin x="160" y="264"/>
+    <coin x="160" y="248"/>
+    <coin x="160" y="232"/>
+    <jetpack x="192" y="184"/>
+    <coin x="184" y="192"/>
+    <coin x="176" y="200"/>
+    <noGrapple x="40" y="208" width="104" height="24"/>
+    <noGrapple x="192" y="208" width="88" height="24"/>
+    <noGrapple x="216" y="184" width="64" height="24"/>
+    <noGrapple x="208" y="160" width="72" height="24"/>
+    <noGrapple x="40" y="184" width="88" height="24"/>
+    <noGrapple x="40" y="160" width="72" height="24"/>
+    <noGrapple x="40" y="40" width="80" height="24"/>
+    <coin x="144" y="32"/>
+    <coin x="144" y="48"/>
+    <coin x="144" y="160"/>
+    <noGrapple x="40" y="16" width="72" height="24"/>
+    <conveyor90 x="24" y="320" width="16" height="48" speed="1.2"/>
+    <conveyor90 x="280" y="320" width="16" height="48" speed="1.2"/>
+    <noGrapple x="168" y="136" width="112" height="24"/>
+    <noGrapple x="40" y="136" width="80" height="24"/>
+    <noGrapple x="40" y="112" width="72" height="24"/>
+    <noGrapple x="176" y="112" width="104" height="24"/>
+    <noGrapple x="40" y="88" width="80" height="24"/>
+    <noGrapple x="40" y="64" width="72" height="24"/>
+    <noGrapple x="168" y="88" width="112" height="24"/>
+    <noGrapple x="176" y="64" width="104" height="24"/>
+    <coin x="144" y="144"/>
+    <coin x="144" y="128"/>
+    <coin x="144" y="64"/>
+    <coin x="136" y="96"/>
+    <coin x="144" y="88"/>
+    <coin x="152" y="96"/>
+    <coin x="144" y="104"/>
+  </objects>
+</level>

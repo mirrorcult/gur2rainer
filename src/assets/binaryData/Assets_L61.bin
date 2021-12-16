@@ -1,0 +1,32 @@
+<level>
+  <width>3200</width>
+  <height>240</height>
+  <solids>
+    <rect x="0" y="200" w="344" h="16"/>
+    <rect x="0" y="216" w="336" h="24"/>
+    <rect x="272" y="192" w="72" h="8"/>
+    <rect x="296" y="104" w="48" h="32"/>
+    <rect x="296" y="184" w="48" h="8"/>
+    <rect x="304" y="0" w="32" h="104"/>
+    <rect x="704" y="128" w="48" h="32"/>
+    <rect x="1096" y="144" w="72" h="32"/>
+    <rect x="2000" y="0" w="32" h="64"/>
+    <rect x="2200" y="0" w="32" h="128"/>
+    <rect x="2456" y="0" w="32" h="32"/>
+    <rect x="2680" y="0" w="32" h="56"/>
+    <rect x="3184" y="0" w="16" h="240"/>
+  </solids>
+  <objects>
+    <door x="312" y="136"/>
+    <fallingPlat x="416" y="64" width="32" height="32"/>
+    <fallingPlat x="520" y="56" width="32" height="32"/>
+    <fallingPlat x="624" y="48" width="32" height="32"/>
+    <flipBlock x="848" y="32"/>
+    <flipBlock x="984" y="32"/>
+    <conveyor180 x="1216" y="32" width="432" height="16" speed="1.6"/>
+    <saw x="1760" y="112" flip="true"/>
+    <noGrapple x="1888" y="120" width="24" height="104"/>
+    <jetpack x="2128" y="56"/>
+    <player x="8" y="192"/>
+  </objects>
+</level>

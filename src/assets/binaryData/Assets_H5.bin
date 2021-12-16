@@ -1,0 +1,71 @@
+<level>
+  <width>1192</width>
+  <height>240</height>
+  <solids>
+    <rect x="0" y="128" w="56" h="8"/>
+    <rect x="0" y="136" w="48" h="8"/>
+    <rect x="0" y="144" w="40" h="16"/>
+    <rect x="0" y="160" w="32" h="16"/>
+    <rect x="0" y="176" w="16" h="8"/>
+    <rect x="0" y="184" w="8" h="8"/>
+    <rect x="24" y="176" w="16" h="8"/>
+    <rect x="32" y="168" w="8" h="8"/>
+    <rect x="1000" y="64" w="56" h="8"/>
+    <rect x="1008" y="40" w="48" h="8"/>
+    <rect x="1024" y="32" w="40" h="8"/>
+    <rect x="1024" y="48" w="40" h="16"/>
+    <rect x="1024" y="72" w="16" h="8"/>
+    <rect x="1040" y="24" w="16" h="8"/>
+    <rect x="1096" y="128" w="96" h="16"/>
+    <rect x="1112" y="120" w="80" h="8"/>
+    <rect x="1120" y="104" w="8" h="16"/>
+    <rect x="1120" y="144" w="24" h="8"/>
+    <rect x="1128" y="112" w="64" h="8"/>
+    <rect x="1136" y="152" w="8" h="8"/>
+    <rect x="1144" y="104" w="48" h="8"/>
+    <rect x="1160" y="144" w="32" h="32"/>
+    <rect x="1168" y="176" w="24" h="8"/>
+    <rect x="1176" y="96" w="16" h="8"/>
+    <rect x="1176" y="184" w="8" h="8"/>
+  </solids>
+  <objects>
+    <player x="8" y="120"/>
+    <flipBlock x="160" y="48"/>
+    <jetpack x="40" y="120"/>
+    <flipBlock x="368" y="48"/>
+    <laserV x="472" y="0" height="240" onOff="true" startOff="false"/>
+    <laserV x="520" y="0" height="240" onOff="true" startOff="true"/>
+    <flipBlock x="624" y="48"/>
+    <laserV x="264" y="0" height="240" onOff="true" startOff="true"/>
+    <laserV x="728" y="0" height="240" onOff="true" startOff="false"/>
+    <laserV x="768" y="0" height="240" onOff="true" startOff="true"/>
+    <laserV x="808" y="0" height="240" onOff="true" startOff="false"/>
+    <laserV x="1144" y="144" height="96" onOff="false" startOff="false"/>
+    <conveyor0 x="912" y="48" width="112" height="16" speed="1.2"/>
+    <coin x="496" y="80"/>
+    <coin x="504" y="72"/>
+    <coin x="504" y="88"/>
+    <coin x="512" y="96"/>
+    <coin x="504" y="104"/>
+    <coin x="496" y="112"/>
+    <coin x="504" y="120"/>
+    <coin x="512" y="128"/>
+    <coin x="504" y="136"/>
+    <coin x="760" y="144"/>
+    <coin x="752" y="152"/>
+    <coin x="760" y="160"/>
+    <coin x="752" y="168"/>
+    <coin x="760" y="176"/>
+    <coin x="752" y="184"/>
+    <coin x="760" y="192"/>
+    <coin x="752" y="200"/>
+    <coin x="800" y="64"/>
+    <coin x="792" y="72"/>
+    <coin x="800" y="80"/>
+    <coin x="792" y="88"/>
+    <coin x="800" y="96"/>
+    <coin x="792" y="104"/>
+    <coin x="800" y="112"/>
+    <coin x="792" y="120"/>
+  </objects>
+</level>

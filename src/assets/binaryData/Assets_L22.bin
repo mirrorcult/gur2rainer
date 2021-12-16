@@ -1,0 +1,27 @@
+<level>
+  <width>320</width>
+  <height>240</height>
+  <solids>
+    <rect x="0" y="184" w="32" h="56"/>
+    <rect x="32" y="192" w="40" h="8"/>
+    <rect x="32" y="200" w="32" h="16"/>
+    <rect x="32" y="216" w="24" h="24"/>
+    <rect x="224" y="88" w="96" h="16"/>
+    <rect x="240" y="104" w="80" h="8"/>
+    <rect x="248" y="112" w="72" h="24"/>
+    <rect x="256" y="136" w="64" h="48"/>
+    <rect x="264" y="184" w="56" h="56"/>
+    <rect x="272" y="80" w="48" h="8"/>
+  </solids>
+  <objects>
+    <player x="8" y="176"/>
+    <jetpack x="168" y="112"/>
+    <coin x="152" y="128"/>
+    <coin x="144" y="136"/>
+    <coin x="136" y="144"/>
+    <coin x="184" y="200"/>
+    <coin x="176" y="208"/>
+    <coin x="184" y="216"/>
+    <coin x="192" y="208"/>
+  </objects>
+</level>

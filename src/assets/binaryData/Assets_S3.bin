@@ -1,0 +1,21 @@
+<level>
+  <width>320</width>
+  <height>240</height>
+  <solids>
+    <rect x="0" y="0" w="32" h="240"/>
+    <rect x="32" y="144" w="24" h="80"/>
+    <rect x="32" y="224" w="8" h="8"/>
+    <rect x="56" y="160" w="16" h="56"/>
+    <rect x="72" y="176" w="16" h="40"/>
+    <rect x="88" y="192" w="232" h="24"/>
+    <rect x="264" y="216" w="56" h="8"/>
+    <rect x="280" y="224" w="40" h="8"/>
+    <rect x="288" y="0" w="32" h="144"/>
+    <rect x="288" y="232" w="32" h="8"/>
+  </solids>
+  <objects>
+    <door x="296" y="144"/>
+    <player x="40" y="136"/>
+    <lever x="152" y="16" distance="32" stayDown="true" controlDoors="false"/>
+  </objects>
+</level>

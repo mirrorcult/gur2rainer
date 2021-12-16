@@ -1,0 +1,183 @@
+<level>
+  <width>2936</width>
+  <height>240</height>
+  <solids>
+    <rect x="0" y="176" w="40" h="64"/>
+    <rect x="2776" y="64" w="104" h="8"/>
+    <rect x="2784" y="40" w="96" h="8"/>
+    <rect x="2784" y="72" w="88" h="8"/>
+    <rect x="2784" y="200" w="80" h="8"/>
+    <rect x="2792" y="32" w="72" h="8"/>
+    <rect x="2792" y="80" w="32" h="8"/>
+    <rect x="2792" y="208" w="16" h="8"/>
+    <rect x="2800" y="24" w="8" h="8"/>
+    <rect x="2800" y="184" w="72" h="16"/>
+    <rect x="2808" y="176" w="128" h="8"/>
+    <rect x="2816" y="24" w="24" h="8"/>
+    <rect x="2816" y="208" w="48" h="8"/>
+    <rect x="2824" y="216" w="32" h="8"/>
+    <rect x="2832" y="48" w="104" h="16"/>
+    <rect x="2832" y="224" w="24" h="8"/>
+    <rect x="2848" y="168" w="88" h="8"/>
+    <rect x="2864" y="152" w="72" h="16"/>
+    <rect x="2872" y="144" w="24" h="8"/>
+    <rect x="2880" y="184" w="48" h="8"/>
+    <rect x="2888" y="192" w="40" h="8"/>
+    <rect x="2896" y="40" w="40" h="8"/>
+    <rect x="2896" y="64" w="40" h="8"/>
+    <rect x="2904" y="144" w="32" h="8"/>
+    <rect x="2912" y="72" w="24" h="8"/>
+    <rect x="2912" y="200" w="8" h="8"/>
+    <rect x="2920" y="136" w="16" h="8"/>
+    <rect x="2928" y="32" w="8" h="8"/>
+  </solids>
+  <objects>
+    <player x="8" y="168"/>
+    <conveyor90 x="48" y="88" width="24" height="32" speed="2"/>
+    <conveyor0 x="48" y="72" width="184" height="16" speed="2"/>
+    <noGrapple x="72" y="88" width="40" height="16"/>
+    <noGrapple x="112" y="88" width="40" height="16"/>
+    <noGrapple x="152" y="88" width="40" height="16"/>
+    <noGrapple x="192" y="88" width="40" height="16"/>
+    <conveyor90 x="304" y="64" width="24" height="32" speed="2"/>
+    <conveyor0 x="304" y="48" width="144" height="16" speed="2"/>
+    <noGrapple x="328" y="64" width="40" height="16"/>
+    <noGrapple x="368" y="64" width="40" height="16"/>
+    <noGrapple x="408" y="64" width="40" height="16"/>
+    <conveyor270 x="648" y="96" width="32" height="48" speed="0.8"/>
+    <conveyor270 x="544" y="64" width="32" height="48" speed="0.8"/>
+    <conveyor90 x="768" y="104" width="24" height="32" speed="2"/>
+    <conveyor0 x="768" y="88" width="80" height="16" speed="2"/>
+    <noGrapple x="792" y="104" width="40" height="16"/>
+    <noGrapple x="832" y="104" width="40" height="16"/>
+    <conveyor90 x="848" y="72" width="24" height="32" speed="2"/>
+    <conveyor0 x="848" y="56" width="144" height="16" speed="2"/>
+    <noGrapple x="872" y="72" width="40" height="16"/>
+    <noGrapple x="912" y="72" width="40" height="16"/>
+    <noGrapple x="952" y="72" width="40" height="16"/>
+    <conveyor90 x="1088" y="48" width="16" height="64" speed="1.4"/>
+    <conveyor0 x="1088" y="32" width="32" height="16" speed="1.4"/>
+    <conveyor270 x="1120" y="8" width="16" height="72" speed="1.4"/>
+    <conveyor180 x="1120" y="80" width="16" height="16" speed="1.4"/>
+    <saw x="1112" y="88" flip="true" speed="0.5" dontMove="false" stopAtEnd="false"/>
+    <coin x="560" y="56"/>
+    <coin x="560" y="48"/>
+    <coin x="568" y="48"/>
+    <coin x="568" y="56"/>
+    <coin x="664" y="88"/>
+    <coin x="664" y="80"/>
+    <coin x="672" y="80"/>
+    <coin x="672" y="88"/>
+    <coin x="312" y="104"/>
+    <coin x="304" y="112"/>
+    <coin x="56" y="128"/>
+    <coin x="48" y="136"/>
+    <coin x="776" y="144"/>
+    <coin x="768" y="152"/>
+    <coin x="1256" y="104"/>
+    <coin x="1256" y="120"/>
+    <coin x="1256" y="112"/>
+    <coin x="1256" y="128"/>
+    <coin x="1256" y="136"/>
+    <coin x="1264" y="120"/>
+    <coin x="1272" y="120"/>
+    <coin x="1272" y="112"/>
+    <coin x="1272" y="104"/>
+    <coin x="1272" y="128"/>
+    <coin x="1272" y="136"/>
+    <coin x="1288" y="136"/>
+    <coin x="1288" y="128"/>
+    <coin x="1288" y="120"/>
+    <coin x="1288" y="112"/>
+    <coin x="1296" y="104"/>
+    <coin x="1304" y="112"/>
+    <coin x="1304" y="120"/>
+    <coin x="1304" y="128"/>
+    <coin x="1304" y="136"/>
+    <coin x="1296" y="120"/>
+    <coin x="1320" y="136"/>
+    <coin x="1320" y="120"/>
+    <coin x="1320" y="128"/>
+    <coin x="1320" y="112"/>
+    <coin x="1320" y="104"/>
+    <coin x="1328" y="104"/>
+    <coin x="1336" y="112"/>
+    <coin x="1328" y="120"/>
+    <coin x="1336" y="128"/>
+    <coin x="1336" y="136"/>
+    <coin x="1352" y="136"/>
+    <coin x="1352" y="128"/>
+    <coin x="1352" y="120"/>
+    <coin x="1352" y="112"/>
+    <coin x="1352" y="104"/>
+    <coin x="1360" y="104"/>
+    <coin x="1368" y="112"/>
+    <coin x="1368" y="120"/>
+    <coin x="1368" y="128"/>
+    <coin x="1360" y="136"/>
+    <coin x="1384" y="104"/>
+    <coin x="1384" y="112"/>
+    <coin x="1384" y="120"/>
+    <coin x="1384" y="136"/>
+    <conveyor0 x="1504" y="72" width="600" height="16" speed="3"/>
+    <noGrapple x="1776" y="88" width="32" height="24"/>
+    <noGrapple x="1776" y="160" width="32" height="24"/>
+    <noGrapple x="1896" y="88" width="32" height="32"/>
+    <noGrapple x="1896" y="120" width="32" height="24"/>
+    <noGrapple x="2016" y="152" width="32" height="32"/>
+    <noGrapple x="2016" y="88" width="32" height="32"/>
+    <noGrapple x="2736" y="96" width="32" height="32"/>
+    <noGrapple x="2736" y="64" width="32" height="32"/>
+    <noGrapple x="2136" y="104" width="32" height="32"/>
+    <noGrapple x="2136" y="72" width="32" height="32"/>
+    <noGrapple x="2496" y="128" width="32" height="32"/>
+    <noGrapple x="2496" y="96" width="32" height="32"/>
+    <coin x="2504" y="72"/>
+    <coin x="2520" y="72"/>
+    <coin x="2520" y="88"/>
+    <coin x="2504" y="88"/>
+    <coin x="1784" y="128"/>
+    <coin x="1800" y="128"/>
+    <coin x="1800" y="144"/>
+    <coin x="1784" y="144"/>
+    <coin x="1904" y="160"/>
+    <coin x="1920" y="160"/>
+    <coin x="1920" y="176"/>
+    <coin x="1904" y="176"/>
+    <coin x="2024" y="128"/>
+    <coin x="2040" y="128"/>
+    <coin x="2040" y="144"/>
+    <coin x="2024" y="144"/>
+    <conveyor0 x="2208" y="48" width="624" height="16" speed="3"/>
+    <coin x="2744" y="136"/>
+    <coin x="2760" y="136"/>
+    <coin x="2760" y="152"/>
+    <coin x="2744" y="152"/>
+    <laserH x="1136" y="8" width="368" onOff="false" startOff="false"/>
+    <noGrapple x="2136" y="40" width="32" height="32"/>
+    <fallingPlat x="2104" y="64" width="32" height="32"/>
+    <noGrapple x="2376" y="128" width="32" height="32"/>
+    <noGrapple x="2376" y="64" width="32" height="32"/>
+    <coin x="2384" y="104"/>
+    <coin x="2400" y="104"/>
+    <coin x="2400" y="120"/>
+    <coin x="2384" y="120"/>
+    <noGrapple x="2616" y="128" width="32" height="32"/>
+    <noGrapple x="2616" y="64" width="32" height="32"/>
+    <coin x="2624" y="104"/>
+    <coin x="2640" y="104"/>
+    <coin x="2640" y="120"/>
+    <coin x="2624" y="120"/>
+    <conveyor90 x="2208" y="64" width="40" height="56" speed="1.1"/>
+    <noGrapple x="1104" y="48" width="16" height="32"/>
+    <conveyor270 x="1504" y="8" width="16" height="64" speed="1.2"/>
+    <conveyor180 x="1104" y="96" width="32" height="16" speed="1.4"/>
+    <noGrapple x="1776" y="184" width="32" height="32"/>
+    <noGrapple x="1896" y="192" width="32" height="24"/>
+    <noGrapple x="2016" y="184" width="32" height="32"/>
+    <noGrapple x="2376" y="160" width="32" height="32"/>
+    <noGrapple x="2496" y="160" width="32" height="32"/>
+    <noGrapple x="2616" y="160" width="32" height="32"/>
+    <noGrapple x="2736" y="160" width="32" height="32"/>
+  </objects>
+</level>

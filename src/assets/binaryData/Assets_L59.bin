@@ -1,0 +1,54 @@
+<level>
+  <width>320</width>
+  <height>320</height>
+  <solids>
+    <rect x="0" y="72" w="40" h="24"/>
+    <rect x="0" y="96" w="32" h="224"/>
+    <rect x="32" y="144" w="8" h="120"/>
+    <rect x="32" y="296" w="8" h="24"/>
+    <rect x="40" y="304" w="24" h="16"/>
+    <rect x="64" y="312" w="256" h="8"/>
+    <rect x="256" y="304" w="64" h="8"/>
+    <rect x="280" y="72" w="40" h="24"/>
+    <rect x="280" y="144" w="40" h="120"/>
+    <rect x="280" y="296" w="40" h="8"/>
+    <rect x="288" y="96" w="32" h="48"/>
+    <rect x="296" y="0" w="24" h="72"/>
+  </solids>
+  <objects>
+    <player x="8" y="64"/>
+    <numBlock x="224" y="24" num="3"/>
+    <numBlock x="216" y="120" num="0"/>
+    <numBlock x="80" y="24" num="1"/>
+    <numBlock x="88" y="120" num="2"/>
+    <jetpack x="160" y="72"/>
+    <launcher x="32" y="160" angle="0"/>
+    <launcher x="288" y="192" angle="180"/>
+    <coin x="144" y="64"/>
+    <coin x="152" y="56"/>
+    <coin x="168" y="56"/>
+    <coin x="176" y="64"/>
+    <coin x="136" y="96"/>
+    <coin x="184" y="96"/>
+    <coin x="184" y="48"/>
+    <coin x="136" y="48"/>
+    <coin x="128" y="64"/>
+    <coin x="128" y="80"/>
+    <coin x="152" y="104"/>
+    <coin x="168" y="104"/>
+    <coin x="192" y="80"/>
+    <coin x="192" y="64"/>
+    <coin x="168" y="40"/>
+    <coin x="152" y="40"/>
+    <noGrapple x="32" y="96" width="16" height="48"/>
+    <coin x="144" y="80"/>
+    <coin x="152" y="88"/>
+    <coin x="168" y="88"/>
+    <coin x="176" y="80"/>
+    <launcher x="32" y="224" angle="0"/>
+    <noGrapple x="48" y="96" width="56" height="24"/>
+    <noGrapple x="216" y="96" width="56" height="24"/>
+    <laserH x="40" y="240" width="240" onOff="false" startOff="false"/>
+    <noGrapple x="272" y="96" width="16" height="48"/>
+  </objects>
+</level>

@@ -1,0 +1,33 @@
+<level>
+  <width>320</width>
+  <height>240</height>
+  <solids>
+    <rect x="0" y="184" w="80" h="56"/>
+    <rect x="32" y="152" w="40" h="32"/>
+    <rect x="40" y="120" w="24" h="32"/>
+    <rect x="80" y="216" w="88" h="24"/>
+    <rect x="152" y="0" w="168" h="24"/>
+    <rect x="152" y="24" w="96" h="16"/>
+    <rect x="152" y="40" w="32" h="72"/>
+    <rect x="264" y="96" w="56" h="40"/>
+    <rect x="272" y="136" w="48" h="32"/>
+    <rect x="280" y="24" w="40" h="24"/>
+    <rect x="280" y="168" w="40" h="72"/>
+  </solids>
+  <objects>
+    <player x="8" y="176"/>
+    <movingPlat x="152" y="112" width="32" height="16" speed="5" dontMove="true" stopAtEnd="true">
+      <node x="248" y="24"/>
+    </movingPlat>
+    <door x="288" y="48"/>
+    <lever x="96" y="8" distance="104" stayDown="false" controlDoors="true"/>
+    <coin x="168" y="160"/>
+    <coin x="168" y="144"/>
+    <coin x="160" y="152"/>
+    <coin x="176" y="152"/>
+    <coin x="112" y="80"/>
+    <coin x="96" y="88"/>
+    <coin x="112" y="96"/>
+    <coin x="96" y="104"/>
+  </objects>
+</level>

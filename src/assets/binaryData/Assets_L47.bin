@@ -1,0 +1,42 @@
+<level>
+  <width>704</width>
+  <height>240</height>
+  <solids>
+    <rect x="0" y="144" w="40" h="32"/>
+    <rect x="0" y="176" w="24" h="64"/>
+    <rect x="112" y="64" w="32" h="8"/>
+    <rect x="112" y="72" w="8" h="8"/>
+    <rect x="136" y="72" w="8" h="8"/>
+    <rect x="256" y="64" w="32" h="8"/>
+    <rect x="256" y="72" w="8" h="8"/>
+    <rect x="280" y="72" w="8" h="8"/>
+    <rect x="648" y="104" w="56" h="32"/>
+    <rect x="664" y="136" w="40" h="104"/>
+  </solids>
+  <objects>
+    <player x="8" y="136"/>
+    <laserV x="120" y="0" height="64" onOff="false" startOff="false"/>
+    <laserH x="144" y="64" width="112" onOff="false" startOff="false"/>
+    <laserV x="264" y="0" height="64" onOff="false" startOff="false"/>
+    <jetpack x="232" y="40"/>
+    <coin x="224" y="48"/>
+    <coin x="216" y="56"/>
+    <noGrapple x="376" y="136" width="32" height="32"/>
+    <noGrapple x="440" y="96" width="32" height="32"/>
+    <laserV x="448" y="0" height="96" onOff="false" startOff="false"/>
+    <coin x="424" y="128"/>
+    <coin x="416" y="112"/>
+    <coin x="432" y="144"/>
+    <coin x="488" y="144"/>
+    <coin x="488" y="128"/>
+    <coin x="488" y="112"/>
+    <noGrapple x="504" y="136" width="32" height="32"/>
+    <conveyor0 x="520" y="24" width="152" height="16" speed="1.2"/>
+    <coinBlock x="120" y="72" coins="2"/>
+    <coinBlock x="264" y="72" coins="2"/>
+    <coin x="632" y="144"/>
+    <coin x="624" y="152"/>
+    <coin x="632" y="160"/>
+    <coin x="640" y="152"/>
+  </objects>
+</level>

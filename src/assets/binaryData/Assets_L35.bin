@@ -1,0 +1,90 @@
+<level>
+  <width>320</width>
+  <height>480</height>
+  <solids>
+    <rect x="0" y="0" w="320" h="8"/>
+    <rect x="0" y="8" w="144" h="8"/>
+    <rect x="0" y="16" w="120" h="8"/>
+    <rect x="0" y="24" w="112" h="8"/>
+    <rect x="0" y="32" w="104" h="16"/>
+    <rect x="0" y="48" w="96" h="24"/>
+    <rect x="0" y="72" w="32" h="24"/>
+    <rect x="0" y="136" w="32" h="312"/>
+    <rect x="0" y="448" w="16" h="32"/>
+    <rect x="16" y="464" w="16" h="16"/>
+    <rect x="24" y="96" w="8" h="8"/>
+    <rect x="32" y="144" w="64" h="80"/>
+    <rect x="32" y="224" w="56" h="16"/>
+    <rect x="32" y="240" w="16" h="40"/>
+    <rect x="32" y="280" w="8" h="40"/>
+    <rect x="32" y="344" w="8" h="80"/>
+    <rect x="40" y="312" w="8" h="8"/>
+    <rect x="56" y="72" w="40" h="16"/>
+    <rect x="72" y="88" w="32" h="8"/>
+    <rect x="72" y="136" w="24" h="8"/>
+    <rect x="96" y="80" w="40" h="8"/>
+    <rect x="128" y="72" w="8" h="8"/>
+    <rect x="128" y="112" w="16" h="8"/>
+    <rect x="128" y="120" w="8" h="40"/>
+    <rect x="136" y="136" w="16" h="40"/>
+    <rect x="152" y="144" w="8" h="32"/>
+    <rect x="160" y="152" w="160" h="144"/>
+    <rect x="160" y="296" w="32" h="24"/>
+    <rect x="160" y="320" w="24" h="8"/>
+    <rect x="160" y="328" w="16" h="8"/>
+    <rect x="160" y="336" w="8" h="24"/>
+    <rect x="168" y="8" w="152" h="8"/>
+    <rect x="168" y="136" w="8" h="16"/>
+    <rect x="176" y="16" w="144" h="8"/>
+    <rect x="176" y="144" w="144" h="8"/>
+    <rect x="192" y="24" w="128" h="16"/>
+    <rect x="192" y="64" w="16" h="8"/>
+    <rect x="200" y="40" w="120" h="24"/>
+    <rect x="200" y="136" w="120" h="8"/>
+    <rect x="208" y="296" w="112" h="16"/>
+    <rect x="216" y="64" w="104" h="40"/>
+    <rect x="216" y="320" w="104" h="8"/>
+    <rect x="216" y="440" w="24" h="16"/>
+    <rect x="224" y="104" w="96" h="16"/>
+    <rect x="224" y="312" w="96" h="8"/>
+    <rect x="224" y="456" w="96" h="16"/>
+    <rect x="232" y="120" w="88" h="16"/>
+    <rect x="232" y="472" w="88" h="8"/>
+    <rect x="240" y="328" w="56" h="8"/>
+    <rect x="240" y="448" w="16" h="8"/>
+    <rect x="264" y="448" w="56" h="8"/>
+    <rect x="272" y="336" w="16" h="8"/>
+    <rect x="272" y="440" w="48" h="8"/>
+    <rect x="280" y="344" w="8" h="8"/>
+    <rect x="280" y="432" w="16" h="8"/>
+    <rect x="304" y="328" w="16" h="8"/>
+    <rect x="304" y="424" w="16" h="16"/>
+  </solids>
+  <objects>
+    <rebound x="184" y="40" width="16" height="24"/>
+    <rebound x="144" y="8" width="24" height="16"/>
+    <cloud x="96" y="64"/>
+    <laserH x="136" y="72" width="80" onOff="false" startOff="false"/>
+    <laserH x="136" y="120" width="96" onOff="false" startOff="false"/>
+    <player x="8" y="128"/>
+    <noGrapple x="128" y="176" width="32" height="240"/>
+    <noGrapple x="48" y="240" width="48" height="40"/>
+    <coin x="112" y="56"/>
+    <coin x="120" y="56"/>
+    <coin x="112" y="48"/>
+    <coin x="120" y="48"/>
+    <coin x="64" y="384"/>
+    <coin x="72" y="392"/>
+    <coin x="80" y="384"/>
+    <coin x="64" y="400"/>
+    <coin x="80" y="400"/>
+    <coin x="72" y="376"/>
+    <coin x="64" y="368"/>
+    <coin x="80" y="368"/>
+    <noGrapple x="32" y="320" width="24" height="24"/>
+    <noGrapple x="40" y="280" width="32" height="32"/>
+    <noGrapple x="16" y="448" width="32" height="16"/>
+    <noGrapple x="192" y="296" width="16" height="32"/>
+    <noGrapple x="32" y="72" width="24" height="24"/>
+  </objects>
+</level>

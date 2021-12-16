@@ -1,0 +1,31 @@
+<level>
+  <width>320</width>
+  <height>480</height>
+  <solids>
+    <rect x="0" y="176" w="80" h="224"/>
+    <rect x="0" y="400" w="56" h="80"/>
+    <rect x="56" y="448" w="264" h="32"/>
+    <rect x="80" y="208" w="8" h="128"/>
+    <rect x="88" y="240" w="40" h="8"/>
+    <rect x="88" y="248" w="16" h="56"/>
+    <rect x="104" y="296" w="24" h="8"/>
+    <rect x="192" y="240" w="128" h="8"/>
+    <rect x="192" y="296" w="128" h="8"/>
+    <rect x="216" y="248" w="104" h="48"/>
+    <rect x="232" y="208" w="88" h="32"/>
+    <rect x="232" y="304" w="88" h="32"/>
+    <rect x="240" y="176" w="80" h="32"/>
+    <rect x="240" y="336" w="80" h="40"/>
+    <rect x="240" y="424" w="80" h="24"/>
+    <rect x="272" y="0" w="48" h="176"/>
+  </solids>
+  <objects>
+    <player x="8" y="168"/>
+    <door x="256" y="376"/>
+    <noGrapple x="104" y="248" width="24" height="48"/>
+    <noGrapple x="192" y="248" width="24" height="48"/>
+    <fireBall x="64" y="408"/>
+    <fireBall x="64" y="424"/>
+    <fireBall x="64" y="440"/>
+  </objects>
+</level>

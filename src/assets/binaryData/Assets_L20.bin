@@ -1,0 +1,44 @@
+<level>
+  <width>320</width>
+  <height>784</height>
+  <solids>
+    <rect x="0" y="0" w="24" h="40"/>
+    <rect x="0" y="64" w="48" h="24"/>
+    <rect x="0" y="88" w="40" h="16"/>
+    <rect x="0" y="104" w="32" h="16"/>
+    <rect x="0" y="120" w="24" h="664"/>
+    <rect x="24" y="776" w="296" h="8"/>
+    <rect x="144" y="0" w="32" h="32"/>
+    <rect x="296" y="0" w="24" h="728"/>
+  </solids>
+  <objects>
+    <player x="8" y="56"/>
+    <mine x="64" y="200"/>
+    <mine x="256" y="200"/>
+    <mine x="104" y="312"/>
+    <mine x="216" y="312"/>
+    <mine x="56" y="424"/>
+    <mine x="264" y="424"/>
+    <mine x="72" y="536"/>
+    <mine x="248" y="536"/>
+    <fireBall x="32" y="768"/>
+    <fireBall x="48" y="768"/>
+    <fireBall x="64" y="768"/>
+    <fireBall x="80" y="768"/>
+    <fireBall x="96" y="768"/>
+    <fireBall x="112" y="768"/>
+    <fireBall x="128" y="768"/>
+    <fireBall x="144" y="768"/>
+    <fireBall x="160" y="768"/>
+    <fireBall x="176" y="768"/>
+    <fireBall x="192" y="768"/>
+    <fireBall x="208" y="768"/>
+    <fireBall x="224" y="768"/>
+    <fireBall x="240" y="768"/>
+    <fireBall x="256" y="768"/>
+    <fireBall x="272" y="768"/>
+    <fireBall x="288" y="768"/>
+    <mine x="160" y="648"/>
+    <door x="296" y="728"/>
+  </objects>
+</level>

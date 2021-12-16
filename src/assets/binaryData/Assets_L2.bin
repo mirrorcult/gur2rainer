@@ -1,0 +1,19 @@
+<level>
+  <width>320</width>
+  <height>240</height>
+  <solids>
+    <rect x="0" y="192" w="80" h="48"/>
+    <rect x="240" y="192" w="80" h="48"/>
+  </solids>
+  <objects>
+    <player x="8" y="184"/>
+    <coin x="152" y="112"/>
+    <coin x="144" y="120"/>
+    <coin x="136" y="128"/>
+    <coin x="128" y="136"/>
+    <coin x="120" y="144"/>
+    <coin x="112" y="152"/>
+    <coin x="104" y="160"/>
+    <coinBlock x="152" y="88" coins="6"/>
+  </objects>
+</level>

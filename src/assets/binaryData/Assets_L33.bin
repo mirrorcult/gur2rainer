@@ -1,0 +1,49 @@
+<level>
+  <width>672</width>
+  <height>240</height>
+  <solids>
+    <rect x="0" y="88" w="64" h="24"/>
+    <rect x="0" y="112" w="56" h="40"/>
+    <rect x="0" y="152" w="48" h="24"/>
+    <rect x="0" y="176" w="40" h="56"/>
+    <rect x="0" y="232" w="32" h="8"/>
+    <rect x="592" y="80" w="80" h="24"/>
+    <rect x="600" y="104" w="72" h="16"/>
+    <rect x="608" y="120" w="64" h="32"/>
+    <rect x="616" y="152" w="56" h="24"/>
+    <rect x="632" y="176" w="40" h="32"/>
+    <rect x="640" y="208" w="32" h="24"/>
+    <rect x="648" y="232" w="24" h="8"/>
+  </solids>
+  <objects>
+    <player x="8" y="80"/>
+    <saw x="152" y="136" flip="true"/>
+    <noGrapple x="248" y="176" width="56" height="56"/>
+    <noGrapple x="240" y="144" width="56" height="32"/>
+    <noGrapple x="264" y="128" width="56" height="16"/>
+    <noGrapple x="256" y="88" width="48" height="40"/>
+    <cloud x="384" y="32"/>
+    <noGrapple x="464" y="48" width="56" height="16"/>
+    <noGrapple x="456" y="64" width="48" height="40"/>
+    <noGrapple x="472" y="104" width="48" height="32"/>
+    <movingPlat x="552" y="136" width="32" height="16" speed="1" dontMove="true" stopAtEnd="true">
+      <node x="552" y="8"/>
+    </movingPlat>
+    <noGrapple x="456" y="8" width="32" height="40"/>
+    <coin x="216" y="136"/>
+    <coin x="152" y="200"/>
+    <coin x="200" y="184"/>
+    <coin x="176" y="192"/>
+    <coin x="208" y="160"/>
+    <coin x="216" y="112"/>
+    <coin x="224" y="88"/>
+    <coin x="232" y="72"/>
+    <coin x="248" y="56"/>
+    <coin x="272" y="48"/>
+    <coin x="104" y="176"/>
+    <coin x="112" y="184"/>
+    <coin x="104" y="192"/>
+    <coin x="96" y="184"/>
+    <laserV x="616" y="176" height="64" onOff="false" startOff="false"/>
+  </objects>
+</level>

@@ -1,0 +1,152 @@
+<level>
+  <width>3200</width>
+  <height>240</height>
+  <solids>
+    <rect x="0" y="184" w="48" h="16"/>
+    <rect x="0" y="200" w="40" h="8"/>
+    <rect x="0" y="208" w="32" h="16"/>
+    <rect x="0" y="224" w="24" h="8"/>
+    <rect x="0" y="232" w="16" h="8"/>
+    <rect x="1504" y="184" w="112" h="8"/>
+    <rect x="1512" y="192" w="88" h="8"/>
+    <rect x="1520" y="200" w="72" h="8"/>
+    <rect x="1520" y="208" w="56" h="8"/>
+    <rect x="1528" y="176" w="96" h="8"/>
+    <rect x="1536" y="216" w="24" h="8"/>
+    <rect x="1664" y="72" w="104" h="8"/>
+    <rect x="1680" y="80" w="48" h="8"/>
+    <rect x="1688" y="64" w="80" h="8"/>
+    <rect x="1688" y="88" w="40" h="16"/>
+    <rect x="1704" y="56" w="32" h="8"/>
+    <rect x="1704" y="104" w="24" h="8"/>
+    <rect x="1712" y="112" w="16" h="8"/>
+    <rect x="1712" y="136" w="16" h="32"/>
+    <rect x="1712" y="200" w="16" h="24"/>
+    <rect x="1720" y="120" w="8" h="16"/>
+    <rect x="1720" y="168" w="8" h="32"/>
+    <rect x="1720" y="224" w="8" h="16"/>
+    <rect x="1744" y="80" w="24" h="8"/>
+    <rect x="1744" y="88" w="8" h="64"/>
+    <rect x="1744" y="192" w="16" h="8"/>
+    <rect x="1744" y="200" w="8" h="40"/>
+    <rect x="1752" y="128" w="8" h="40"/>
+    <rect x="1752" y="184" w="8" h="8"/>
+    <rect x="1752" y="216" w="8" h="16"/>
+    <rect x="1760" y="88" w="8" h="8"/>
+    <rect x="1856" y="104" w="40" h="8"/>
+    <rect x="1864" y="96" w="8" h="8"/>
+    <rect x="1864" y="112" w="32" h="16"/>
+    <rect x="1872" y="64" w="24" h="16"/>
+    <rect x="1880" y="56" w="16" h="8"/>
+    <rect x="1880" y="80" w="16" h="24"/>
+    <rect x="1880" y="128" w="48" h="8"/>
+    <rect x="1888" y="24" w="8" h="32"/>
+    <rect x="1896" y="136" w="32" h="8"/>
+    <rect x="1904" y="144" w="24" h="8"/>
+    <rect x="1912" y="16" w="24" h="8"/>
+    <rect x="1912" y="24" w="16" h="24"/>
+    <rect x="1912" y="48" w="8" h="16"/>
+    <rect x="1912" y="104" w="40" h="16"/>
+    <rect x="1912" y="120" w="32" h="8"/>
+    <rect x="1920" y="0" w="16" h="16"/>
+    <rect x="1920" y="96" w="16" h="8"/>
+    <rect x="1936" y="128" w="8" h="8"/>
+    <rect x="2136" y="208" w="24" h="16"/>
+    <rect x="2144" y="80" w="16" h="24"/>
+    <rect x="2144" y="184" w="16" h="24"/>
+    <rect x="2144" y="224" w="16" h="8"/>
+    <rect x="2152" y="64" w="40" h="16"/>
+    <rect x="2152" y="104" w="8" h="16"/>
+    <rect x="2152" y="160" w="8" h="24"/>
+    <rect x="2152" y="232" w="8" h="8"/>
+    <rect x="2168" y="56" w="16" h="8"/>
+    <rect x="2176" y="80" w="24" h="16"/>
+    <rect x="2176" y="96" w="16" h="24"/>
+    <rect x="2176" y="136" w="32" h="8"/>
+    <rect x="2176" y="144" w="24" h="8"/>
+    <rect x="2176" y="152" w="16" h="16"/>
+    <rect x="2176" y="168" w="8" h="8"/>
+    <rect x="2176" y="200" w="8" h="40"/>
+    <rect x="2184" y="120" w="16" h="16"/>
+    <rect x="2184" y="216" w="8" h="24"/>
+    <rect x="2192" y="72" w="8" h="8"/>
+    <rect x="2192" y="112" w="8" h="8"/>
+    <rect x="2200" y="88" w="8" h="8"/>
+    <rect x="2280" y="24" w="56" h="16"/>
+    <rect x="2280" y="40" w="48" h="24"/>
+    <rect x="2280" y="80" w="56" h="16"/>
+    <rect x="2280" y="112" w="40" h="16"/>
+    <rect x="2288" y="0" w="40" h="24"/>
+    <rect x="2288" y="64" w="48" h="16"/>
+    <rect x="2288" y="96" w="48" h="8"/>
+    <rect x="2288" y="104" w="40" h="8"/>
+    <rect x="2288" y="128" w="16" h="8"/>
+    <rect x="2296" y="136" w="8" h="8"/>
+    <rect x="2328" y="16" w="8" h="8"/>
+    <rect x="2328" y="56" w="8" h="8"/>
+    <rect x="2416" y="56" w="64" h="16"/>
+    <rect x="2416" y="96" w="24" h="8"/>
+    <rect x="2416" y="184" w="24" h="8"/>
+    <rect x="2424" y="72" w="48" h="8"/>
+    <rect x="2424" y="80" w="16" h="16"/>
+    <rect x="2424" y="176" w="16" h="8"/>
+    <rect x="2424" y="192" w="16" h="16"/>
+    <rect x="2424" y="224" w="16" h="16"/>
+    <rect x="2432" y="104" w="8" h="8"/>
+    <rect x="2432" y="144" w="8" h="32"/>
+    <rect x="2432" y="208" w="8" h="16"/>
+    <rect x="2456" y="80" w="16" h="88"/>
+    <rect x="2456" y="200" w="8" h="40"/>
+    <rect x="2464" y="168" w="16" h="24"/>
+    <rect x="2464" y="224" w="24" h="8"/>
+    <rect x="2464" y="232" w="16" h="8"/>
+    <rect x="2472" y="88" w="8" h="32"/>
+    <rect x="2472" y="160" w="8" h="8"/>
+    <rect x="2472" y="192" w="16" h="32"/>
+    <rect x="2592" y="72" w="40" h="8"/>
+    <rect x="2736" y="72" w="32" h="8"/>
+    <rect x="2872" y="72" w="24" h="8"/>
+    <rect x="3000" y="72" w="16" h="8"/>
+    <rect x="3152" y="152" w="48" h="8"/>
+    <rect x="3168" y="160" w="32" h="16"/>
+    <rect x="3176" y="176" w="24" h="8"/>
+    <rect x="3184" y="184" w="16" h="8"/>
+    <rect x="3192" y="192" w="8" h="16"/>
+  </solids>
+  <objects>
+    <movingPlat x="64" y="176" width="24" height="16" speed="1.2" dontMove="true" stopAtEnd="true">
+      <node x="296" y="152"/>
+    </movingPlat>
+    <noGrapple x="344" y="184" width="32" height="40"/>
+    <noGrapple x="344" y="16" width="32" height="40"/>
+    <door x="352" y="96"/>
+    <noGrapple x="344" y="56" width="32" height="40"/>
+    <noGrapple x="344" y="144" width="32" height="40"/>
+    <conveyor180 x="400" y="200" width="120" height="16" speed="2"/>
+    <saw x="592" y="128" flip="true" speed="0.5" dontMove="false" stopAtEnd="false"/>
+    <noGrapple x="688" y="192" width="32" height="32"/>
+    <noGrapple x="688" y="8" width="32" height="32"/>
+    <laserV x="696" y="40" height="152" onOff="true" startOff="true"/>
+    <saw x="808" y="104" flip="true" speed="0.5" dontMove="false" stopAtEnd="false"/>
+    <flipBlock x="1064" y="64"/>
+    <flipBlock x="1192" y="64"/>
+    <warpBlock x="1376" y="120">
+      <node x="1456" y="96"/>
+    </warpBlock>
+    <laserV x="1480" y="0" height="240" onOff="false" startOff="false"/>
+    <jetpack x="1576" y="168"/>
+    <laserV x="1728" y="80" height="160" onOff="false" startOff="false"/>
+    <laserV x="1896" y="0" height="128" onOff="false" startOff="false"/>
+    <saw x="2048" y="120" flip="true" speed="0.5" dontMove="false" stopAtEnd="false"/>
+    <laserV x="2160" y="80" height="160" onOff="false" startOff="false"/>
+    <laserH x="2192" y="96" width="96" onOff="true" startOff="true"/>
+    <laserV x="2304" y="128" height="112" onOff="true" startOff="false"/>
+    <laserV x="2440" y="80" height="160" onOff="false" startOff="false"/>
+    <noGrapple x="2584" y="80" width="48" height="16"/>
+    <noGrapple x="2728" y="80" width="40" height="16"/>
+    <noGrapple x="2864" y="80" width="32" height="16"/>
+    <noGrapple x="2992" y="80" width="24" height="16"/>
+    <noGrapple x="2464" y="8" width="56" height="32"/>
+    <player x="8" y="176"/>
+  </objects>
+</level>

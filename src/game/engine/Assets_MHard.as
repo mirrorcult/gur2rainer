@@ -1,0 +1,13 @@
+package game.engine
+{
+   import mx.core.SoundAsset;
+
+   [Embed(source = "../../assets/sounds/Assets_MHard.mp3", mimeType = "audio/mpeg")]
+   public class Assets_MHard extends SoundAsset
+   {
+      public function Assets_MHard()
+      {
+         super();
+      }
+   }
+}
