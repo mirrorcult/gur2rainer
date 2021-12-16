@@ -105,7 +105,7 @@ package game.menus
          }
       }
 
-      private function openCustomStage()
+      private function openCustomStage(m:MenuButton = null)
       {
          Assets.SndMenuSelect.play();
          FP.stage.addChild(new CustomStage(this));
@@ -147,6 +147,50 @@ package game.menus
       private function gotoLevelSelector(m:MenuButton = null) : void
       {
          this.clearButtons()
+
+         for (var i:int = 0; i < 5; i++)
+         {
+            for (var j:int = 1; j < 13; j++)
+            {
+               this.addButton(new MenuButton(65 + j * 15, 80 + i * 15, "L" + (i * 12 + j), this.levelButtonClicked, Assets.SndMenuSelect, false, 8, 8, 8));
+            }
+         }
+
+         // 61
+         this.addButton(new MenuButton(160, 155, "L61", this.levelButtonClicked, Assets.SndMenuSelect, false, 8, 8, 8));
+
+         // hardmode
+         for (var k:int = 1; k < 14; k++)
+         {
+            this.addButton(new MenuButton(58 + k * 15, 180, "H" + k, this.levelButtonClicked, Assets.SndMenuSelect, false, 8, 8, 8));
+         }
+
+         this.addButton(new MenuButton(160, 200, "Custom Level", this.openCustomStage, Assets.SndNewHardGame));
+         this.addButton(new MenuButton(160, 225, "Cancel",this.gotoMain,Assets.SndMenuCancel));
+      }
+
+      private function levelButtonClicked(m:MenuButton) : void
+      {
+         var txt = m.getText();
+         var mode = txt.substr(0, 1);
+         var intMode = mode == "L" ? 0 : 1;
+
+         var level = 1;
+         if (txt.length == 2)
+         {
+            // L1, L2, etc
+            level = parseInt(txt.substr(1, 1));
+         }
+         else if (txt.length == 3)
+         {
+            // L50, H12, etc
+            level = parseInt(txt.substr(1, 2));
+         }
+
+         this.deactivateAllButtons();
+         Main.saveData = new SaveData();
+         Main.saveData.newGame(intMode, level);
+         FP.world.add(new Transition(new Level(intMode, level)));
       }
       
       private function toggleShowCoins(button:MenuButton) : void

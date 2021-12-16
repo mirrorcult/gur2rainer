@@ -120,10 +120,10 @@ package game.engine
          Main.saveGame();
       }
       
-      public function newGame(mode:uint) : void
+      public function newGame(mode:uint, level:uint=1) : void
       {
          this.clearStats();
-         this.level = 1;
+         this.level = level;
          this.mode = mode;
          for(var i:int = 0; i < Assets.LEVELS[mode]; i++)
          {

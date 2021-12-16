@@ -14,7 +14,7 @@ package game.menus
    {
        
       
-      private const HIT_WIDTH:uint = 80;
+      private var HIT_WIDTH:uint = 80;
       
       private var bg:Image;
       
@@ -26,28 +26,46 @@ package game.menus
       
       private var sine:Number;
       
-      private const HIT_HEIGHT:uint = 9;
+      private var HIT_HEIGHT:uint = 9;
       
       private var mouseOver:Boolean = false;
       
       private var list:Graphiclist;
       
-      public function MenuButton(x:int, y:int, str:String, onClick:Function, sound:Sfx = null)
+      public function MenuButton(x:int, y:int, str:String, onClick:Function, sound:Sfx = null, largeBg:Boolean=true, size:uint=16, hitWidth:uint=80, hitHeight:uint=9)
       {
          super(x,y);
          this.onClick = onClick;
          this.sound = sound;
          graphic = this.list = new Graphiclist();
-         var bd:BitmapData = new BitmapData(320,20,true,4294967295);
-         this.bg = new Image(bd);
-         this.bg.alpha = 0.4;
-         this.bg.color = 16711680;
-         this.bg.visible = false;
-         this.bg.relative = false;
-         this.bg.scrollX = this.bg.scrollY = 0;
-         this.bg.y = y - 10;
-         this.list.add(this.bg);
-         Text.size = 16;
+         if (largeBg) 
+         {
+            var bd:BitmapData = new BitmapData(320,20,true,4294967295);
+            this.bg = new Image(bd);
+            this.bg.alpha = 0.4;
+            this.bg.color = 16711680;
+            this.bg.visible = false;
+            this.bg.relative = false;
+            this.bg.scrollX = this.bg.scrollY = 0;
+            this.bg.y = y - 10;
+            this.list.add(this.bg);
+         }
+         else
+         {
+            var bd:BitmapData = new BitmapData(size * 2,size * 2,true,4294967295);
+            this.bg = new Image(bd);
+            this.bg.x = x - size;
+            this.bg.y = y - size;
+            this.bg.alpha = 0.4;
+            this.bg.color = 16711680;
+            this.bg.visible = false;
+            this.bg.relative = false;
+            this.list.add(this.bg);
+         }
+         this.HIT_WIDTH = hitWidth;
+         this.HIT_HEIGHT = hitHeight;
+
+         Text.size = size;
          this.text = new Text("99999999999999999999999999999");
          this.text.text = str;
          this.text.color = 16777215;
@@ -63,6 +81,11 @@ package game.menus
          this.text.text = to;
          this.text.x = -this.text.width / 2;
          this.text.centerOrigin();
+      }
+
+      public function getText() : String
+      {
+         return this.text.text;
       }
       
       private function mouseIn() : Boolean
