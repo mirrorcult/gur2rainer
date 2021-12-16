@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <application xmlns="http://ns.adobe.com/air/application/32.0">
-  <id>GiveUpRobot2</id>
+  <id>Gur2rainer</id>
   <versionNumber>1.0</versionNumber>
-  <filename>Give_Up_Robot_2</filename>
+  <filename>GUR2rainer</filename>
   <name>
-    <text xml:lang="en">Give Up Robot 2</text>
+    <text xml:lang="en">GUR2rainer</text>
   </name>
   <description>
-    <text xml:lang="en">Give Up Robot 2</text>
+    <text xml:lang="en">yea</text>
   </description>
   <initialWindow>
-    <title>Give Up Robot 2</title>
-    <content>Give_Up_Robot_2.swf</content>
+    <title>GUR2rainer</title>
+    <content>GUR2rainer.swf</content>
     <systemChrome>standard</systemChrome>
     <transparent>false</transparent>
     <visible>true</visible>
-    <minimizable>false</minimizable>
-    <maximizable>false</maximizable>
-    <resizable>false</resizable>
+    <minimizable>true</minimizable>
+    <maximizable>true</maximizable>
+    <resizable>true</resizable>
     <aspectRatio>landscape</aspectRatio>
     <renderMode>direct</renderMode>
     <autoOrients>false</autoOrients>
-    <fullScreen>true</fullScreen>
+    <fullScreen>false</fullScreen>
     <softKeyboardBehavior>none</softKeyboardBehavior>
     <depthAndStencil>true</depthAndStencil>
     <requestedDisplayResolution>high</requestedDisplayResolution>
