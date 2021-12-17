@@ -47,7 +47,6 @@ package game.engine
    import game.cosmetic.Tiles3;
    import game.cosmetic.TilesHard;
    import game.cosmetic.Transition;
-   import game.menus.ASLink;
    import game.menus.MainMenu;
    import game.tutorial.Tutorial1;
    import game.tutorial.Tutorial2;
@@ -397,7 +396,6 @@ package game.engine
             add(this.drawTime = new DrawTime(this));
          }
          this.setMusic(world);
-         add(new ASLink());
       }
       
       public function spawn() : void
