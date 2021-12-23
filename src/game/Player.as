@@ -706,6 +706,20 @@ package game
             this.jetpackSprite.angle = this.headSprite.angle;
          }
          this.cameraFollow();
+
+         
+         if (Options.memoryWatch)
+         {
+            var text:String = "";
+            text += "game.frames " + this.level.time + " \n";
+            text += "player.pos (" + x + ", " + y + ") \n"; 
+            text += "player.speed (" + hSpeed + ", " + vSpeed + ") \n";
+            text += "grapple.momentum " + momentum + " \n";
+            text += "grapple.radius " + radius + " \n";
+            text += "grapple.direction " + direction + " \n";
+
+            Main.Console(text);
+         }
       }
       
       private function collideH(other:Block) : void

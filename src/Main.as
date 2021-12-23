@@ -21,10 +21,14 @@ package
    import game.menus.WinMenu;
    import game.particles.ParticleSystem;
    import game.tutorial.Tutorial;
+   import flash.text.TextField;
+	import flash.text.TextFormat;
+   import flash.display.StageDisplayState;
    import net.flashpunk.Engine;
    import net.flashpunk.FP;
    import net.flashpunk.utils.Input;
    import net.flashpunk.utils.Key;
+   import flash.display.MovieClip;
    
    public class Main extends Engine
    {
@@ -84,9 +88,16 @@ package
       public static var pause:Pauser;
       
       public static const DEPTH_SPEECH:int = -7;
-       
+
+      public static var MC_MEMORY_WATCH:MovieClip;
       
       private var focus:Boolean = true;
+
+      public static var paused:Boolean = false;
+
+      public static var pauseNextFrame:Boolean = false;
+
+      public static var instance:Main;
       
       public function Main()
       {
@@ -102,6 +113,10 @@ package
          Input.define("back", Key.BACKSPACE);
          Input.define("next", Key.TAB);
          Input.define("restart", Key.R);
+         Input.define("pause", Key.O);
+         Input.define("unpause", Key.P);
+         Input.define("frame", Key.L);
+         instance = this;
          BDScreen = new ImgScreen().bitmapData;
          new Assets();
          Assets.voice = Assets.VcPowerOn;
@@ -110,6 +125,40 @@ package
          particles = new ParticleSystem(Assets_ImgParticles,6,6);
          particles.y = -3;
          particles.x = -3;
+
+         MC_MEMORY_WATCH = new MovieClip();
+			MC_MEMORY_WATCH.MC_LIST = new MovieClip();
+			MC_MEMORY_WATCH.MC_MASK = new MovieClip();
+			MC_MEMORY_WATCH.TEXT_FIELD = new TextField();
+			MC_MEMORY_WATCH.TEXT_FORMAT = new TextFormat("default",12,16777215,null,null,null,null,null,"left",null,null,null,null);
+			MC_MEMORY_WATCH.TEXT_FIELD.autoSize = "left";
+			MC_MEMORY_WATCH.TEXT_FIELD.embedFonts = true;
+			MC_MEMORY_WATCH.TEXT_FIELD.selectable = false;
+			MC_MEMORY_WATCH.TEXT_FIELD.text = "Memory Watch";
+			MC_MEMORY_WATCH.TEXT_FIELD.textColor = 16777215;
+			MC_MEMORY_WATCH.TEXT_FIELD.setTextFormat(MC_MEMORY_WATCH.TEXT_FORMAT);
+			MC_MEMORY_WATCH.visible = false;
+			MC_MEMORY_WATCH.MC_LIST.mask = MC_MEMORY_WATCH.MC_MASK;
+			MC_MEMORY_WATCH.MC_LIST.TEXT_FIELD = new TextField();
+			MC_MEMORY_WATCH.MC_LIST.TEXT_FORMAT = new TextFormat("default",12,16777215,null,null,null,null,null,"left",null,null,null,null);
+			MC_MEMORY_WATCH.MC_LIST.TEXT_FIELD.autoSize = "left";
+			MC_MEMORY_WATCH.MC_LIST.TEXT_FIELD.embedFonts = true;
+			MC_MEMORY_WATCH.MC_LIST.TEXT_FIELD.selectable = false;
+			MC_MEMORY_WATCH.MC_LIST.TEXT_FIELD.x = 0;
+			MC_MEMORY_WATCH.MC_LIST.TEXT_FIELD.y = MC_MEMORY_WATCH.TEXT_FIELD.height;
+			MC_MEMORY_WATCH.graphics.beginFill(0,0.5);
+			MC_MEMORY_WATCH.graphics.drawRect(0,0,480 * 0.5,640 * 0.22 * 0.75);
+			MC_MEMORY_WATCH.graphics.endFill();
+			MC_MEMORY_WATCH.x = 640 - MC_MEMORY_WATCH.width;
+			MC_MEMORY_WATCH.y = 0;
+			MC_MEMORY_WATCH.MC_MASK.graphics.beginFill(0,0);
+			MC_MEMORY_WATCH.MC_MASK.graphics.drawRect(0,0,480 * 0.5,640 * 0.22 * 0.75);
+			MC_MEMORY_WATCH.MC_MASK.graphics.endFill();
+			MC_MEMORY_WATCH.addChild(MC_MEMORY_WATCH.MC_LIST);
+			MC_MEMORY_WATCH.addChild(MC_MEMORY_WATCH.MC_MASK);
+			MC_MEMORY_WATCH.addChild(MC_MEMORY_WATCH.TEXT_FIELD);
+			MC_MEMORY_WATCH.MC_LIST.addChild(MC_MEMORY_WATCH.MC_LIST.TEXT_FIELD);
+			stage.addChild(MC_MEMORY_WATCH);
       }
       
       public static function submitFacebook() : void
@@ -147,6 +196,13 @@ package
             return "I scored " + Main.saveData.getScoreString() + " in Give Up Robot 2 on AdultSwim.com and hope this will inspire other robots to keep their chins up.";
          }
          return "I scored " + Main.saveData.getScoreString() + " in Give Up Robot 2 HARD MODE on AdultSwim.com and hope this will inspire other robots to keep their chins up.";
+      }
+
+      public static function Console(param1:String) : void
+      {
+         MC_MEMORY_WATCH.MC_LIST.TEXT_FIELD.text = param1;
+         MC_MEMORY_WATCH.MC_LIST.TEXT_FIELD.textColor = 16777215;
+         MC_MEMORY_WATCH.MC_LIST.TEXT_FIELD.setTextFormat(MC_MEMORY_WATCH.MC_LIST.TEXT_FORMAT);
       }
       
       public static function saveIsNormalMode() : Boolean

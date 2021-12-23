@@ -109,6 +109,10 @@ package game.engine
          this.levelNum = num;
          this.practice = Options.practiceMode || alwaysPractice;
          this.custom = false;
+         if (Options.memoryWatch) 
+         {
+            Main.MC_MEMORY_WATCH.visible = true;
+         }
          if(str == null)
          {
             this.loadLevel(mode,num);
@@ -186,6 +190,10 @@ package game.engine
       override public function update() : void
       {
          super.update();
+         if (Main.paused)
+         {
+            return;
+         }
          if(this.player && this.player.active && this.countTime)
          {
             this.time++;

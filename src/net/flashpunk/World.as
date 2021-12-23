@@ -2,6 +2,7 @@ package net.flashpunk
 {
    import flash.geom.Point;
    import flash.utils.Dictionary;
+   import net.flashpunk.utils.Input;
    
    public class World extends Tweener
    {
@@ -629,6 +630,30 @@ package net.flashpunk
       
       override public function update() : void
       {
+			if (Main.pauseNextFrame)
+			{
+				Main.paused = true;
+			}
+			if(Input.pressed("pause"))
+			{
+				Main.paused = true;
+			}
+			else if (Input.pressed("unpause"))
+			{
+				Main.paused = false;
+				Main.pauseNextFrame = false;
+			}
+			if (Input.pressed("frame"))
+			{
+				Main.paused = false;
+				Main.pauseNextFrame = true;
+			}
+
+         if (Main.paused)
+         {
+            return;
+         }
+         
          var e:Entity = this._updateFirst;
          while(e)
          {

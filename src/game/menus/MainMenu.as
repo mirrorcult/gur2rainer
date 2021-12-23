@@ -14,6 +14,7 @@ package game.menus
    import net.flashpunk.Sfx;
    import net.flashpunk.utils.Input;
    import net.flashpunk.utils.Key;
+   import flash.display.StageDisplayState;
    
    public class MainMenu extends MattWorld
    {
@@ -34,6 +35,16 @@ package game.menus
          this.toRemove = new Vector.<Entity>();
          add(new MenuBG());
          this.gotoMain();
+
+         if (Options.memoryWatch)
+         {
+            Main.MC_MEMORY_WATCH.visible = false;
+         }
+
+         if (Options.fullscreen)
+         {
+            Main.instance.stage.displayState = StageDisplayState.FULL_SCREEN_INTERACTIVE;
+         }
       }
       
       private function newNormalGame(button:MenuButton) : void
@@ -86,6 +97,19 @@ package game.menus
       {
          Options.practiceMode = !Options.practiceMode;
          button.setText("Practice Mode: " + this.getBoolName(Options.practiceMode))
+      }
+
+      private function toggleMemWatch(button:MenuButton) : void
+      {
+         Options.memoryWatch = !Options.memoryWatch;
+         button.setText("Memory Watch: " + this.getBoolName(Options.memoryWatch))
+      }
+
+      private function toggleFullscreen(button:MenuButton) : void
+      {
+         Options.fullscreen = !Options.fullscreen;
+         button.setText("Fullscreen: " + this.getBoolName(Options.fullscreen))
+         Main.instance.stage.displayState = Options.fullscreen ? StageDisplayState.FULL_SCREEN_INTERACTIVE : StageDisplayState.NORMAL;
       }
       
       override public function update() : void
@@ -347,13 +371,15 @@ package game.menus
          Assets.setMusic(Assets.MusMenu);
          this.clearButtons();
          this.addButton(new MenuButton(160,225,"Back",this.gotoMain,Assets.SndMenuCancel));
-         this.addButton(new MenuButton(160,80,"Show Coins: " + this.getBoolName(Options.showCoins),this.toggleShowCoins,Assets.SndMenuSelect));
-         this.addButton(new MenuButton(160,100,"Show Time: " + this.getBoolName(Options.showTime),this.toggleShowTime,Assets.SndMenuSelect));
-         this.addButton(new MenuButton(160,120,"UP to Jump: " + this.getBoolName(Options.upToJump),this.toggleUpToJump,Assets.SndMenuSelect));
-         this.addButton(new MenuButton(160,140,"Robot Voice: " + this.getBoolName(Options.voices),this.toggleVoice,Assets.SndMenuSelect));
-         this.addButton(new MenuButton(160,160,"Audio: " + this.getVolumeName(),this.switchVolume,Assets.SndMenuSelect));
-         this.addButton(new MenuButton(160,180,"Particles: " + this.getBoolName(Options.particles),this.toggleParticles,Assets.SndMenuSelect));
-         this.addButton(new MenuButton(160,200,"Practice Mode: " + this.getBoolName(Options.practiceMode),this.togglePractice,Assets.SndMenuSelect));
+         this.addButton(new MenuButton(80,80,"Show Coins: " + this.getBoolName(Options.showCoins),this.toggleShowCoins,Assets.SndMenuSelect));
+         this.addButton(new MenuButton(80,100,"Show Time: " + this.getBoolName(Options.showTime),this.toggleShowTime,Assets.SndMenuSelect));
+         this.addButton(new MenuButton(80,120,"UP to Jump: " + this.getBoolName(Options.upToJump),this.toggleUpToJump,Assets.SndMenuSelect));
+         this.addButton(new MenuButton(80,140,"Robot Voice: " + this.getBoolName(Options.voices),this.toggleVoice,Assets.SndMenuSelect));
+         this.addButton(new MenuButton(80,160,"Audio: " + this.getVolumeName(),this.switchVolume,Assets.SndMenuSelect));
+         this.addButton(new MenuButton(80,180,"Particles: " + this.getBoolName(Options.particles),this.toggleParticles,Assets.SndMenuSelect));
+         this.addButton(new MenuButton(80,200,"Practice Mode: " + this.getBoolName(Options.practiceMode),this.togglePractice,Assets.SndMenuSelect));
+         this.addButton(new MenuButton(240,80,"Memory Watch: " + this.getBoolName(Options.memoryWatch),this.toggleMemWatch,Assets.SndMenuSelect));
+         this.addButton(new MenuButton(240,100,"Fullscreen: " + this.getBoolName(Options.fullscreen),this.toggleFullscreen,Assets.SndMenuSelect));
       }
       
       private function gotoStats(m:MenuButton = null) : void
