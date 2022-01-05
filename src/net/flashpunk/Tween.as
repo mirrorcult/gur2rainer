@@ -1,114 +1,128 @@
-package net.flashpunk
+﻿package net.flashpunk 
 {
-   public class Tween
-   {
-      
-      public static const ONESHOT:uint = 2;
-      
-      public static const PERSIST:uint = 0;
-      
-      public static const LOOPING:uint = 1;
-       
-      
-      public var complete:Function;
-      
-      var _finish:Boolean;
-      
-      public var active:Boolean;
-      
-      protected var _ease:Function;
-      
-      var _parent:Tweener;
-      
-      private var _type:uint;
-      
-      var _prev:Tween;
-      
-      protected var _time:Number;
-      
-      protected var _target:Number;
-      
-      var _next:Tween;
-      
-      protected var _t:Number = 0;
-      
-      public function Tween(duration:Number, type:uint = 0, complete:Function = null, ease:Function = null)
-      {
-         super();
-         this._target = duration;
-         this._type = type;
-         this.complete = complete;
-         this._ease = ease;
-      }
-      
-      public function get percent() : Number
-      {
-         return this._time / this._target;
-      }
-      
-      public function update() : void
-      {
-         this._time = this._time + (!!FP.fixed?1:FP.elapsed);
-         this._t = this._time / this._target;
-         if(this._ease != null && this._t > 0 && this._t < 1)
-         {
-            this._t = this._ease(this._t);
-         }
-         if(this._time >= this._target)
-         {
-            this._t = 1;
-            this._finish = true;
-         }
-      }
-      
-      public function set percent(value:Number) : void
-      {
-         this._time = this._target * value;
-      }
-      
-      public function get scale() : Number
-      {
-         return this._t;
-      }
-      
-      function finish() : void
-      {
-         switch(this._type)
-         {
-            case 0:
-               this._time = this._target;
-               this.active = false;
-               break;
-            case 1:
-               this._time = this._time % this._target;
-               this._t = this._time / this._target;
-               if(this._ease != null && this._t > 0 && this._t < 1)
-               {
-                  this._t = this._ease(this._t);
-               }
-               this.start();
-               break;
-            case 2:
-               this._time = this._target;
-               this.active = false;
-               this._parent.removeTween(this);
-         }
-         this._finish = false;
-         if(this.complete != null)
-         {
-            this.complete();
-         }
-      }
-      
-      public function start() : void
-      {
-         this._time = 0;
-         if(this._target == 0)
-         {
-            this.active = false;
-            return;
-         }
-         this.active = true;
-      }
-   }
+	/**
+	 * Base class for all Tween objects, can be added to any Core-extended classes.
+	 */
+	public class Tween 
+	{
+		/**
+		 * Persistent Tween type, will stop when it finishes.
+		 */
+		public static const PERSIST:uint = 0;
+		
+		/**
+		 * Looping Tween type, will restart immediately when it finishes.
+		 */
+		public static const LOOPING:uint = 1;
+		
+		/**
+		 * Oneshot Tween type, will stop and remove itself from its core container when it finishes.
+		 */
+		public static const ONESHOT:uint = 2;
+		
+		/**
+		 * If the tween should update.
+		 */
+		public var active:Boolean;
+		
+		/**
+		 * Tween completion callback.
+		 */
+		public var complete:Function;
+		
+		/**
+		 * Constructor. Specify basic information about the Tween.
+		 * @param	duration		Duration of the tween (in seconds or frames).
+		 * @param	type			Tween type, one of Tween.PERSIST (default), Tween.LOOPING, or Tween.ONESHOT.
+		 * @param	complete		Optional callback for when the Tween completes.
+		 * @param	ease			Optional easer function to apply to the Tweened value.
+		 */
+		public function Tween(duration:Number, type:uint = 0, complete:Function = null, ease:Function = null) 
+		{
+			_target = duration;
+			_type = type;
+			this.complete = complete;
+			_ease = ease;
+		}
+		
+		/**
+		 * Updates the Tween, called by World.
+		 */
+		public function update():void
+		{
+			_time += FP.fixed ? 1 : FP.elapsed;
+			_t = _time / _target;
+			if (_ease != null && _t > 0 && _t < 1) _t = _ease(_t);
+			if (_time >= _target)
+			{
+				_t = 1;
+				_finish = true;
+			}
+		}
+		
+		/**
+		 * Starts the Tween, or restarts it if it's currently running.
+		 */
+		public function start():void
+		{
+			_time = 0;
+			if (_target == 0)
+			{
+				active = false;
+				return;
+			}
+			active = true;
+		}
+		
+		/** @private Called when the Tween completes. */
+		internal function finish():void
+		{
+			switch (_type)
+			{
+				case 0:
+					_time = _target;
+					active = false;
+					break;
+				case 1:
+					_time %= _target;
+					_t = _time / _target;
+					if (_ease != null && _t > 0 && _t < 1) _t = _ease(_t);
+					start();
+					break;
+				case 2:
+					_time = _target;
+					active = false;
+					_parent.removeTween(this);
+					break;
+			}
+			_finish = false;
+			if (complete != null) complete();
+		}
+		
+		/**
+		 * The completion percentage of the Tween.
+		 */
+		public function get percent():Number { return _time / _target; }
+		public function set percent(value:Number):void { _time = _target * value; }
+		
+		/**
+		 * The current time scale of the Tween (after easer has been applied).
+		 */
+		public function get scale():Number { return _t; }
+		
+		// Tween information.
+		/** @private */ private var _type:uint;
+		/** @private */ protected var _ease:Function;
+		/** @private */ protected var _t:Number = 0;
+		
+		// Timing information.
+		/** @private */ protected var _time:Number;
+		/** @private */ protected var _target:Number;
+		
+		// List information.
+		/** @private */ internal var _finish:Boolean;
+		/** @private */ internal var _parent:Tweener;
+		/** @private */ internal var _prev:Tween;
+		/** @private */ internal var _next:Tween;
+	}
 }
