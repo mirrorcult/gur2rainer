@@ -1,94 +1,97 @@
-package net.flashpunk.masks
+﻿package net.flashpunk.masks
 {
-   import flash.display.BitmapData;
-   import flash.geom.Point;
-   import flash.geom.Rectangle;
-   import net.flashpunk.FP;
-   import net.flashpunk.Mask;
-   
-   public class Pixelmask extends Hitbox
-   {
-       
-      
-      private var _point2:Point;
-      
-      private var _rect:Rectangle;
-      
-      var _data:BitmapData;
-      
-      public var threshold:uint = 1;
-      
-      private var _point:Point;
-      
-      public function Pixelmask(source:*, x:int = 0, y:int = 0)
-      {
-         this._rect = FP.rect;
-         this._point = FP.point;
-         this._point2 = FP.point2;
-         super();
-         if(source is BitmapData)
-         {
-            this._data = source;
-         }
-         if(source is Class)
-         {
-            this._data = FP.getBitmap(source);
-         }
-         if(!this._data)
-         {
-            throw new Error("Invalid Pixelmask source image.");
-         }
-         _width = this.data.width;
-         _height = this.data.height;
-         _x = x;
-         _y = y;
-         _check[Mask] = this.collideMask;
-         _check[Pixelmask] = this.collidePixelmask;
-         _check[Hitbox] = this.collideHitbox;
-      }
-      
-      public function get data() : BitmapData
-      {
-         return this._data;
-      }
-      
-      private function collideMask(other:Mask) : Boolean
-      {
-         this._point.x = parent.x + _x;
-         this._point.y = parent.y + _y;
-         this._rect.x = other.parent.x - other.parent.originX;
-         this._rect.y = other.parent.y - other.parent.originY;
-         this._rect.width = other.parent.width;
-         this._rect.height = other.parent.height;
-         return this._data.hitTest(this._point,this.threshold,this._rect);
-      }
-      
-      private function collidePixelmask(other:Pixelmask) : Boolean
-      {
-         this._point.x = parent.x + _x;
-         this._point.y = parent.y + _y;
-         this._point2.x = other.parent.x + other._x;
-         this._point2.y = other.parent.y + other._y;
-         return this._data.hitTest(this._point,this.threshold,other._data,this._point2,other.threshold);
-      }
-      
-      private function collideHitbox(other:Hitbox) : Boolean
-      {
-         this._point.x = parent.x + _x;
-         this._point.y = parent.y + _y;
-         this._rect.x = other.parent.x + other._x;
-         this._rect.y = other.parent.y + other._y;
-         this._rect.width = other._width;
-         this._rect.height = other._height;
-         return this._data.hitTest(this._point,this.threshold,this._rect);
-      }
-      
-      public function set data(value:BitmapData) : void
-      {
-         this._data = value;
-         _width = value.width;
-         _height = value.height;
-         update();
-      }
-   }
+	import flash.display.BitmapData;
+	import flash.geom.Point;
+	import flash.geom.Rectangle;
+	import net.flashpunk.*;
+	
+	/**
+	 * A bitmap mask used for pixel-perfect collision. 
+	 */
+	public class Pixelmask extends Hitbox
+	{
+		/**
+		 * Alpha threshold of the bitmap used for collision.
+		 */
+		public var threshold:uint = 1;
+		
+		/**
+		 * Constructor.
+		 * @param	source		The image to use as a mask.
+		 * @param	x			X offset of the mask.
+		 * @param	y			Y offset of the mask.
+		 */
+		public function Pixelmask(source:*, x:int = 0, y:int = 0)
+		{
+			// fetch mask data
+			if (source is BitmapData) _data = source;
+			if (source is Class) _data = FP.getBitmap(source);
+			if (!_data) throw new Error("Invalid Pixelmask source image.");
+			
+			// set mask properties
+			_width = data.width;
+			_height = data.height;
+			_x = x;
+			_y = y;
+			
+			// set callback functions
+			_check[Mask] = collideMask;
+			_check[Pixelmask] = collidePixelmask;
+			_check[Hitbox] = collideHitbox;
+		}
+		
+		/** @private Collide against an Entity. */
+		private function collideMask(other:Mask):Boolean
+		{
+			_point.x = parent.x + _x;
+			_point.y = parent.y + _y;
+			_rect.x = other.parent.x - other.parent.originX;
+			_rect.y = other.parent.y - other.parent.originY;
+			_rect.width = other.parent.width;
+			_rect.height = other.parent.height;
+			return _data.hitTest(_point, threshold, _rect);
+		}
+		
+		/** @private Collide against a Hitbox. */
+		private function collideHitbox(other:Hitbox):Boolean
+		{
+			_point.x = parent.x + _x;
+			_point.y = parent.y + _y;
+			_rect.x = other.parent.x + other._x;
+			_rect.y = other.parent.y + other._y;
+			_rect.width = other._width;
+			_rect.height = other._height;
+			return _data.hitTest(_point, threshold, _rect);
+		}
+		
+		/** @private Collide against a Pixelmask. */
+		private function collidePixelmask(other:Pixelmask):Boolean
+		{
+			_point.x = parent.x + _x;
+			_point.y = parent.y + _y;
+			_point2.x = other.parent.x + other._x;
+			_point2.y = other.parent.y + other._y;
+			return _data.hitTest(_point, threshold, other._data, _point2, other.threshold);
+		}
+		
+		/**
+		 * Current BitmapData mask.
+		 */
+		public function get data():BitmapData { return _data; }
+		public function set data(value:BitmapData):void
+		{
+			_data = value;
+			_width = value.width;
+			_height = value.height;
+			update();
+		}
+		
+		// Pixelmask information.
+		/** @private */ internal var _data:BitmapData;
+		
+		// Global objects.
+		/** @private */ private var _rect:Rectangle = FP.rect;
+		/** @private */ private var _point:Point = FP.point;
+		/** @private */ private var _point2:Point = FP.point2;
+	}
 }

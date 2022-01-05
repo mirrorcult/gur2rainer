@@ -1,59 +1,66 @@
-package net.flashpunk.graphics
+﻿package net.flashpunk.graphics 
 {
-   public class Anim
-   {
-       
-      
-      var _frameCount:uint;
-      
-      var _loop:Boolean;
-      
-      var _frames:Array;
-      
-      var _parent:Spritemap;
-      
-      var _name:String;
-      
-      var _frameRate:Number;
-      
-      public function Anim(name:String, frames:Array, frameRate:Number = 0, loop:Boolean = true)
-      {
-         super();
-         this._name = name;
-         this._frames = frames;
-         this._frameRate = frameRate;
-         this._loop = loop;
-         this._frameCount = frames.length;
-      }
-      
-      public function get frameCount() : uint
-      {
-         return this._frameCount;
-      }
-      
-      public function get loop() : Boolean
-      {
-         return this._loop;
-      }
-      
-      public function get frames() : Array
-      {
-         return this._frames;
-      }
-      
-      public function get name() : String
-      {
-         return this._name;
-      }
-      
-      public function get frameRate() : Number
-      {
-         return this._frameRate;
-      }
-      
-      public function play(reset:Boolean = false) : void
-      {
-         this._parent.play(this._name,reset);
-      }
-   }
+	/**
+	 * Template used by Spritemap to define animations. Don't create
+	 * these yourself, instead you can fetch them with Spritemap's add().
+	 */
+	public class Anim 
+	{
+		/**
+		 * Constructor.
+		 * @param	name		Animation name.
+		 * @param	frames		Array of frame indices to animate.
+		 * @param	frameRate	Animation speed.
+		 * @param	loop		If the animation should loop.
+		 */
+		public function Anim(name:String, frames:Array, frameRate:Number = 0, loop:Boolean = true) 
+		{
+			_name = name;
+			_frames = frames;
+			_frameRate = frameRate;
+			_loop = loop;
+			_frameCount = frames.length;
+		}
+		
+		/**
+		 * Plays the animation.
+		 * @param	reset		If the animation should force-restart if it is already playing.
+		 */
+		public function play(reset:Boolean = false):void
+		{
+			_parent.play(_name, reset);
+		}
+		
+		/**
+		 * Name of the animation.
+		 */
+		public function get name():String { return _name; }
+		
+		/**
+		 * Array of frame indices to animate.
+		 */
+		public function get frames():Array { return _frames; }
+		
+		/**
+		 * Animation speed.
+		 */
+		public function get frameRate():Number { return _frameRate; }
+		
+		/**
+		 * Amount of frames in the animation.
+		 */
+		public function get frameCount():uint { return _frameCount; }
+		
+		/**
+		 * If the animation loops.
+		 */
+		public function get loop():Boolean { return _loop; }
+		
+		/** @private */ internal var _parent:Spritemap;
+		/** @private */ internal var _name:String;
+		/** @private */ internal var _frames:Array;
+		/** @private */ internal var _frameRate:Number;
+		/** @private */ internal var _frameCount:uint;
+		/** @private */ internal var _loop:Boolean;
+	}
 }
