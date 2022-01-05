@@ -22,7 +22,7 @@ package game.menus
          super(160,36);
          graphic = this.list = new Graphiclist();
          Text.size = 36;
-         this.two = new Text("1.2");
+         this.two = new Text("1.1");
          this.two.color = 16777215;
          this.two.centerOO();
          this.two.y = this.two.y + 28;

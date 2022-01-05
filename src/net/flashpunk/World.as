@@ -46,29 +46,6 @@
 		 */
 		override public function update():void 
 		{
-			if (Main.pauseNextFrame)
-			{
-				Main.paused = true;
-				Main.pauseNextFrame = false;
-			}
-			if (Input.pressed("pause"))
-			{
-				Main.paused = true;
-			}
-			else if (Input.pressed("unpause"))
-			{
-				Main.paused = false;
-				Main.pauseNextFrame = false;
-			}
-			if (Input.pressed("frame"))
-			{
-				Main.paused = false;
-				Main.pauseNextFrame = true;
-			}
-			if (Main.paused)
-			{
-				return;
-			}
 			// update the entities
 			var e:Entity = _updateFirst;
 			while (e)
