@@ -331,8 +331,11 @@ package game.engine
       
 
       
-      public static var SndMenuSelect:Sfx;
       
+      public function get SndMenuSelect():Sfx
+      {
+         return new Sfx(Assets_SMenuSelect);
+      }
 
       
 
@@ -632,7 +635,10 @@ package game.engine
       
       private static var VcGrappleBoss16:Sfx;
       
-      public static var SndThrow:Sfx;
+      public function get SndThrow():Sfx
+      {
+         return new Sfx(Assets_SThrow);
+      }
       
 
       
@@ -642,7 +648,10 @@ package game.engine
       
       public static var MusHard:Sfx;
       
-      public static var SndMenuMouse:Sfx;
+      public function get SndMenuMouse():Sfx
+      {
+         return new Sfx(Assets_SMenuMouse);
+      }
       
 
       
@@ -817,11 +826,12 @@ package game.engine
       public static var SndButtonLight:Sfx;
       
 
-       
+      public static var instance:Assets;
       
       public function Assets()
       {
          super();
+         instance = this;
 
          SndFallingLand = new Sfx(Assets_SFallingLand);
          VcPlayerDeath1 = new Sfx(Assets_VPlayerDeath1);
@@ -926,7 +936,6 @@ package game.engine
          SndCloudTalk = new Sfx(Assets_SCloudTalk);
          SndLeverBottom = new Sfx(Assets_SLeverBottom);
          SndLeverTop = new Sfx(Assets_SLeverTop);
-         SndMenuSelect = new Sfx(Assets_SMenuSelect);
          SndKeyFlyBy = new Sfx(Assets_SKeyFlyBy);
          SndFallingFall= new Sfx(Assets_SFallingFall);
          SndRebound = new Sfx(Assets_SRebound);
@@ -964,9 +973,7 @@ package game.engine
          MusPowerOff = new Sfx(Assets_MPowerOff);
          SndMenuCancel = new Sfx(Assets_SMenuCancel);
          SndLaserOff = new Sfx(Assets_SLaserOff);
-         SndThrow = new Sfx(Assets_SThrow);
          MusHard = new Sfx(Assets_MHard);
-         SndMenuMouse = new Sfx(Assets_SMenuMouse);
          SndTutorialEnter = new Sfx(Assets_STutorialEnter);
          SndCoinBlockDone = new Sfx(Assets_SCoinBlockDone);
          SndCoinBlock = new Sfx(Assets_SCoinBlock);
