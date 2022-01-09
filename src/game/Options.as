@@ -20,8 +20,6 @@ package game
 
       public static var practiceMode:Boolean;
 
-      public static var memoryWatch:Boolean;
-
       public static var fullscreen:Boolean;
       
       public function Options()
@@ -58,7 +56,6 @@ package game
          obj.data.options.voices = voices;
          obj.data.options.particles = particles;
          obj.data.options.practiceMode = practiceMode;
-         obj.data.options.memoryWatch = memoryWatch;
          obj.data.options.fullscreen = fullscreen;
       }
       
@@ -74,7 +71,6 @@ package game
             voices = true;
             particles = true;
             practiceMode = false;
-            memoryWatch = false;
             fullscreen = false;
          }
          else
@@ -86,7 +82,6 @@ package game
             voices = obj.data.options.voices;
             particles = obj.data.options.particles;
             practiceMode = obj.data.options.practiceMode;
-            memoryWatch = obj.data.options.memoryWatch;
             fullscreen = obj.data.options.fullscreen;
          }
       }

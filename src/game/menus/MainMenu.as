@@ -36,11 +36,6 @@ package game.menus
          add(new MenuBG());
          this.gotoMain();
 
-         if (Options.memoryWatch)
-         {
-            Main.MC_MEMORY_WATCH.visible = false;
-         }
-
          if (Options.fullscreen)
          {
             Main.instance.stage.displayState = StageDisplayState.FULL_SCREEN_INTERACTIVE;
@@ -97,12 +92,6 @@ package game.menus
       {
          Options.practiceMode = !Options.practiceMode;
          button.setText("Practice Mode: " + this.getBoolName(Options.practiceMode))
-      }
-
-      private function toggleMemWatch(button:MenuButton) : void
-      {
-         Options.memoryWatch = !Options.memoryWatch;
-         button.setText("Memory Watch: " + this.getBoolName(Options.memoryWatch))
       }
 
       private function toggleFullscreen(button:MenuButton) : void
@@ -378,8 +367,7 @@ package game.menus
          this.addButton(new MenuButton(80,160,"Audio: " + this.getVolumeName(),this.switchVolume,Assets.instance.SndMenuSelect));
          this.addButton(new MenuButton(80,180,"Particles: " + this.getBoolName(Options.particles),this.toggleParticles,Assets.instance.SndMenuSelect));
          this.addButton(new MenuButton(80,200,"Practice Mode: " + this.getBoolName(Options.practiceMode),this.togglePractice,Assets.instance.SndMenuSelect));
-         this.addButton(new MenuButton(240,80,"Memory Watch: " + this.getBoolName(Options.memoryWatch),this.toggleMemWatch,Assets.instance.SndMenuSelect));
-         this.addButton(new MenuButton(240,100,"Fullscreen: " + this.getBoolName(Options.fullscreen),this.toggleFullscreen,Assets.instance.SndMenuSelect));
+         this.addButton(new MenuButton(240,80,"Fullscreen: " + this.getBoolName(Options.fullscreen),this.toggleFullscreen,Assets.instance.SndMenuSelect));
       }
       
       private function gotoStats(m:MenuButton = null) : void

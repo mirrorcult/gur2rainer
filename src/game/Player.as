@@ -709,8 +709,7 @@ package game
          }
          this.cameraFollow();
 
-         
-         if (Options.memoryWatch)
+         if (Main.MC_MEMORY_WATCH.visible)
          {
             var text:String = "";
             text += "game.frames " + this.level.time + " \n";

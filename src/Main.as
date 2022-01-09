@@ -97,6 +97,8 @@ package
 
       public static var pauseNextFrame:Boolean = false;
 
+      public static var debugEnabled:Boolean = false;
+
       public static var instance:Main;
       
       public function Main()
@@ -113,9 +115,8 @@ package
          Input.define("back", Key.BACKSPACE);
          Input.define("next", Key.TAB);
          Input.define("restart", Key.R);
-         Input.define("pause", Key.O);
-         Input.define("unpause", Key.P);
-         Input.define("frame", Key.L);
+         Input.define("debug", Key.Q);
+   
          instance = this;
          BDScreen = new ImgScreen().bitmapData;
          new Assets();
@@ -125,6 +126,9 @@ package
          particles = new ParticleSystem(Assets_ImgParticles,6,6);
          particles.y = -3;
          particles.x = -3;
+
+         FP.console.enable();
+         FP.console.visible = false;
 
          MC_MEMORY_WATCH = new MovieClip();
 			MC_MEMORY_WATCH.MC_LIST = new MovieClip();

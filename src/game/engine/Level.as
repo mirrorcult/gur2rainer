@@ -55,6 +55,7 @@ package game.engine
    import game.tutorial.Tutorial5;
    import game.tutorial.TutorialHard;
    import net.flashpunk.Entity;
+   import net.flashpunk.FP;
    import net.flashpunk.Tween;
    import net.flashpunk.tweens.misc.Alarm;
    import net.flashpunk.utils.Input;
@@ -109,10 +110,6 @@ package game.engine
          this.levelNum = num;
          this.practice = Options.practiceMode || alwaysPractice;
          this.custom = false;
-         if (Options.memoryWatch) 
-         {
-            Main.MC_MEMORY_WATCH.visible = true;
-         }
          if(str == null)
          {
             this.loadLevel(mode,num);
@@ -190,10 +187,21 @@ package game.engine
       override public function update() : void
       {
          super.update();
-         if (Main.paused)
+
+         if (Input.pressed("debug"))
          {
-            return;
+            if (Main.debugEnabled)
+            {
+               FP.console.visible = false;
+            }
+            else
+            {
+               FP.console.visible = true;
+            }
+            Main.debugEnabled = !Main.debugEnabled;
+            Main.MC_MEMORY_WATCH.visible = !Main.MC_MEMORY_WATCH.visible;
          }
+
          if(this.player && this.player.active && this.countTime)
          {
             this.time++;
