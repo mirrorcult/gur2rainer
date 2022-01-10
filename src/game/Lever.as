@@ -29,7 +29,7 @@ package game
       
       private var image:Image;
       
-      private var endY:int;
+      public var endY:int;
       
       private const C_SURPRISE:uint = 16776960;
       
@@ -37,11 +37,11 @@ package game
       
       private var stayDown:Boolean;
       
-      private var vSpeed:Number = 0;
+      public var vSpeed:Number = 0;
       
       private var distance:int;
       
-      private var startY:int;
+      public var startY:int;
       
       private const C_SAD:uint = 255;
       

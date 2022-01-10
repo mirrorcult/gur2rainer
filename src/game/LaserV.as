@@ -22,6 +22,15 @@ package game
       private var tempPoint:Point;
       
       private var list:Graphiclist;
+
+      public var startTime:Number;
+
+      private var _alarm:Alarm;
+
+      public function get timeLeft():Number
+      {
+         return _alarm.remaining;
+      }
       
       public function LaserV(x:int, y:int, height:int, onOff:Boolean, startOff:Boolean)
       {
@@ -54,7 +63,8 @@ package game
          }
          if(onOff)
          {
-            addTween(new Alarm(80,this.onAlarm,Tween.LOOPING),true);
+            _alarm = new Alarm(80, this.onAlarm, Tween.LOOPING);
+            addTween(_alarm,true);
          }
          if(startOff)
          {

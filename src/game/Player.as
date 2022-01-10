@@ -168,6 +168,9 @@ package game
          this.headSprite.y = -16;
          this.wheelSprite.color = this.headSprite.color = 65280;
          addTween(new Alarm(30,this.headBob,Tween.LOOPING),true);
+
+         FP.console.SELECT_LIST.length = 0;
+         FP.console.SELECT_LIST.push(this)
       }
       
       public function endWarp() : void
@@ -709,17 +712,17 @@ package game
          }
          this.cameraFollow();
 
-         if (Main.MC_MEMORY_WATCH.visible)
+         if (Main.debugEnabled)
          {
-            var text:String = "";
-            text += "game.frames " + this.level.time + " \n";
-            text += "player.pos (" + x + ", " + y + ") \n"; 
-            text += "player.speed (" + hSpeed + ", " + vSpeed + ") \n";
-            text += "grapple.momentum " + momentum + " \n";
-            text += "grapple.radius " + radius + " \n";
-            text += "grapple.direction " + direction + " \n";
+            //var text:String = "";
+            //text += "game.frames " + this.level.time + " \n";
+            //text += "player.pos (" + x + ", " + y + ") \n"; 
+            //text += "player.speed (" + hSpeed + ", " + vSpeed + ") \n";
+            //text += "grapple.momentum " + momentum + " \n";
+            //text += "grapple.radius " + radius + " \n";
+            //text += "grapple.direction " + direction + " \n";
 
-            Main.Console(text);
+            //Main.Console(text);
          }
       }
       

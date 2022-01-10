@@ -17,11 +17,11 @@ package game
       
       private var list:Graphiclist;
       
-      private var vSpeed:Number = 0;
+      public var vSpeed:Number = 0;
       
       private var image:Image;
       
-      private var hSpeed:Number = 0;
+      public var hSpeed:Number = 0;
       
       public function Conveyor(player:Player, x:int, y:int, width:int, height:int, direction:int, speed:Number)
       {

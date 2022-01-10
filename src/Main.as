@@ -130,6 +130,9 @@ package
          FP.console.enable();
          FP.console.visible = false;
 
+         // player vars
+         FP.console.watch("hSpeed", "vSpeed", "momentum", "radius", "canGrapple", "timeLeft", "coinsLeft", "endY", "startY", "counter", "thrust", "health");
+
          MC_MEMORY_WATCH = new MovieClip();
 			MC_MEMORY_WATCH.MC_LIST = new MovieClip();
 			MC_MEMORY_WATCH.MC_MASK = new MovieClip();
@@ -150,7 +153,7 @@ package
 			MC_MEMORY_WATCH.MC_LIST.TEXT_FIELD.selectable = false;
 			MC_MEMORY_WATCH.MC_LIST.TEXT_FIELD.x = 0;
 			MC_MEMORY_WATCH.MC_LIST.TEXT_FIELD.y = MC_MEMORY_WATCH.TEXT_FIELD.height;
-			MC_MEMORY_WATCH.graphics.beginFill(0,0.5);
+			MC_MEMORY_WATCH.graphics.beginFill(0,0.75);
 			MC_MEMORY_WATCH.graphics.drawRect(0,0,480 * 0.5,640 * 0.22 * 0.75);
 			MC_MEMORY_WATCH.graphics.endFill();
 			MC_MEMORY_WATCH.x = 640 - MC_MEMORY_WATCH.width;

@@ -188,20 +188,6 @@ package game.engine
       {
          super.update();
 
-         if (Input.pressed("debug"))
-         {
-            if (Main.debugEnabled)
-            {
-               FP.console.visible = false;
-            }
-            else
-            {
-               FP.console.visible = true;
-            }
-            Main.debugEnabled = !Main.debugEnabled;
-            Main.MC_MEMORY_WATCH.visible = !Main.MC_MEMORY_WATCH.visible;
-         }
-
          if(this.player && this.player.active && this.countTime)
          {
             this.time++;

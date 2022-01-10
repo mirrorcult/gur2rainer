@@ -21,7 +21,7 @@ package game
       
       private const MAX_FALL:Number = 4.0;
       
-      private var stopY:int = 0;
+      public var stopY:int = 0;
       
       private var image:Image;
       
@@ -33,11 +33,11 @@ package game
       
       private const C_SHAKE:uint = 16711680;
       
-      private var vSpeed:Number = 0;
+      public var vSpeed:Number = 0;
       
       private const C_FALL:uint = 16757836;
       
-      private var counter:uint = 0;
+      public var counter:uint = 0;
       
       private const GRAVITY:Number = 0.2;
       

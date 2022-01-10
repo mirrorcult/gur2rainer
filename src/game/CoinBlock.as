@@ -12,7 +12,7 @@ package game
       private static const ImgCoinBlock:Class = CoinBlock_ImgCoinBlock;
        
       
-      private var coins:uint;
+      public var coinsLeft:uint;
       
       private var sprite:Spritemap;
       
@@ -27,7 +27,7 @@ package game
       public function CoinBlock(player:Player, x:int, y:int, coins:uint)
       {
          super(player,x,y,16,16);
-         this.coins = coins;
+         this.coinsLeft = coins;
          layer = Main.DEPTH_ACTORS;
          graphic = this.sprite = new Spritemap(ImgCoinBlock,16,16);
          this.sprite.add("full",[0]);
@@ -71,8 +71,8 @@ package game
       {
          shake = this.SHAKE;
          player.collectCoin();
-         this.coins--;
-         if(this.coins == 0)
+         this.coinsLeft--;
+         if(this.coinsLeft == 0)
          {
             this.sprite.play("empty");
             this.sprite.scale = 2;

@@ -32,6 +32,8 @@ package net.flashpunk.debug
 		public function Console() 
 		{
 			Input.define("_ARROWS", Key.RIGHT, Key.LEFT, Key.DOWN, Key.UP);
+			Input.define("pause", Key.D);
+			Input.define("frameadvance", Key.F);
 		}
 		
 		/**
@@ -93,18 +95,6 @@ package net.flashpunk.debug
 			// Used to determine some text sizing.
 			var big:Boolean = width >= 480;
 			
-			// The transparent FlashPunk logo overlay bitmap.
-			_sprite.addChild(_back);
-			_back.bitmapData = new BitmapData(width, height, true, 0xFFFFFFFF);
-			var b:BitmapData = (new CONSOLE_LOGO).bitmapData;
-			FP.matrix.identity();
-			FP.matrix.tx = Math.max((_back.bitmapData.width - b.width) / 2, 0);
-			FP.matrix.ty = Math.max((_back.bitmapData.height - b.height) / 2, 0);
-			FP.matrix.scale(Math.min(width / _back.bitmapData.width, 1), Math.min(height / _back.bitmapData.height, 1));
-			_back.bitmapData.draw(b, FP.matrix, null, BlendMode.MULTIPLY);
-			_back.bitmapData.draw(_back.bitmapData, null, null, BlendMode.INVERT);
-			_back.bitmapData.colorTransform(_back.bitmapData.rect, new ColorTransform(1, 1, 1, 0.5));
-			
 			// The entity and selection sprites.
 			_sprite.addChild(_entScreen);
 			_entScreen.addChild(_entSelect);
@@ -120,7 +110,7 @@ package net.flashpunk.debug
 			
 			// The entity count panel.
 			_entRead.graphics.clear();
-			_entRead.graphics.beginFill(0, .5);
+			_entRead.graphics.beginFill(0, .75);
 			_entRead.graphics.drawRoundRectComplex(0, 0, _entReadText.width, 20, 0, 0, 20, 0);
 			
 			// The FPS text.
@@ -174,37 +164,28 @@ package net.flashpunk.debug
 			
 			// The debug text.
 			_sprite.addChild(_debRead);
-			_debRead.addChild(_debReadText0);
 			_debRead.addChild(_debReadText1);
-			_debReadText0.defaultTextFormat = format(16, 0xFFFFFF);
 			_debReadText1.defaultTextFormat = format(8, 0xFFFFFF);
-			_debReadText0.embedFonts = true;
 			_debReadText1.embedFonts = true;
-			_debReadText0.selectable = false;
-			_debReadText0.width = 80;
-			_debReadText0.height = 20;
 			_debReadText1.width = 160;
 			_debReadText1.height = int(height / 4);
-			_debReadText0.x = 2;
-			_debReadText0.y = 3;
-			_debReadText1.x = 2;
-			_debReadText1.y = 24;
-			_debReadText0.text = "DEBUG:";
-			_debRead.y = height - (_debReadText1.y + _debReadText1.height);
+			_debReadText1.x = 0;
+			_debReadText1.y = 4;
+			_debRead.y = _debReadText1.textHeight + _debReadText1.y;
 			
 			// The button panel buttons.
 			_sprite.addChild(_butRead);
-			_butRead.addChild(_butDebug = new CONSOLE_DEBUG);
-			_butRead.addChild(_butOutput = new CONSOLE_OUTPUT);
-			_butRead.addChild(_butPlay = new CONSOLE_PLAY).x = 20;
-			_butRead.addChild(_butPause = new CONSOLE_PAUSE).x = 20;
-			_butRead.addChild(_butStep = new CONSOLE_STEP).x = 40;
+			_butRead.addChild(_butDebug = new CONSOLE_DEBUG).x = -60;
+			_butRead.addChild(_butOutput = new CONSOLE_OUTPUT).x = -60;
+			_butRead.addChild(_butPlay = new CONSOLE_PLAY).x = -40;
+			_butRead.addChild(_butPause = new CONSOLE_PAUSE).x = -40;
+			_butRead.addChild(_butStep = new CONSOLE_STEP).x = -20;
 			updateButtons();
 			
 			// The button panel.
 			_butRead.graphics.clear();
 			_butRead.graphics.beginFill(0, .75);
-			_butRead.graphics.drawRoundRectComplex(-20, 0, 100, 20, 0, 0, 20, 20);
+			_butRead.graphics.drawRoundRectComplex(-80, 0, 100, 20, 0, 0, 20, 20);
 			
 			// Set the state to unpaused.
 			paused = false;
@@ -244,7 +225,7 @@ package net.flashpunk.debug
 						if (Input.mousePressed)
 						{
 							// Mouse is within clickable area.
-							if (Input.mouseFlashY > 20 && (Input.mouseFlashX > _debReadText1.width || Input.mouseFlashY < _debRead.y))
+							if (true)
 							{
 								if (Input.check(Key.SHIFT))
 								{
@@ -308,7 +289,15 @@ package net.flashpunk.debug
 			}
 			
 			// Console toggle.
-			if (Input.pressed(toggleKey)) paused = !_paused;
+			if (Input.pressed(toggleKey))
+			{
+				visible = !visible; paused = !_paused; debug = !_debug; Main.debugEnabled = !Main.debugEnabled;
+			}
+			if (Input.pressed("pause")) 
+			{
+				FP.engine.paused = !FP.engine.paused; _butPlay.visible = FP.engine.paused; _butPause.visible = !FP.engine.paused;
+			}
+			if (Input.pressed("frameadvance")) stepFrame();
 		}
 		
 		/**
@@ -322,10 +311,8 @@ package net.flashpunk.debug
 			
 			// Set the console to paused.
 			_paused = value;
-			FP.engine.paused = value;
 			
 			// Panel visibility.
-			_back.visible = value;
 			_entScreen.visible = value;
 			_butRead.visible = value;
 			
@@ -344,7 +331,6 @@ package net.flashpunk.debug
 				updateLog();
 				ENTITY_LIST.length = 0;
 				SCREEN_LIST.length = 0;
-				SELECT_LIST.length = 0;
 			}
 		}
 		
@@ -654,12 +640,12 @@ package net.flashpunk.debug
 				_logReadText1.x = 32;
 				_logReadText1.y = 24;
 				
-				// Make text selectable in paused mode.
-				_fpsReadText.selectable = true;
-				_fpsInfoText0.selectable = true;
-				_fpsInfoText1.selectable = true;
-				_entReadText.selectable = true;
-				_debReadText1.selectable = true;
+				// Make text NOT selectable in paused mode fuck you.
+				_fpsReadText.selectable = false;
+				_fpsInfoText0.selectable = false;
+				_fpsInfoText1.selectable = false;
+				_entReadText.selectable = false;
+				_debReadText1.selectable = false;
 			}
 			else
 			{
@@ -682,7 +668,6 @@ package net.flashpunk.debug
 				_fpsInfoText0.selectable = false;
 				_fpsInfoText1.selectable = false;
 				_entReadText.selectable = false;
-				_debReadText0.selectable = false;
 				_debReadText1.selectable = false;
 			}
 		}
@@ -700,7 +685,7 @@ package net.flashpunk.debug
 		}
 		
 		/** @private Update the debug panel text. */
-		private function updateDebugRead():void
+		public function updateDebugRead():void
 		{
 			// Find out the screen size and set the text.
 			var big:Boolean = width >= 480;
@@ -713,15 +698,18 @@ package net.flashpunk.debug
 			{
 				if (SELECT_LIST.length > 1)
 				{
-					s += "\n\nSelected: " + String(SELECT_LIST.length);
+					s += "\nSelected: " + String(SELECT_LIST.length);
 				}
 				else
 				{
 					var e:Entity = SELECT_LIST[0];
-					s += "\n\n- " + String(e) + " -\n";
+					s += "\n- " + String(e) + " -";
 					for each (var i:String in WATCH_LIST)
 					{
-						if (e.hasOwnProperty(i)) s += "\n" + i + ": " + e[i].toString();
+						if (!e.hasOwnProperty(i)) continue;
+						var val = e[i];
+						if (val is Number) val = Math.round(val * 100) / 100
+						s += "\n" + i + ": " + val.toString();
 					}
 				}
 			}
@@ -729,15 +717,17 @@ package net.flashpunk.debug
 			// Set the text and format.
 			_debReadText1.text = s;
 			_debReadText1.setTextFormat(format(big ? 16 : 8));
-			_debReadText1.width = Math.max(_debReadText1.textWidth + 4, _debReadText0.width);
-			_debReadText1.height = _debReadText1.y + _debReadText1.textHeight + 4;
+			_debReadText1.width = Math.max(_debReadText1.textWidth + 4, 160);
+			_debReadText1.height = _debReadText1.textHeight + 4;
 			
 			// The debug panel.
-			_debRead.y = int(height - _debReadText1.height);
+			_debRead.y = 0;
+			_debRead.x = width - _debReadText1.width;
 			_debRead.graphics.clear();
 			_debRead.graphics.beginFill(0, .75);
-			_debRead.graphics.drawRoundRectComplex(0, 0, _debReadText0.width, 20, 0, 20, 0, 0);
-			_debRead.graphics.drawRoundRectComplex(0, 20, _debReadText1.width + 20, height - _debRead.y - 20, 0, 20, 0, 0);
+			_debRead.graphics.drawRect(0, 0, _debReadText1.width + 20, _debReadText1.height + 4);
+
+			_entRead.y = _debRead.height;
 		}
 		
 		/** @private Updates the Entity count text. */
@@ -812,7 +802,6 @@ package net.flashpunk.debug
 		// Console display objects.
 		/** @private */ private var _sprite:Sprite = new Sprite;
 		/** @private */ private var _format:TextFormat = new TextFormat("console");
-		/** @private */ private var _back:Bitmap = new Bitmap;
 		
 		// FPS panel information.
 		/** @private */ private var _fpsRead:Sprite = new Sprite;
@@ -836,7 +825,6 @@ package net.flashpunk.debug
 		
 		// Debug panel information.
 		/** @private */ private var _debRead:Sprite = new Sprite;
-		/** @private */ private var _debReadText0:TextField = new TextField;
 		/** @private */ private var _debReadText1:TextField = new TextField;
 		/** @private */ private var _debWidth:uint;
 		
@@ -860,7 +848,7 @@ package net.flashpunk.debug
 		// Entity lists.
 		/** @private */ private const ENTITY_LIST:Vector.<Entity> = new Vector.<Entity>;
 		/** @private */ private const SCREEN_LIST:Vector.<Entity> = new Vector.<Entity>;
-		/** @private */ private const SELECT_LIST:Vector.<Entity> = new Vector.<Entity>;
+		/** @private */ public const SELECT_LIST:Vector.<Entity> = new Vector.<Entity>;
 		
 		// Watch information.
 		/** @private */ private const WATCH_LIST:Vector.<String> = Vector.<String>(["x", "y"]);

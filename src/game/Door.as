@@ -10,7 +10,7 @@ package game
       
       private var sprite:Spritemap;
       
-      private var startY:int;
+      public var startY:int;
       
       private const DISTANCE:Number = -48;
       

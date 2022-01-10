@@ -20,7 +20,7 @@ package game
       
       private var sprite:Spritemap;
       
-      private var speed:Number = 5;
+      public var speed:Number = 5;
       
       private const ACCEL:Number = 0.2;
       
