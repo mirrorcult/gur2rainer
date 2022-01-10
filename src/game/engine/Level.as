@@ -204,7 +204,7 @@ package game.engine
 
          if ((FP.world as MattWorld).changing) return;
 
-         if(Input.pressed("next") && this.player != null)
+         if(Input.pressed("next"))
          {
             if (levelExists(mode, levelNum + 1)) 
             {
@@ -212,7 +212,7 @@ package game.engine
                add(new Transition(Main.getLevel()));
             }
          }
-         if(Input.pressed("back") && this.player != null)
+         if(Input.pressed("back"))
          {
             if (levelExists(mode, levelNum - 1))
             {
@@ -418,6 +418,7 @@ package game.engine
             add(this.drawTime = new DrawTime(this));
          }
          this.setMusic(world);
+         this.changing = false;
       }
       
       public function spawn() : void
