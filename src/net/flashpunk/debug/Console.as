@@ -34,6 +34,7 @@ package net.flashpunk.debug
 			Input.define("_ARROWS", Key.RIGHT, Key.LEFT, Key.DOWN, Key.UP);
 			Input.define("pause", Key.D);
 			Input.define("frameadvance", Key.F);
+			Input.define("hitboxes", Key.H);
 		}
 		
 		/**
@@ -176,16 +177,16 @@ package net.flashpunk.debug
 			// The button panel buttons.
 			_sprite.addChild(_butRead);
 			_butRead.addChild(_butDebug = new CONSOLE_DEBUG).x = -60;
-			_butRead.addChild(_butOutput = new CONSOLE_OUTPUT).x = -60;
-			_butRead.addChild(_butPlay = new CONSOLE_PLAY).x = -40;
-			_butRead.addChild(_butPause = new CONSOLE_PAUSE).x = -40;
-			_butRead.addChild(_butStep = new CONSOLE_STEP).x = -20;
+			_butRead.addChild(_butOutput = new CONSOLE_OUTPUT).x = -40;
+			_butRead.addChild(_butPlay = new CONSOLE_PLAY).x = -20;
+			_butRead.addChild(_butPause = new CONSOLE_PAUSE).x = -20;
+			_butRead.addChild(_butStep = new CONSOLE_STEP);
 			updateButtons();
 			
 			// The button panel.
 			_butRead.graphics.clear();
 			_butRead.graphics.beginFill(0, .75);
-			_butRead.graphics.drawRoundRectComplex(-80, 0, 100, 20, 0, 0, 20, 20);
+			_butRead.graphics.drawRoundRectComplex(-80, 0, 120, 20, 0, 0, 20, 20);
 			
 			// Set the state to unpaused.
 			paused = false;
@@ -298,6 +299,7 @@ package net.flashpunk.debug
 				FP.engine.paused = !FP.engine.paused; _butPlay.visible = FP.engine.paused; _butPause.visible = !FP.engine.paused;
 			}
 			if (Input.pressed("frameadvance")) stepFrame();
+			if (Input.pressed("hitboxes")) _renderBoxes = !_renderBoxes;
 		}
 		
 		/**
@@ -313,7 +315,7 @@ package net.flashpunk.debug
 			_paused = value;
 			
 			// Panel visibility.
-			_entScreen.visible = value;
+			_entScreen.visible = value && _renderBoxes;
 			_butRead.visible = value;
 			
 			// If the console is paused.
@@ -561,7 +563,7 @@ package net.flashpunk.debug
 		private function renderEntities():void
 		{
 			// If debug mode is on.
-			_entScreen.visible = _debug;
+			_entScreen.visible = _debug && _renderBoxes;
 			if (_debug)
 			{
 				var g:Graphics = _entScreen.graphics,
@@ -741,18 +743,27 @@ package net.flashpunk.debug
 		{
 			// Button visibility.
 			_butRead.x = _fpsInfo.x + _fpsInfo.width + int((_entRead.x - (_fpsInfo.x + _fpsInfo.width)) / 2) - 30;
-			_butDebug.visible = !_debug;
-			_butOutput.visible = _debug;
+			_butDebug.visible = true;
+			_butOutput.visible = true;
 			_butPlay.visible = FP.engine.paused;
 			_butPause.visible = !FP.engine.paused;
 			
-			// Debug/Output button.
+			// Load TAS file
 			if (_butDebug.bitmapData.rect.contains(_butDebug.mouseX, _butDebug.mouseY))
 			{
-				_butDebug.alpha = _butOutput.alpha = 1;
-				if (Input.mousePressed) debug = !_debug;
+				_butDebug.alpha = 1;
+				//TODO TAS
+				//if (Input.mousePressed) _renderBoxes = !_renderBoxes;
 			}
-			else _butDebug.alpha = _butOutput.alpha = .5;
+			else _butDebug.alpha = .5;
+
+			// Load TAS file
+			if (_butOutput.bitmapData.rect.contains(_butOutput.mouseX, _butOutput.mouseY))
+			{
+				_butOutput.alpha = 1;
+				if (Input.mousePressed) _renderBoxes = !_renderBoxes;
+			}
+			else _butOutput.alpha = .5;
 			
 			// Play/Pause button.
 			if (_butPlay.bitmapData.rect.contains(_butPlay.mouseX, _butPlay.mouseY))
@@ -840,6 +851,8 @@ package net.flashpunk.debug
 		/** @private */ private var _entScreen:Sprite = new Sprite;
 		/** @private */ private var _entSelect:Sprite = new Sprite;
 		/** @private */ private var _entRect:Rectangle = new Rectangle;
+
+		private var _renderBoxes:Boolean = true;
 		
 		// Log information.
 		/** @private */ private var _logLines:uint = 33;

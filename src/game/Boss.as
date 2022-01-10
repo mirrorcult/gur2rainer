@@ -48,7 +48,7 @@ package game
       
       private const GOTO_THRUST:Number = 0.1;
       
-      private var hSpeed:Number = 0;
+      public var hSpeed:Number = 0;
       
       private var particles:Boolean = true;
       
@@ -62,11 +62,11 @@ package game
       
       private const BLAST:Number = 2.4;
       
-      private var health:uint;
+      public var health:uint;
       
       private var face:Spritemap;
       
-      private var thrust:Number = 0;
+      public var thrust:Number = 0;
       
       private const MAX_PULL:Number = 0.4;
       
@@ -74,7 +74,7 @@ package game
       
       private var partTypeWeak:ParticleType;
       
-      private var vSpeed:Number = 0;
+      public var vSpeed:Number = 0;
       
       private var hCounter:Number = 0;
       

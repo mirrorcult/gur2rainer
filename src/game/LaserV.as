@@ -29,6 +29,7 @@ package game
 
       public function get timeLeft():Number
       {
+         if (_alarm == null) return 0;
          return _alarm.remaining;
       }
       
