@@ -201,20 +201,23 @@ package game.engine
             Assets.MusPowerOn.stop();
             add(new Transition(new MainMenu()));
          }
-         if(Input.pressed("next"))
+
+         if ((FP.world as MattWorld).changing) return;
+         
+         if(Input.pressed("next") && this.player != null)
          {
             if (levelExists(mode, levelNum + 1)) 
             {
                Main.saveData.advanceLevels(player.coins, time, 1);
-               add(new Transition(new Level(mode, levelNum + 1)));
+               add(new Transition(Main.getLevel()));
             }
          }
-         if(Input.pressed("back"))
+         if(Input.pressed("back") && this.player != null)
          {
             if (levelExists(mode, levelNum - 1))
             {
                Main.saveData.advanceLevels(0, 0, -1);
-               add(new Transition(new Level(mode, levelNum - 1)));
+               add(new Transition(Main.getLevel()));
             }
          }
       }

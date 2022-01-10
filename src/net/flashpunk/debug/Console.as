@@ -293,7 +293,7 @@ package net.flashpunk.debug
 			// Console toggle.
 			if (Input.pressed(toggleKey))
 			{
-				visible = !visible; paused = !_paused; debug = !_debug; Main.debugEnabled = !Main.debugEnabled;
+				visible = !visible; paused = !_paused; debug = !_debug;
 			}
 			if (Input.pressed("pause")) 
 			{

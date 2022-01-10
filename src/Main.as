@@ -93,12 +93,6 @@ package
       
       private var focus:Boolean = true;
 
-      public static var paused:Boolean = false;
-
-      public static var pauseNextFrame:Boolean = false;
-
-      public static var debugEnabled:Boolean = false;
-
       public static var instance:Main;
       
       public function Main()
