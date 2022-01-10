@@ -33,7 +33,8 @@ package net.flashpunk.debug
 		{
 			Input.define("_ARROWS", Key.RIGHT, Key.LEFT, Key.DOWN, Key.UP);
 			Input.define("pause", Key.D);
-			Input.define("frameadvance", Key.F);
+			Input.define("frameadvance1", Key.F);
+			Input.define("frameadvance", Key.G);
 			Input.define("hitboxes", Key.H);
 		}
 		
@@ -298,7 +299,8 @@ package net.flashpunk.debug
 			{
 				FP.engine.paused = !FP.engine.paused; _butPlay.visible = FP.engine.paused; _butPause.visible = !FP.engine.paused;
 			}
-			if (Input.pressed("frameadvance")) stepFrame();
+			if (Input.pressed("frameadvance1")) stepFrame();
+			else if (Input.check("frameadvance")) stepFrame();
 			if (Input.pressed("hitboxes")) _renderBoxes = !_renderBoxes;
 		}
 		

@@ -99,6 +99,7 @@ package game.engine
             this.s_coins[this.level - 1] = coins;
             this.time = this.time + time;
             this.s_time[this.level - 1] = this.s_time[this.level - 1] + time;
+            this.level += levels;
          }
          if(this.startLevel)
          {
@@ -111,7 +112,6 @@ package game.engine
          }
          else
          {
-            this.level += levels;
             if(this.mode == 0 && (this.level == Level.WORLD2 || this.level == Level.WORLD3))
             {
                this.keyLevel = true;
