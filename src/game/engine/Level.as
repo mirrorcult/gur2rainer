@@ -580,6 +580,18 @@ package game.engine
          }
       }
 
+      public function toString() : String
+      {
+         if (this.mode == 0)
+         {
+            return "L" + this.levelNum;
+         }
+         else
+         {
+            return "H" + this.levelNum;
+         }
+      }
+
       protected function levelExists(mode:uint, num:uint) : Boolean
       {
          return Assets[Assets.PREFIX[mode] + num] != null;

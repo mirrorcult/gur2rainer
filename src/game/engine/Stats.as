@@ -1,6 +1,7 @@
 package game.engine
 {
    import flash.net.SharedObject;
+   import flash.utils.Dictionary;
    
    public class Stats
    {
@@ -9,6 +10,12 @@ package game.engine
       public function Stats()
       {
          super();
+      }
+
+      public static function logBestTime(key:String, time:uint) : void
+      {
+         var obj:SharedObject = SharedObject.getLocal("data");
+         obj.data.stats.best_times[key] = time;
       }
       
       public static function logDeath() : void
@@ -84,6 +91,7 @@ package game.engine
             s.best_time_hard = 0;
             s.best_score_normal = 0;
             s.best_score_hard = 0;
+            s.best_times = new Dictionary();
          }
       }
    }

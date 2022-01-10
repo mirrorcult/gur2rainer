@@ -2,6 +2,7 @@ package game.cosmetic
 {
    import flash.display.BitmapData;
    import game.engine.Level;
+   import game.engine.Stats;
    import net.flashpunk.Entity;
    import net.flashpunk.FP;
    import net.flashpunk.graphics.Graphiclist;
@@ -23,6 +24,8 @@ package game.cosmetic
       private var C_TEXT:uint = 16777013;
       
       private var time:Text;
+
+      private var bestTime:Text;
       
       private var sine:Number = 0;
       
@@ -30,7 +33,7 @@ package game.cosmetic
       
       private var list:Graphiclist;
       
-      public function LevelComplete()
+      public function LevelComplete(newHighScore:Boolean=false)
       {
          var text:Text = null;
          super();
@@ -62,6 +65,22 @@ package game.cosmetic
          this.time.alpha = 0;
          this.time.centerOO();
          this.list.add(this.time);
+         var stats:Object = Stats.getStats();
+         if (stats.best_times[(FP.world as Level).toString()] != null)
+         {
+            this.bestTime = new Text((newHighScore ? "New Best! " : "Best: ") + Main.formatTime(stats.best_times[(FP.world as Level).toString()]), 160, 180)
+         }
+         else
+         {
+            this.bestTime = new Text("No Best Time",160,180);
+         }
+
+         this.bestTime.scrollX = this.time.scrollY = 0;
+         this.bestTime.color = this.C_TEXT;
+         this.bestTime.alpha = 0;
+         this.bestTime.centerOO();
+         this.list.add(this.bestTime);
+         
          Text.size = 8;
          text = new Text("ENTER - Restart              ESC - Menu",160,234);
          text.scrollX = text.scrollY = 0;
@@ -74,7 +93,7 @@ package game.cosmetic
       {
          this.sine = (this.sine + Math.PI / 64) % (Math.PI * 2);
          this.bg.alpha = Math.min(0.75,this.bg.alpha + 0.1);
-         this.coins.alpha = this.time.alpha = this.title.alpha = Math.min(1,this.title.alpha + 0.1);
+         this.coins.alpha = this.time.alpha = this.title.alpha = this.bestTime.alpha = Math.min(1,this.title.alpha + 0.1);
          if(Input.pressed(Key.ENTER))
          {
             FP.world.add(new Transition((FP.world as Level).restart));

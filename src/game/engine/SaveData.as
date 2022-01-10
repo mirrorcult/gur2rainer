@@ -1,6 +1,7 @@
 package game.engine
 {
    import net.flashpunk.FP;
+   import flash.utils.Dictionary;
    
    public class SaveData
    {
@@ -15,7 +16,7 @@ package game.engine
       public var level:uint;
       
       public var time:uint;
-      
+            
       public var s_deaths:Vector.<uint>;
       
       private const SCORE_LEVEL:int = 144000;
