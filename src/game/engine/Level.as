@@ -203,7 +203,7 @@ package game.engine
          }
 
          if ((FP.world as MattWorld).changing) return;
-         
+
          if(Input.pressed("next") && this.player != null)
          {
             if (levelExists(mode, levelNum + 1)) 
@@ -230,6 +230,7 @@ package game.engine
          var saw:Saw = null;
          var go:Vector.<Point> = null;
          this.attempt++;
+         this.countTime = true;
          var world:int = 0;
          if(this.levelNum >= WORLD3)
          {

@@ -91,31 +91,43 @@ package game.engine
          Main.saveGame();
       }
       
-      public function advanceLevels(coins:uint, time:uint, levels:int) : void
+      public function advanceLevels(coins:uint, time:uint, levels:int, setStats:Boolean=false) : void
       {
          this.coins = this.coins + coins;
          if(!this.keyLevel && !this.startLevel)
          {
-            this.s_coins[this.level - 1] = coins;
-            this.time = this.time + time;
-            this.s_time[this.level - 1] = this.s_time[this.level - 1] + time;
+            if (setStats)
+            {
+               this.s_coins[this.level - 1] = coins;
+               this.time = this.time + time;
+               this.s_time[this.level - 1] = this.s_time[this.level - 1] + time;
+            }
             this.level += levels;
          }
          if(this.startLevel)
          {
-            this.startLevel = false;
-         }
-         else if(this.keyLevel && levels == 1)
-         {
-            this.startLevel = true;
-            this.keyLevel = false;
-         }
-         else
-         {
-            if(this.mode == 0 && (this.level == Level.WORLD2 || this.level == Level.WORLD3))
+            if (levels == -1)
             {
                this.keyLevel = true;
             }
+            this.startLevel = false;
+         }
+         else if(this.keyLevel)
+         {
+            if (levels == 1)
+            {
+               this.startLevel = true;
+            }
+            else if (levels == -1)
+            {
+               // we already did +1 earlier from advancing so we'll assume we need to -1 and bring back a level
+               this.level -= 1;
+            }
+            this.keyLevel = false;
+         }
+         else if(this.mode == 0 && (this.level == Level.WORLD2 || this.level == Level.WORLD3))
+         {
+            this.keyLevel = true;
          }
          Main.saveGame();
       }

@@ -632,7 +632,7 @@ package game
          }
          if(this.grapple == null)
          {
-            if(this.jetTime == 0 && Input.check("shoot") && this.canGrapple)
+            if(this.jetTime == 0 && Input.pressed("shoot") && this.canGrapple)
             {
                this.headSprite.scaleY = 2;
                Assets.instance.SndThrow.play();
