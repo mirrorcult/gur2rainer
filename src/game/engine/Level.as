@@ -206,6 +206,7 @@ package game.engine
 
          if(Input.pressed("next"))
          {
+            Assets.MusPowerOn.stop();
             if (levelExists(mode, levelNum + 1)) 
             {
                Main.saveData.advanceLevels(player.coins, time, 1);
@@ -214,6 +215,7 @@ package game.engine
          }
          if(Input.pressed("back"))
          {
+            Assets.MusPowerOn.stop();
             if (levelExists(mode, levelNum - 1))
             {
                Main.saveData.advanceLevels(0, 0, -1);

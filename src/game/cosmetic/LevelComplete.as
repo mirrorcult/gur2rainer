@@ -75,7 +75,7 @@ package game.cosmetic
             this.bestTime = new Text("No Best Time",160,180);
          }
 
-         this.bestTime.scrollX = this.time.scrollY = 0;
+         this.bestTime.scrollX = this.bestTime.scrollY = 0;
          this.bestTime.color = this.C_TEXT;
          this.bestTime.alpha = 0;
          this.bestTime.centerOO();
