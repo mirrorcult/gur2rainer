@@ -10,7 +10,7 @@ package game.cosmetic
       
       private var up:Boolean = true;
       
-      private var goto1;
+      private var goto1:Object;
       
       private var wait:Boolean;
       
@@ -47,11 +47,11 @@ package game.cosmetic
                {
                   this.goto1.transition = this;
                   FP.world.removeAll();
-                  FP.world = this.goto1;
+                  FP.world = (this.goto1 as MattWorld);
                }
                else if(this.goto1 is Function)
                {
-                  this.goto1(this);
+                  (this.goto1 as Function)(this);
                }
             }
          }
