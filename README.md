@@ -14,9 +14,9 @@ This repository hosts three separate projects, all based on the same SWF recompi
 
 **Latest release:** [v1.5](https://github.com/mirrorcult/gur2rainer/releases/tag/v1.5)
 
-**Valid for full runs:** No
+**Valid for full runs:** *No*
 
-**Valid for IL runs:** Yes
+**Valid for IL runs:** *Yes*
 
 GUR2rainer is the primary project contained in this repository, and its commits are located on the master branch. It's a modified version of vanilla GUR2 featuring level select, a debug overlay, pause & frame advance, and a practice mode with individual-level timing.
 
