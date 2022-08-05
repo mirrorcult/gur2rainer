@@ -135,8 +135,8 @@ package
          GlobalVarContainer.vars.flvWidth = parseInt(GlobalVarContainer.vars.flvPath.replace(this.re,"$2"));
          GlobalVarContainer.vars.flvHeight = parseInt(GlobalVarContainer.vars.flvPath.replace(this.re,"$3"));
          trace(GlobalVarContainer.vars.flvPath.replace(this.re,"$0"),GlobalVarContainer.vars.flvPath.replace(this.re,"$1"),GlobalVarContainer.vars.flvPath.replace(this.re,"$2"),GlobalVarContainer.vars.flvPath.replace(this.re,"$3"));
-         GlobalVarContainer.vars.stageWidth = this.oStage.stageWidth;
-         GlobalVarContainer.vars.stageHeight = this.oStage.stageHeight;
+         //GlobalVarContainer.vars.stageWidth = this.oStage.stageWidth;
+         //GlobalVarContainer.vars.stageHeight = this.oStage.stageHeight;
          GlobalVarContainer.vars.mcPlay = this.pplay;
          this.Preroller = new Preroller();
       }
