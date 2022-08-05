@@ -24,8 +24,6 @@ package game
       
       public static var particles:Boolean;
 
-      public static var practiceMode:Boolean;
-
       public static var fullscreen:Boolean;
 
       public static var tasRecordingState:int;
@@ -65,7 +63,6 @@ package game
          obj.data.options.volume = FP.volume;
          obj.data.options.voices = voices;
          obj.data.options.particles = particles;
-         obj.data.options.practiceMode = practiceMode;
          obj.data.options.fullscreen = fullscreen;
          obj.data.options.tasRecordingState = tasRecordingState;
          obj.data.options.tasAutomaticPlayback = tasAutomaticPlayback;
@@ -82,7 +79,6 @@ package game
             FP.volume = 1;
             voices = true;
             particles = true;
-            practiceMode = false;
             fullscreen = false;
             tasRecordingState = tasRecordingStateFastest;
             tasAutomaticPlayback = false;
@@ -95,7 +91,6 @@ package game
             FP.volume = obj.data.options.volume;
             voices = obj.data.options.voices;
             particles = obj.data.options.particles;
-            practiceMode = obj.data.options.practiceMode;
             fullscreen = obj.data.options.fullscreen;
             tasRecordingState = obj.data.options.tasRecordingState;
             tasAutomaticPlayback = obj.data.options.tasAutomaticPlayback;

@@ -89,12 +89,6 @@ package game.menus
          button.setText("Particles: " + this.getBoolName(Options.particles));
       }
 
-      private function togglePractice(button:MenuButton) : void
-      {
-         Options.practiceMode = !Options.practiceMode;
-         button.setText("Practice Mode: " + this.getBoolName(Options.practiceMode))
-      }
-
       private function toggleFullscreen(button:MenuButton) : void
       {
          Options.fullscreen = !Options.fullscreen;
@@ -388,13 +382,12 @@ package game.menus
          Assets.setMusic(Assets.MusMenu);
          this.clearButtons();
          this.addButton(new MenuButton(160,225,"Back",this.gotoMain,Assets.SndMenuCancel));
-         this.addButton(new MenuButton(160,65,"Show Coins: " + this.getBoolName(Options.showCoins),this.toggleShowCoins,Assets.instance.SndMenuSelect, true, 12));
-         this.addButton(new MenuButton(160,80,"Show Time: " + this.getBoolName(Options.showTime),this.toggleShowTime,Assets.instance.SndMenuSelect, true, 12));
-         this.addButton(new MenuButton(160,95,"UP to Jump: " + this.getBoolName(Options.upToJump),this.toggleUpToJump,Assets.instance.SndMenuSelect, true, 12));
-         this.addButton(new MenuButton(160,110,"Robot Voice: " + this.getBoolName(Options.voices),this.toggleVoice,Assets.instance.SndMenuSelect, true, 12));
-         this.addButton(new MenuButton(160,125,"Audio: " + this.getVolumeName(),this.switchVolume,Assets.instance.SndMenuSelect, true, 12));
-         this.addButton(new MenuButton(160,140,"Particles: " + this.getBoolName(Options.particles),this.toggleParticles,Assets.instance.SndMenuSelect, true, 12));
-         this.addButton(new MenuButton(160,155,"Practice Mode: " + this.getBoolName(Options.practiceMode),this.togglePractice,Assets.instance.SndMenuSelect, true, 12));
+         this.addButton(new MenuButton(160,80,"Show Coins: " + this.getBoolName(Options.showCoins),this.toggleShowCoins,Assets.instance.SndMenuSelect, true, 12));
+         this.addButton(new MenuButton(160,95,"Show Time: " + this.getBoolName(Options.showTime),this.toggleShowTime,Assets.instance.SndMenuSelect, true, 12));
+         this.addButton(new MenuButton(160,110,"UP to Jump: " + this.getBoolName(Options.upToJump),this.toggleUpToJump,Assets.instance.SndMenuSelect, true, 12));
+         this.addButton(new MenuButton(160,125,"Robot Voice: " + this.getBoolName(Options.voices),this.toggleVoice,Assets.instance.SndMenuSelect, true, 12));
+         this.addButton(new MenuButton(160,140,"Audio: " + this.getVolumeName(),this.switchVolume,Assets.instance.SndMenuSelect, true, 12));
+         this.addButton(new MenuButton(160,155,"Particles: " + this.getBoolName(Options.particles),this.toggleParticles,Assets.instance.SndMenuSelect, true, 12));
          this.addButton(new MenuButton(160,170,"Fullscreen: " + this.getBoolName(Options.fullscreen),this.toggleFullscreen,Assets.instance.SndMenuSelect, true, 12));
          this.addButton(new MenuButton(160,185,"TAS Recording: " + getRecordingStateName(Options.tasRecordingState),this.toggleRecording,Assets.instance.SndMenuSelect, true, 12));
          this.addButton(new MenuButton(160,200,"TAS Playback: " + (Options.tasAutomaticPlayback ? "Automatic" : "Manual"),this.togglePlayback,Assets.instance.SndMenuSelect, true, 12));

@@ -111,7 +111,7 @@ package game.engine
          super();
          this.mode = mode;
          this.levelNum = num;
-         this.practice = Options.practiceMode || alwaysPractice;
+         this.practice = !Options.tasAutomaticPlayback || alwaysPractice;
          this.custom = false;
          if(str == null)
          {
