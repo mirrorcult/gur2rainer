@@ -17,7 +17,7 @@ Input commands can be in two forms:
 [KEYS],[FRAMEHOLD]
 ```
 
-where `KEYS` are the keys to hold down with no spaces between them (or nothing, if no keys are to be held). The valid keys are as follows:
+where `KEYS` define the keys to hold down with no spaces between them (or nothing, if no keys are to be held). The valid keys are as follows:
 
 ```
 R (right)
@@ -42,9 +42,7 @@ The modify timescale command comes in one form:
 
 This command is always performed immediately after the world update processing of the previous frame's inputs.
 
-`MODIFIER` corresponds to how much to modify the game's timescale by. A modifier of **3** would speed the game's execution up by 3x, whereas **0.25** would slow down the game by 4x. A modifier of **0** pauses the game and it can only be unpaused by the human playing back the file. Thus, the pause command mostly serves to aid an active TASer who is able to use unpause and frame advance.
-
-Rendering speed is not modified, as it is frame-independent.
+`MODIFIER` defines how much to modify the game's timescale by. A modifier of **3** would speed the game's execution up by 3x, whereas **0.25** would slow down the game by 4x. A modifier of **0** pauses the game and it can only be unpaused by the human playing back the file. Thus, the pause command mostly serves to aid an active TASer who is able to use unpause and frame advance.
 
 ## Miscellaneous Syntax
 
