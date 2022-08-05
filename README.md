@@ -18,6 +18,8 @@ This repository hosts three separate projects, all based on the same SWF recompi
 
 **Valid for IL runs:** Yes
 
+---
+
 GUR2rainer is the primary project contained in this repository, and its commits are located on the master branch. It's a modified version of vanilla GUR2 featuring level select, a debug overlay, pause & frame advance, and a practice mode with individual-level timing.
 
 ### GUR2exe
@@ -30,6 +32,8 @@ GUR2rainer is the primary project contained in this repository, and its commits 
 
 **Valid for IL runs:** *Yes, but recommended to use GUR2rainer*
 
+---
+
 GUR2exe is a completely stripped down fork of GUR2rainer with no special features, outside of simple visual QoL like fullscreen mode and removal of Adult Swim branding.
 
 ### GUR2aser (W.I.P)
@@ -41,6 +45,8 @@ GUR2exe is a completely stripped down fork of GUR2rainer with no special feature
 **Valid for full runs:** *No*
 
 **Valid for IL runs:** *No*
+
+---
 
 GUR2aser is a work-in-progress fork of GUR2rainer featuring TAS tools. It can save TAS files after successfully completed runs, and it can play back custom TAS files on any level in the game. **GUR2aser is watermarked and is not considered valid for ANY runs of Give Up Robot, 2.**
 
