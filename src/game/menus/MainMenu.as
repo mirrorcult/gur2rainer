@@ -59,10 +59,6 @@ package game.menus
          this.addButton(stats = new MenuButton(160,170,"Stats",this.gotoStats,Assets.SndMenuSelect));
          this.addButton(new MenuButton(160,190,"Options",this.gotoOptions,Assets.SndMenuSelect));
          this.addButton(new MenuButton(160,210,"Credits",this.gotoCredits,Assets.SndMenuSelect));
-         this.addButton(new MenuButton(160,230,"More Games",function(m:MenuButton):void
-         {
-            Main.link("mainmenu");
-         },Assets.SndMenuSelect));
          if(!Main.saveExists())
          {
             load.deactivate();

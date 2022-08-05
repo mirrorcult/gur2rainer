@@ -134,18 +134,6 @@ package game
             active = false;
             Input.clear();
             Assets.SndLeverBottom.play();
-            if(this.mode == MODE_ADULTSWIM)
-            {
-               Main.link("intermission");
-            }
-            else if(this.mode == MODE_TWITTER)
-            {
-               Main.submitTwitter();
-            }
-            else if(this.mode == MODE_FACEBOOK)
-            {
-               Main.submitFacebook();
-            }
          }
          else if(this.vSpeed < 0 && y <= this.startY)
          {
