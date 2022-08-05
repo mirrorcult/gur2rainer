@@ -102,7 +102,7 @@ package
          Input.define("back", Key.BACKSPACE);
          Input.define("next", Key.TAB);
          Input.define("restart", Key.R);
-         Input.define("debug", Key.Q);
+         Input.define("tas", Key.T);
    
          instance = this;
          BDScreen = new ImgScreen().bitmapData;

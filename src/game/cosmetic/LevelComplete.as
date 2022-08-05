@@ -31,6 +31,11 @@ package game.cosmetic
       
       private var title:Text;
       
+      // bottom text
+      private var bottomText:Text;
+
+      private var savedTas:Boolean;
+      
       private var list:Graphiclist;
       
       public function LevelComplete(newHighScore:Boolean=false)
@@ -82,11 +87,11 @@ package game.cosmetic
          this.list.add(this.bestTime);
          
          Text.size = 8;
-         text = new Text("ENTER - Restart              ESC - Menu",160,234);
-         text.scrollX = text.scrollY = 0;
-         text.color = this.C_TEXT;
-         text.centerOO();
-         this.list.add(text);
+         this.bottomText = new Text("ENTER - Restart                T - Save TAS File",160,234);
+         this.bottomText.scrollX = this.bottomText.scrollY = 0;
+         this.bottomText.color = this.C_TEXT;
+         this.bottomText.centerOO();
+         this.list.add(this.bottomText);
       }
       
       override public function update() : void
@@ -97,6 +102,13 @@ package game.cosmetic
          if(Input.pressed(Key.ENTER))
          {
             FP.world.add(new Transition((FP.world as Level).restart));
+         }
+         if (Input.pressed("tas") && !savedTas)
+         {
+            // Save tas file
+            this.bottomText.text = "ENTER - Restart                Saved TAS file!  ";
+            this.bottomText.centerOO();
+            savedTas = true;
          }
       }
    }
