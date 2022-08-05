@@ -17,6 +17,8 @@ package game
    import net.flashpunk.graphics.Spritemap;
    import net.flashpunk.tweens.misc.Alarm;
    import net.flashpunk.utils.Input;
+   import net.flashpunk.Sfx;
+   import game.engine.Assets_SCoin;
    
    public class Player extends Moveable
    {
@@ -625,7 +627,7 @@ package game
             if(this.jetTime == 0 && Input.pressed("shoot") && this.canGrapple)
             {
                this.headSprite.scaleY = 2;
-               Assets.SndThrow.play();
+               Assets.instance.SndThrow.play();
                FP.world.add(this.grapple = new Grapple(this,x,y + this.GRAPPLE_OFFSET,!!this.headSprite.flipped?135:45));
             }
          }
@@ -758,7 +760,8 @@ package game
             Main.particles.addParticlesArea("coin",c.x - 2,c.y - 2,4,4,3);
             FP.world.remove(c);
          }
-         Assets.SndCoin.play();
+         var sfx:Sfx = new Sfx(Assets_SCoin);
+         sfx.play();
          this.coins++;
          if(this.level.drawCoins)
          {

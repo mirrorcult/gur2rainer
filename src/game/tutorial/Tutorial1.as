@@ -231,7 +231,7 @@ package game.tutorial
          super.update();
          if(this.mode < 24 && Input.pressed(Key.ENTER))
          {
-            Assets.SndMenuSelect.play();
+            Assets.instance.SndMenuSelect.play();
             this.mode = 24;
             this.alarm.reset(1);
             this.alarm.start();

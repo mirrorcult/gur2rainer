@@ -53,19 +53,18 @@ package game.menus
          this.credits = false;
          Options.saveOptions();
          this.clearButtons();
-         this.addButton(new MenuButton(160,110,"New Game",!!Main.saveExists()?this.gotoConfirmNewNormal:this.newNormalGame,!!Main.saveExists()?Assets.SndMenuSelect:Assets.SndNewNormalGame));
-         this.addButton(hard = new MenuButton(160,130,"New HARD Game",!!Main.saveExists()?this.gotoConfirmNewHard:this.newHardGame,!!Main.saveExists()?Assets.SndMenuSelect:Assets.SndNewHardGame));
-         this.addButton(load = new MenuButton(160,150,"Continue",this.gotoConfirmContinue,Assets.SndMenuSelect));
-         this.addButton(stats = new MenuButton(160,170,"Stats",this.gotoStats,Assets.SndMenuSelect));
-         this.addButton(new MenuButton(160,190,"Options",this.gotoOptions,Assets.SndMenuSelect));
-         this.addButton(new MenuButton(160,210,"Credits",this.gotoCredits,Assets.SndMenuSelect));
+         this.addButton(new MenuButton(160,110,"New Game",!!Main.saveExists()?this.gotoConfirmNewNormal:this.newNormalGame,!!Main.saveExists()?Assets.instance.SndMenuSelect:Assets.SndNewNormalGame));
+         this.addButton(hard = new MenuButton(160,130,"New HARD Game",!!Main.saveExists()?this.gotoConfirmNewHard:this.newHardGame,!!Main.saveExists()?Assets.instance.SndMenuSelect:Assets.SndNewHardGame));
+         this.addButton(load = new MenuButton(160,150,"Continue",this.gotoConfirmContinue,Assets.instance.SndMenuSelect));
+         this.addButton(stats = new MenuButton(160,170,"Stats",this.gotoStats,Assets.instance.SndMenuSelect));
+         this.addButton(new MenuButton(160,190,"Options",this.gotoOptions,Assets.instance.SndMenuSelect));
+         this.addButton(new MenuButton(160,210,"Credits",this.gotoCredits,Assets.instance.SndMenuSelect));
          if(!Main.saveExists())
          {
             load.deactivate();
          }
          if(!Main.beatenNormal())
          {
-            hard.deactivate();
             stats.deactivate();
          }
       }
@@ -287,18 +286,13 @@ package game.menus
          Assets.setMusic(Assets.MusMenu);
          this.clearButtons();
          this.addButton(new MenuButton(160,225,"Back",this.gotoMain,Assets.SndMenuCancel));
-         this.addButton(new MenuButton(160,80,"Show Coins: " + this.getBoolName(Options.showCoins),this.toggleShowCoins,Assets.SndMenuSelect));
-         this.addButton(new MenuButton(160,100,"Show Time: " + this.getBoolName(Options.showTime),this.toggleShowTime,Assets.SndMenuSelect));
-         this.addButton(new MenuButton(160,120,"UP to Jump: " + this.getBoolName(Options.upToJump),this.toggleUpToJump,Assets.SndMenuSelect));
-         this.addButton(new MenuButton(160,140,"Robot Voice: " + this.getBoolName(Options.voices),this.toggleVoice,Assets.SndMenuSelect));
-         this.addButton(new MenuButton(160,160,"Audio: " + this.getVolumeName(),this.switchVolume,Assets.SndMenuSelect));
-         this.addButton(new MenuButton(160,180,"Particles: " + this.getBoolName(Options.particles),this.toggleParticles,Assets.SndMenuSelect));
-         var sounds:MenuButton = new MenuButton(160,200,"Sound Test",this.gotoSoundTest,Assets.SndMenuSelect);
-         this.addButton(sounds);
-         if(!Main.beatenNormal())
-         {
-            sounds.deactivate();
-         }
+         this.addButton(new MenuButton(80,80,"Show Coins: " + this.getBoolName(Options.showCoins),this.toggleShowCoins,Assets.instance.SndMenuSelect));
+         this.addButton(new MenuButton(80,100,"Show Time: " + this.getBoolName(Options.showTime),this.toggleShowTime,Assets.instance.SndMenuSelect));
+         this.addButton(new MenuButton(80,120,"UP to Jump: " + this.getBoolName(Options.upToJump),this.toggleUpToJump,Assets.instance.SndMenuSelect));
+         this.addButton(new MenuButton(80,140,"Robot Voice: " + this.getBoolName(Options.voices),this.toggleVoice,Assets.instance.SndMenuSelect));
+         this.addButton(new MenuButton(80,160,"Audio: " + this.getVolumeName(),this.switchVolume,Assets.instance.SndMenuSelect));
+         this.addButton(new MenuButton(80,180,"Particles: " + this.getBoolName(Options.particles),this.toggleParticles,Assets.instance.SndMenuSelect));
+         this.addButton(new MenuButton(80,200,"Fullscreen: " + this.getBoolName(Options.fullscreen),this.toggleFullscreen,Assets.instance.SndMenuSelect));
       }
       
       private function gotoStats(m:MenuButton = null) : void

@@ -88,7 +88,7 @@ package game.menus
             this.text.angle = Math.sin(this.sine) * 4;
             if(this.mouseIn())
             {
-               Assets.SndMenuMouse.play(0.3);
+               Assets.instance.SndMenuMouse.play(0.3);
                this.mouseOver = true;
                this.text.scale = 1.25;
                this.bg.visible = true;
