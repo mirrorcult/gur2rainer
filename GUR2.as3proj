@@ -4,7 +4,7 @@
   <output>
     <movie outputType="Application" />
     <movie input="" />
-    <movie path="bin\GUR2rainer.swf" />
+    <movie path="bin\GiveUpRobot2.swf" />
     <movie fps="60" />
     <movie width="640" />
     <movie height="480" />

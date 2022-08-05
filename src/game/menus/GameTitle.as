@@ -22,13 +22,13 @@ package game.menus
          super(160,36);
          graphic = this.list = new Graphiclist();
          Text.size = 36;
-         this.two = new Text("1.0");
+         this.two = new Text("2");
          this.two.color = 16777215;
          this.two.centerOO();
          this.two.y = this.two.y + 28;
          this.list.add(this.two);
          Text.size = 24;
-         this.text = new Text("Gur2rainer");
+         this.text = new Text("Give Up, Robot");
          this.text.color = 16777215;
          this.text.centerOO();
          this.list.add(this.text);

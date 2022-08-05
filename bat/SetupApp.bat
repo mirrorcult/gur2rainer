@@ -28,7 +28,7 @@ set APP_ID=%APP_ID: =%
 
 :: Output
 set AIR_PATH=air
-set AIR_NAME=GUR2rainer
+set AIR_NAME=GiveUpRobot2
 
 :validation
 findstr /C:"<id>%APP_ID%</id>" "%APP_XML%" > NUL

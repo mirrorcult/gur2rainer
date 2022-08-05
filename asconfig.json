@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"output": "bin/GUR2rainer.swf",
+		"output": "bin/GiveUpRobot2.swf",
 		"default-frame-rate": 60,
 		"default-background-color": "#000000",
 		"default-size": {

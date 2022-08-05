@@ -203,7 +203,7 @@ package game.menus
       
       override public function begin() : void
       {
-         add(new Title(8,"Maddy Thorson & cyclowns present",160,20,false,11184810));
+         add(new Title(8,"Maddy Thorson presents",160,20,false,11184810));
          add(new GameTitle());
          Assets.setMusic(Assets.MusMenu);
          FP.camera.y = 0;
