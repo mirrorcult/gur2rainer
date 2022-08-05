@@ -118,7 +118,7 @@ package game.menus
          }
       }
 
-      private function openCustomStage(m:MenuButton = null)
+      private function openCustomStage(m:MenuButton = null):void
       {
          Assets.instance.SndMenuSelect.play();
          FP.stage.addChild(new CustomStage(this));
@@ -184,11 +184,11 @@ package game.menus
 
       private function levelButtonClicked(m:MenuButton) : void
       {
-         var txt = m.getText();
-         var mode = txt.substr(0, 1);
-         var intMode = mode == "L" ? 0 : 1;
+         var txt:String = m.getText();
+         var mode:String = txt.substr(0, 1);
+         var intMode:int = mode == "L" ? 0 : 1;
 
-         var level = 1;
+         var level:int = 1;
          if (txt.length == 2)
          {
             // L1, L2, etc
