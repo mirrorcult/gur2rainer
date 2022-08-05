@@ -14,6 +14,7 @@ package game.menus
    import net.flashpunk.Sfx;
    import net.flashpunk.utils.Input;
    import net.flashpunk.utils.Key;
+   import flash.display.StageDisplayState;
    
    public class MainMenu extends MattWorld
    {
@@ -79,6 +80,13 @@ package game.menus
       {
          Options.particles = !Options.particles;
          button.setText("Particles: " + this.getBoolName(Options.particles));
+      }
+
+      private function toggleFullscreen(button:MenuButton) : void
+      {
+         Options.fullscreen = !Options.fullscreen;
+         button.setText("Fullscreen: " + this.getBoolName(Options.fullscreen))
+         Main.instance.stage.displayState = Options.fullscreen ? StageDisplayState.FULL_SCREEN_INTERACTIVE : StageDisplayState.NORMAL;
       }
       
       override public function update() : void
