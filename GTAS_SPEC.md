@@ -4,7 +4,7 @@
 
 In GUR2aser, the names of `gtas` files matters for figuring out how to parse them. Information on how these names are structured is listed below.
 
-Individual commands in `gtas` files are separated using newlines. One command does not necessarily correspond to one frame of tas playback.
+Individual commands in `gtas` files are separated using newlines. One command does not necessarily correspond to one frame of TAS playback.
 
 ## Commands
 
