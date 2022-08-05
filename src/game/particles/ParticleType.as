@@ -12,7 +12,7 @@ package game.particles
       
       public var speed_add:Number;
       
-      var system:ParticleSystem;
+      public var system:ParticleSystem;
       
       public var frame:uint;
       

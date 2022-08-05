@@ -186,7 +186,7 @@ package game.particles
          t.color_end = 65280;
       }
       
-      function removeParticle(part:Particle) : void
+      public function removeParticle(part:Particle) : void
       {
          this.list.remove(part);
          this.particles.push(part);

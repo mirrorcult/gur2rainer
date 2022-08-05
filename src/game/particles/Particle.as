@@ -24,7 +24,7 @@ package game.particles
          originY = frameHeight / 2;
       }
       
-      function initParticle(type:ParticleType, x:Number, y:Number) : void
+      public function initParticle(type:ParticleType, x:Number, y:Number) : void
       {
          this.type = type;
          this.x = x;
@@ -36,7 +36,7 @@ package game.particles
          frame = type.frame;
       }
       
-      function tick() : void
+      public function tick() : void
       {
          this.life--;
          if(this.life <= 0)

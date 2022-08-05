@@ -154,7 +154,8 @@
 					continue;
 					
 				}
-				if ((a = list[i ++] as Array))
+				a = list[i ++] as Array;
+				if (a)
 				{
 					j = 0;
 					m = a.length;
@@ -180,7 +181,8 @@
 					continue;
 					
 				}
-				if ((a = list[i ++] as Array))
+				a = list[i ++] as Array;
+				if (a)
 				{
 					j = 0;
 					m = a.length;
@@ -431,7 +433,8 @@
 				{
 					while (x < toX)
 					{
-						if ((e = collidePoint(type, x, y)))
+						e = collidePoint(type, x, y);
+						if (e)
 						{
 							if (!p) return e;
 							if (precision < 2)
@@ -448,7 +451,8 @@
 				{
 					while (x > toX)
 					{
-						if ((e = collidePoint(type, x, y)))
+						e = collidePoint(type, x, y);
+						if (e)
 						{
 							if (!p) return e;
 							if (precision < 2)
@@ -469,7 +473,8 @@
 				{
 					while (y < toY)
 					{
-						if ((e = collidePoint(type, x, y)))
+						e = collidePoint(type, x, y);
+						if (e)
 						{
 							if (!p) return e;
 							if (precision < 2)
@@ -486,7 +491,8 @@
 				{
 					while (y > toY)
 					{
-						if ((e = collidePoint(type, x, y)))
+						e = collidePoint(type, x, y);
+						if (e)
 						{
 							if (!p) return e;
 							if (precision < 2)

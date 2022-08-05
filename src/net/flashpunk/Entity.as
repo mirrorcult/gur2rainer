@@ -183,7 +183,11 @@
 			var e:Entity;
 			for each (var type:String in types)
 			{
-				if ((e = collide(type, x, y))) return e;
+				e = collide(type, x, y)
+				if (e)
+				{
+					return e;
+				}
 			}
 			return null;
 		}
