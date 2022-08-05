@@ -1,6 +1,5 @@
 package
 {
-   import com.adultswim.Preroll.GlobalVarContainer;
    import flash.display.BitmapData;
    import flash.events.Event;
    import flash.net.SharedObject;
@@ -48,9 +47,7 @@ package
       public static const DEPTH_PLAYER:int = 0;
       
       public static const DEPTH_LINK:int = -10000;
-      
-      public static var gameName:String = GlobalVarContainer.vars.gameName;
-      
+            
       public static var particles:ParticleSystem;
       
       public static const DEPTH_BGEFFECT:int = 100;
@@ -66,11 +63,7 @@ package
       public static const DEPTH_TILES:int = -1;
       
       private static var BDScreen:BitmapData;
-      
-      public static var strDomain:String = GlobalVarContainer.vars.strDomain;
-      
-      private static const FACEBOOK_URL:String = "http://games.adultswim.com/give-up-robot-2-online-game.html?cid=GUR2_FB";
-      
+                  
       public static var tutorial:Tutorial;
       
       public static const DEPTH_BG:int = 1000;
@@ -164,8 +157,6 @@ package
       
       public static function submitFacebook() : void
       {
-         var url:URLRequest = new URLRequest("http://facebook.com/sharer.php?u=" + FACEBOOK_URL);
-         navigateToURL(url);
       }
       
       public static function screenShake(amount:uint) : void
@@ -282,17 +273,6 @@ package
             return "I played Give Up Robot 2 and scored " + Main.saveData.getScoreString() + ". I am now soaking in a bathtub filled with accomplishment. http://j.mp/aTBixk";
          }
          return "I played Give Up Robot 2 HARD MODE and scored " + Main.saveData.getScoreString() + ". I am now soaking in a bathtub filled with accomplishment. http://j.mp/aTBixk";
-      }
-      
-      public static function link(from:String) : void
-      {
-         var strURI:String = "http://games.adultswim.com";
-         var variables:URLVariables = new URLVariables();
-         variables.cid = "GAME_Ext_" + gameName + "_" + strDomain + "_" + from;
-         trace("variables.cid",variables.cid);
-         var request:URLRequest = new URLRequest(strURI);
-         request.data = variables;
-         navigateToURL(request,"_blank");
       }
       
       public static function beatenNormal() : Boolean

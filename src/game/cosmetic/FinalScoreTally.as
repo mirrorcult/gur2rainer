@@ -46,12 +46,6 @@ package game.cosmetic
          this.list.add(this.scoreText);
          Text.size = oldSize;
          FP.world.add(new MenuButton(x + 160,226,"Done",win.done,Assets.SndMenuCancel));
-         FP.world.add(new ImageButton(x + 110,160,SubmitLever.ImgTwitter,"Post score to Twitter!",Main.submitTwitter));
-         FP.world.add(new ImageButton(x + 160,160,SubmitLever.ImgFacebook,"Share with Facebook!",Main.submitFacebook));
-         FP.world.add(new ImageButton(x + 210,160,SubmitLever.ImgAdultSwim,"Play more awesome games!",function():void
-         {
-            Main.link("endofgame");
-         }));
       }
       
       override public function update() : void
