@@ -15,6 +15,7 @@ package game.menus
    import net.flashpunk.utils.Input;
    import net.flashpunk.utils.Key;
    import flash.display.StageDisplayState;
+   import flash.html.__HTMLScriptArray;
    
    public class MainMenu extends MattWorld
    {
@@ -99,6 +100,33 @@ package game.menus
          Options.fullscreen = !Options.fullscreen;
          button.setText("Fullscreen: " + this.getBoolName(Options.fullscreen))
          Main.instance.stage.displayState = Options.fullscreen ? StageDisplayState.FULL_SCREEN_INTERACTIVE : StageDisplayState.NORMAL;
+      }
+
+      private function toggleRecording(button:MenuButton) : void
+      {
+         Options.tasRecordingState = (Options.tasRecordingState + 1) % 4;
+         button.setText("TAS Recording: " + getRecordingStateName(Options.tasRecordingState))
+      }
+
+      private function togglePlayback(button:MenuButton) : void
+      {
+         Options.tasAutomaticPlayback = !Options.tasAutomaticPlayback;
+         button.setText("TAS Playback: " + (Options.tasAutomaticPlayback ? "Automatic" : "Manual"))
+      }
+
+      private function getRecordingStateName(state:int) : String
+      {
+         switch(state)
+         {
+            case Options.tasRecordingStateNone:
+               return "None";
+            case Options.tasRecordingStateManual:
+               return "Manual";
+            case Options.tasRecordingStateAll:
+               return "All";
+            default:
+               return "Fastest";
+         }
       }
       
       override public function update() : void
@@ -360,14 +388,16 @@ package game.menus
          Assets.setMusic(Assets.MusMenu);
          this.clearButtons();
          this.addButton(new MenuButton(160,225,"Back",this.gotoMain,Assets.SndMenuCancel));
-         this.addButton(new MenuButton(80,80,"Show Coins: " + this.getBoolName(Options.showCoins),this.toggleShowCoins,Assets.instance.SndMenuSelect));
-         this.addButton(new MenuButton(80,100,"Show Time: " + this.getBoolName(Options.showTime),this.toggleShowTime,Assets.instance.SndMenuSelect));
-         this.addButton(new MenuButton(80,120,"UP to Jump: " + this.getBoolName(Options.upToJump),this.toggleUpToJump,Assets.instance.SndMenuSelect));
-         this.addButton(new MenuButton(80,140,"Robot Voice: " + this.getBoolName(Options.voices),this.toggleVoice,Assets.instance.SndMenuSelect));
-         this.addButton(new MenuButton(80,160,"Audio: " + this.getVolumeName(),this.switchVolume,Assets.instance.SndMenuSelect));
-         this.addButton(new MenuButton(80,180,"Particles: " + this.getBoolName(Options.particles),this.toggleParticles,Assets.instance.SndMenuSelect));
-         this.addButton(new MenuButton(80,200,"Practice Mode: " + this.getBoolName(Options.practiceMode),this.togglePractice,Assets.instance.SndMenuSelect));
-         this.addButton(new MenuButton(240,80,"Fullscreen: " + this.getBoolName(Options.fullscreen),this.toggleFullscreen,Assets.instance.SndMenuSelect));
+         this.addButton(new MenuButton(160,65,"Show Coins: " + this.getBoolName(Options.showCoins),this.toggleShowCoins,Assets.instance.SndMenuSelect, true, 12));
+         this.addButton(new MenuButton(160,80,"Show Time: " + this.getBoolName(Options.showTime),this.toggleShowTime,Assets.instance.SndMenuSelect, true, 12));
+         this.addButton(new MenuButton(160,95,"UP to Jump: " + this.getBoolName(Options.upToJump),this.toggleUpToJump,Assets.instance.SndMenuSelect, true, 12));
+         this.addButton(new MenuButton(160,110,"Robot Voice: " + this.getBoolName(Options.voices),this.toggleVoice,Assets.instance.SndMenuSelect, true, 12));
+         this.addButton(new MenuButton(160,125,"Audio: " + this.getVolumeName(),this.switchVolume,Assets.instance.SndMenuSelect, true, 12));
+         this.addButton(new MenuButton(160,140,"Particles: " + this.getBoolName(Options.particles),this.toggleParticles,Assets.instance.SndMenuSelect, true, 12));
+         this.addButton(new MenuButton(160,155,"Practice Mode: " + this.getBoolName(Options.practiceMode),this.togglePractice,Assets.instance.SndMenuSelect, true, 12));
+         this.addButton(new MenuButton(160,170,"Fullscreen: " + this.getBoolName(Options.fullscreen),this.toggleFullscreen,Assets.instance.SndMenuSelect, true, 12));
+         this.addButton(new MenuButton(160,185,"TAS Recording: " + getRecordingStateName(Options.tasRecordingState),this.toggleRecording,Assets.instance.SndMenuSelect, true, 12));
+         this.addButton(new MenuButton(160,200,"TAS Playback: " + (Options.tasAutomaticPlayback ? "Automatic" : "Manual"),this.togglePlayback,Assets.instance.SndMenuSelect, true, 12));
       }
       
       private function gotoStats(m:MenuButton = null) : void

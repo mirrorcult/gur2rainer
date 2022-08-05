@@ -103,6 +103,8 @@ package game.engine
       public var practice:Boolean;
       
       public var countTime:Boolean;
+
+      public var tasWatermark:TASWatermark;
       
       public function Level(mode:uint, num:uint, alwaysPractice:Boolean = false, str:String = null)
       {
@@ -421,7 +423,7 @@ package game.engine
             add(this.drawTime = new DrawTime(this));
          }
          this.setMusic(world);
-         add(new TASWatermark());
+         add(this.tasWatermark = new TASWatermark());
          this.changing = false;
       }
       

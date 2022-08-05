@@ -4,10 +4,16 @@ package game
    import net.flashpunk.FP;
    import net.flashpunk.utils.Input;
    import net.flashpunk.utils.Key;
-   
+
    public class Options
    {
-      
+      // tas recording state enum
+      public static const tasRecordingStateNone:int    = 0;
+      public static const tasRecordingStateManual:int  = 1;
+      public static const tasRecordingStateAll:int      = 2;
+      public static const tasRecordingStateFastest:int = 3;
+      // end enum
+
       public static var voices:Boolean;
       
       private static var _upToJump:Boolean;
@@ -21,6 +27,10 @@ package game
       public static var practiceMode:Boolean;
 
       public static var fullscreen:Boolean;
+
+      public static var tasRecordingState:int;
+
+      public static var tasAutomaticPlayback:Boolean;
       
       public function Options()
       {
@@ -57,6 +67,8 @@ package game
          obj.data.options.particles = particles;
          obj.data.options.practiceMode = practiceMode;
          obj.data.options.fullscreen = fullscreen;
+         obj.data.options.tasRecordingState = tasRecordingState;
+         obj.data.options.tasAutomaticPlayback = tasAutomaticPlayback;
       }
       
       public static function loadOptions() : void
@@ -72,6 +84,8 @@ package game
             particles = true;
             practiceMode = false;
             fullscreen = false;
+            tasRecordingState = tasRecordingStateFastest;
+            tasAutomaticPlayback = false;
          }
          else
          {
@@ -83,6 +97,8 @@ package game
             particles = obj.data.options.particles;
             practiceMode = obj.data.options.practiceMode;
             fullscreen = obj.data.options.fullscreen;
+            tasRecordingState = obj.data.options.tasRecordingState;
+            tasAutomaticPlayback = obj.data.options.tasAutomaticPlayback;
          }
       }
    }
