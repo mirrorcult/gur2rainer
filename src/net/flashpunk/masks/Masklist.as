@@ -129,7 +129,8 @@
 			var t:int, l:int, r:int, b:int, h:Hitbox, i:int = _count;
 			while (i --)
 			{
-				if ((h = _masks[i] as Hitbox))
+				h = _masks[i] as Hitbox;
+				if (h)
 				{
 					if (h._x < l) l = h._x;
 					if (h._y < t) t = h._y;
