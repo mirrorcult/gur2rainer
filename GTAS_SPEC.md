@@ -28,7 +28,7 @@ A (grapple)
 Z (grapple)
 ```
 
-`FRAMEHOLD`
+`FRAMEHOLD` defines how many frames the given input should last for. It defaults to **1** if no framehold is listed, as in the first case.
 
 An empty line is a valid input command.
 
