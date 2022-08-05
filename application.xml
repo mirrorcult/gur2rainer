@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <application xmlns="http://ns.adobe.com/air/application/32.0">
-  <id>Gur2rainer</id>
+  <id>GUR2aser</id>
   <versionNumber>1.0</versionNumber>
-  <filename>GUR2rainer</filename>
+  <filename>GUR2aser</filename>
   <name>
-    <text xml:lang="en">GUR2rainer</text>
+    <text xml:lang="en">GUR2aser</text>
   </name>
   <description>
     <text xml:lang="en">yea</text>
   </description>
   <initialWindow>
-    <title>GUR2rainer</title>
-    <content>GUR2rainer.swf</content>
+    <title>GUR2aser</title>
+    <content>GUR2aser.swf</content>
     <systemChrome>standard</systemChrome>
     <transparent>false</transparent>
     <visible>true</visible>
