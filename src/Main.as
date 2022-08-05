@@ -78,12 +78,14 @@ package
       
       public static const DEPTH_SPEECH:int = -7;
        
+      public static var instance:Main;
       
       private var focus:Boolean = true;
       
       public function Main()
       {
          super(320,240,60,true);
+         instance = this;
          FP.screen.scale = 2;
          FP.screen.color = 0;
          Input.define("right",Key.RIGHT);
