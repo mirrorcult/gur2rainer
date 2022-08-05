@@ -22,10 +22,12 @@ where `KEYS` define the keys to hold down with no spaces between them (or nothin
 ```
 R (right)
 L (left)
-U (up)
+U (up / jump)
 D (down)
 A (grapple)
 Z (grapple)
+X (jump)
+S (jump)
 ```
 
 `FRAMEHOLD` defines how many frames the given input should last for. It defaults to **1** if no framehold is listed, as in the first case.
