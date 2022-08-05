@@ -38,9 +38,10 @@ package game.menus
          this.onClick = onClick;
          this.sound = sound;
          graphic = this.list = new Graphiclist();
+         var bd:BitmapData;
          if (largeBg) 
          {
-            var bd:BitmapData = new BitmapData(320,20,true,4294967295);
+            bd = new BitmapData(320,20,true,4294967295);
             this.bg = new Image(bd);
             this.bg.alpha = 0.4;
             this.bg.color = 16711680;
@@ -52,7 +53,7 @@ package game.menus
          }
          else
          {
-            var bd:BitmapData = new BitmapData(size * 2,size * 2,true,4294967295);
+            bd = new BitmapData(size * 2,size * 2,true,4294967295);
             this.bg = new Image(bd);
             this.bg.x = x - size;
             this.bg.y = y - size;

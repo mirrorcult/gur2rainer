@@ -711,7 +711,7 @@ package net.flashpunk.debug
 					for each (var i:String in WATCH_LIST)
 					{
 						if (!e.hasOwnProperty(i)) continue;
-						var val = e[i];
+						var val:* = e[i];
 						if (val is Number) val = Math.round(val * 100) / 100
 						s += "\n" + i + ": " + val.toString();
 					}
