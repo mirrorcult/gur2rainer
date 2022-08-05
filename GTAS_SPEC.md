@@ -1,6 +1,6 @@
 # `gtas` File Specification v1.0
 
-This is version 1.0 of the file specification for `gtas`. `gtas` is a file format intended for use by GUR2aser. It defines how inputs should be processed on a frame-by-frame basis for TAS playback. `gtas` files are plain-text and are easily parsable by humans and machines. Their file extension is `.gtas`.
+`gtas` is a file format intended for use by GUR2aser. It defines how inputs should be processed on a frame-by-frame basis for TAS playback. `gtas` files are plain-text and are easily parsable by humans and machines. Their file extension is `.gtas`.
 
 In GUR2aser, the names of `gtas` files matters for figuring out how to parse them. Information on how these names are structured is listed below.
 
@@ -62,7 +62,7 @@ Comments are entirely ignored and the next input is processed immediately with n
 [MODE][LEVEL]_[FRAMECOUNT].gtas
 ```
 
-`MODE` and `LEVEL` can be the following, inclusive:
+`MODE` and `LEVEL` respectively can be the following, level number inclusive:
 
 - `L` (normal): 1 to 61
 - `H` (hard): 1 to 13
