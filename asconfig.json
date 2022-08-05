@@ -23,5 +23,7 @@
 	},
 	"files": [
 		"src/Main.as"
-	]
+	],
+	"config": "air",
+	"application": "application.xml"
 }
