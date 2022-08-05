@@ -177,17 +177,20 @@ package net.flashpunk.debug
 			
 			// The button panel buttons.
 			_sprite.addChild(_butRead);
-			_butRead.addChild(_butDebug = new CONSOLE_DEBUG).x = -60;
 			_butRead.addChild(_butOutput = new CONSOLE_OUTPUT).x = -40;
 			_butRead.addChild(_butPlay = new CONSOLE_PLAY).x = -20;
 			_butRead.addChild(_butPause = new CONSOLE_PAUSE).x = -20;
 			_butRead.addChild(_butStep = new CONSOLE_STEP);
 			updateButtons();
+
+			// TAS console menu.
+			_sprite.addChild(_tasConsole)
+			_tasConsole.Enable(this);
 			
 			// The button panel.
 			_butRead.graphics.clear();
 			_butRead.graphics.beginFill(0, .75);
-			_butRead.graphics.drawRoundRectComplex(-80, 0, 120, 20, 0, 0, 20, 20);
+			_butRead.graphics.drawRoundRectComplex(-60, 0, 100, 20, 0, 0, 20, 20);
 			
 			// Set the state to unpaused.
 			paused = false;
@@ -745,21 +748,11 @@ package net.flashpunk.debug
 		{
 			// Button visibility.
 			_butRead.x = _fpsInfo.x + _fpsInfo.width + int((_entRead.x - (_fpsInfo.x + _fpsInfo.width)) / 2) - 30;
-			_butDebug.visible = true;
 			_butOutput.visible = true;
 			_butPlay.visible = FP.engine.paused;
 			_butPause.visible = !FP.engine.paused;
-			
-			// Load TAS file
-			if (_butDebug.bitmapData.rect.contains(_butDebug.mouseX, _butDebug.mouseY))
-			{
-				_butDebug.alpha = 1;
-				//TODO TAS
-				//if (Input.mousePressed) _renderBoxes = !_renderBoxes;
-			}
-			else _butDebug.alpha = .5;
+			_tasConsole.visible = FP.engine.paused;
 
-			// Load TAS file
 			if (_butOutput.bitmapData.rect.contains(_butOutput.mouseX, _butOutput.mouseY))
 			{
 				_butOutput.alpha = 1;
@@ -786,10 +779,22 @@ package net.flashpunk.debug
 				if (Input.mousePressed) stepFrame();
 			}
 			else _butStep.alpha = .5;
+
+			if (!_tasConsole.SaveButton) return;
+
+			if (_tasConsole.SaveButton.bitmapData.rect.contains(_tasConsole.SaveButton.mouseX, _tasConsole.SaveButton.mouseY))
+			{
+				_tasConsole.SaveButton.alpha = 1;
+				if (Input.mousePressed)
+				{
+					// Save inputs to tas state
+				}
+			}
+			else _tasConsole.SaveButton.alpha = .5;
 		}
 		
 		/** @private Gets a TextFormat object with the formatting. */
-		private function format(size:uint = 16, color:uint = 0xFFFFFF, align:String = "left"):TextFormat
+		public function format(size:uint = 16, color:uint = 0xFFFFFF, align:String = "left"):TextFormat
 		{
 			_format.size = size;
 			_format.color = color;
@@ -843,7 +848,6 @@ package net.flashpunk.debug
 		
 		// Button panel information
 		/** @private */ private var _butRead:Sprite = new Sprite;
-		/** @private */ private var _butDebug:Bitmap;
 		/** @private */ private var _butOutput:Bitmap;
 		/** @private */ private var _butPlay:Bitmap;
 		/** @private */ private var _butPause:Bitmap;
@@ -855,6 +859,8 @@ package net.flashpunk.debug
 		/** @private */ private var _entRect:Rectangle = new Rectangle;
 
 		private var _renderBoxes:Boolean = true;
+
+		private var _tasConsole:TASConsole = new TASConsole;
 		
 		// Log information.
 		/** @private */ private var _logLines:uint = 33;
