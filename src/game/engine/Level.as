@@ -584,14 +584,25 @@ package game.engine
 
       public function toString() : String
       {
-         if (this.mode == 0)
+         var prefix:String;
+         if (this is StartLevel)
          {
-            return "L" + this.levelNum;
+            prefix = "S";
+         }
+         else if (this is EndLevel)
+         {
+            prefix = "E";
+         }
+         else if (this.mode == 0)
+         {
+            prefix = "L";
          }
          else
          {
-            return "H" + this.levelNum;
+            prefix = "H";
          }
+
+         return prefix + levelNum;
       }
 
       protected function levelExists(mode:uint, num:uint) : Boolean
