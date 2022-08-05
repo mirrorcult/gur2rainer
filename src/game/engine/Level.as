@@ -48,6 +48,7 @@ package game.engine
    import game.cosmetic.TilesHard;
    import game.cosmetic.Transition;
    import game.menus.MainMenu;
+   import game.menus.TASWatermark;
    import game.tutorial.Tutorial1;
    import game.tutorial.Tutorial2;
    import game.tutorial.Tutorial3;
@@ -420,6 +421,7 @@ package game.engine
             add(this.drawTime = new DrawTime(this));
          }
          this.setMusic(world);
+         add(new TASWatermark());
          this.changing = false;
       }
       
