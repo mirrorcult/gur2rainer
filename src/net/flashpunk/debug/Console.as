@@ -756,7 +756,19 @@ package net.flashpunk.debug
 			if (_butOutput.bitmapData.rect.contains(_butOutput.mouseX, _butOutput.mouseY))
 			{
 				_butOutput.alpha = 1;
-				if (Input.mousePressed) _renderBoxes = !_renderBoxes;
+				if (Input.mousePressed)
+				{
+					_renderBoxes = !_renderBoxes;
+					// Timescale change testing below.
+					/*if (!_renderBoxes)
+					{
+						FP.engine.setFrameRate(600);
+					}
+					else
+					{
+						FP.engine.setFrameRate(60);
+					}*/
+				} 
 			}
 			else _butOutput.alpha = .5;
 			

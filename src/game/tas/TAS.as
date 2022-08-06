@@ -6,6 +6,7 @@ package game.tas
     import flash.filesystem.FileStream;
     import flash.filesystem.FileMode;
     import flash.html.__HTMLScriptArray;
+    import net.flashpunk.FP;
 
     public class TAS
     {
@@ -46,7 +47,7 @@ package game.tas
 
             if (_idx >= PlaybackBuffer.length)
             {
-                _playingBack = false;
+                StopPlayback();
                 return;
             }
 
@@ -94,7 +95,15 @@ package game.tas
                 }
                 case TASCommand.TIMESCALE:
                 {
-                    // TODO
+                    var desired:Number = FP.assignedFrameRate * c.Data as Number;
+                    if (desired == 0)
+                    {
+                        FP.engine.paused = true;
+                    }
+                    else
+                    {
+                        FP.engine.setFrameRate(desired);
+                    }
                     break;
                 }
             }
@@ -146,8 +155,15 @@ package game.tas
         public function FlushPlayback() : void
         {
             PlaybackBuffer = new Vector.<TASCommand>();
+            StopPlayback();
+        }
+
+        public function StopPlayback() : void
+        {
             _idx = 0;
             _playingBack = false;
+            // Timescale modifier might change this so let's set it back juuuust in case
+            FP.engine.setFrameRate(60);
         }
 
         /* End */

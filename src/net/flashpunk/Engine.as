@@ -110,7 +110,6 @@
 		 */
 		public function setStageProperties():void
 		{
-			stage.frameRate = FP.assignedFrameRate;
 			stage.align = StageAlign.TOP_LEFT;
 			stage.quality = StageQuality.HIGH;
 			stage.scaleMode = StageScaleMode.SHOW_ALL;
@@ -126,6 +125,7 @@
 			// set stage properties
 			FP.stage = stage;
 			setStageProperties();
+			setFrameRate(FP.assignedFrameRate);
 			
 			// enable input
 			Input.enable();
@@ -137,11 +137,9 @@
 			init();
 			
 			// start game loop
-			_rate = 1000 / FP.assignedFrameRate;
 			if (FP.fixed)
 			{
 				// fixed framerate
-				_skip = _rate * MAX_FRAMESKIP;
 				_last = _prev = getTimer();
 				_timer = new Timer(TICK_RATE);
 				_timer.addEventListener(TimerEvent.TIMER, onTimer);
@@ -152,6 +150,16 @@
 				// nonfixed framerate
 				_last = getTimer();
 				addEventListener(Event.ENTER_FRAME, onEnterFrame);
+			}
+		}
+
+		public function setFrameRate(frameRate:Number) : void
+		{
+			stage.frameRate = frameRate;
+			_rate = 1000 / frameRate;
+			if (FP.fixed)
+			{
+				_skip = _rate * MAX_FRAMESKIP;
 			}
 		}
 		
