@@ -51,7 +51,7 @@ package game.cosmetic
          this.bg.alpha = 0;
          this.list.add(this.bg);
          Text.size = 32;
-         this.title = new Text("Level Complete!",160,40);
+         this.title = new Text("TAS",160,40);
          this.title.scrollX = this.title.scrollY = 0;
          this.title.color = this.C_TEXT;
          this.title.alpha = 0;
