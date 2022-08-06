@@ -22,8 +22,8 @@ package game.tas
         // The current index into the playback buffer. Not necessarily related to framecount/time.
         private var _idx:uint;
 
-        private var _recording:Boolean = false;
-        private var _playingBack:Boolean = false;
+        public var _recording:Boolean = false;
+        public var _playingBack:Boolean = false;
 
         public function TAS()
         {
@@ -41,23 +41,21 @@ package game.tas
                 {
                     RecordBuffer.push(PlaybackBuffer[_idx]);
                 }
-
-                // Take inputs from flashpunk, if there are any.
-                // Don't overwrite
-
-                var inp:Vector.<int> = new Vector.<int>;
-                for (var i:int = 0; i < Input.allKeys.length; i++)
+                else
                 {
-                    if (!Input.allKeys[i]) continue;
-                    if (!TASUtility.ToKey[i]) continue;
-                    inp.push(i);
-                }
+                    // Take inputs from flashpunk, if there are any.
+                    // Don't overwrite
 
-                var gtas:String = TASUtility.ToGTASInputs(inp);
+                    var inp:Vector.<int> = new Vector.<int>;
+                    for (var i:int = 0; i < Input.allKeys.length - 1; i++)
+                    {
+                        if (!Input.allKeys[i]) continue;
+                        if (!TASUtility.ToKey[i]) continue;
+                        inp.push(i);
+                    }
 
-                // Only push if we aren't overwriting anything.
-                if (gtas != "" && !_playingBack)
-                {
+                    var gtas:String = TASUtility.ToGTASInputs(inp);
+
                     RecordBuffer.push(new TASCommand(TASCommand.INPUT, gtas));
                 }
             }
@@ -219,20 +217,21 @@ package game.tas
 
         public function get CurInput() : String
         {
-            if (_idx >= PlaybackBuffer.length) return "";
             // This shouldn't actually be possible, but might as well.
-            if (PlaybackBuffer[_idx].Type != TASCommand.INPUT) return "";
+            if (RecordBuffer[RecordBuffer.length - 1].Type != TASCommand.INPUT) return "";
 
-            return PlaybackBuffer[_idx].Data as String;
+            return RecordBuffer[RecordBuffer.length - 1].Data as String;
         }
 
         public function set CurInput(data:String) : void
         {
-            if (_idx >= PlaybackBuffer.length) return;
             // This shouldn't actually be possible, but might as well.
-            if (PlaybackBuffer[_idx].Type != TASCommand.INPUT) return;
+            // We set the record buffer here because that's what matters.
+            // Setting the playback buffer in nextinput functions the same, as that cascades down to record buffer anyway.
+            // But this has already passed, so we need to set it ourselves.
+            if (RecordBuffer[RecordBuffer.length - 1].Type != TASCommand.INPUT) return;
 
-            PlaybackBuffer[_idx].Data = data;
+            RecordBuffer[RecordBuffer.length - 1].Data = data;
         }
 
         // Find whatever the next input command's data is. Not necessarily the 'next' command.

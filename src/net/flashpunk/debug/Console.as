@@ -15,6 +15,7 @@ package net.flashpunk.debug
 	import net.flashpunk.utils.Draw;
 	import net.flashpunk.utils.Input;
 	import net.flashpunk.utils.Key;
+	import game.tas.TASUtility;
 	
 	/**
 	 * FlashPunk debug console; can use to log information or pause the game and view/move Entities and step the frame.
@@ -364,6 +365,7 @@ package net.flashpunk.debug
 		/** @private Steps the frame ahead. */
 		private function stepFrame():void
 		{
+			FP.tas.Update();
 			FP.engine.update();
 			FP.engine.render();
 			updateEntityCount();
@@ -751,7 +753,13 @@ package net.flashpunk.debug
 			_butOutput.visible = true;
 			_butPlay.visible = FP.engine.paused;
 			_butPause.visible = !FP.engine.paused;
-			_tasConsole.visible = FP.engine.paused;
+			_tasConsole.visible = FP.engine.paused && FP.tas._playingBack;
+
+			if (_tasConsole.visible)
+			{
+				_tasConsole.CurrentFrameField.text = FP.tas.CurInput;
+				_tasConsole.NextFrameField.text = FP.tas.NextInput;
+			}
 
 			if (_butOutput.bitmapData.rect.contains(_butOutput.mouseX, _butOutput.mouseY))
 			{
@@ -800,6 +808,14 @@ package net.flashpunk.debug
 				if (Input.mousePressed)
 				{
 					// Save inputs to tas state
+					if (TASUtility.ValidateGTASInputs(_tasConsole.CurrentFrameField.text))
+					{
+						FP.tas.CurInput = _tasConsole.CurrentFrameField.text;
+					}
+					if (TASUtility.ValidateGTASInputs(_tasConsole.NextFrameField.text))
+					{
+						FP.tas.NextInput = _tasConsole.NextFrameField.text;
+					}
 				}
 			}
 			else _tasConsole.SaveButton.alpha = .5;

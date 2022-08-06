@@ -33,6 +33,23 @@ package game.tas
             FromKey[Key.S] = "S";
         }
 
+        // Returns true if all keys are valid.
+        public static function ValidateGTASInputs(gtas:String):Boolean
+        {
+            gtas = gtas.toUpperCase();
+
+            if (gtas == "")
+                return true;
+
+            for (var i:int = 0; i < gtas.length; i++)
+            {
+                var c:String = gtas.charAt(i);
+                if (!FromKey[c]) return false;
+            }
+
+            return true;
+        }
+
         // Converts a string of GTAS inputs to a vector of int keycodes.
         public static function FromGTASInputs(gtas:String) : Vector.<int>
         {
