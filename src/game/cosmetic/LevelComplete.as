@@ -10,6 +10,7 @@ package game.cosmetic
    import net.flashpunk.graphics.Text;
    import net.flashpunk.utils.Input;
    import net.flashpunk.utils.Key;
+   import game.Options;
    
    public class LevelComplete extends Entity
    {
@@ -88,10 +89,26 @@ package game.cosmetic
          
          Text.size = 8;
          this.bottomText = new Text("ENTER - Restart                T - Save TAS File",160,234);
+
          this.bottomText.scrollX = this.bottomText.scrollY = 0;
          this.bottomText.color = this.C_TEXT;
          this.bottomText.centerOO();
          this.list.add(this.bottomText);
+
+         var level:Level = (FP.world as Level);
+         if (Options.tasRecordingState == Options.tasRecordingStateAll
+         || (Options.tasRecordingState == Options.tasRecordingStateFastest && newHighScore))
+         {
+            this.savedTas = true;
+            FP.tas.Write(level);
+            this.bottomText.text = "ENTER - Restart                Saved TAS file!  ";
+            this.bottomText.centerOO();
+         }
+         else if (Options.tasRecordingState == Options.tasRecordingStateNone)
+         {
+            this.bottomText.text = "ENTER - Restart                                 ";
+            this.bottomText.centerOO();
+         }
       }
       
       override public function update() : void
@@ -106,6 +123,7 @@ package game.cosmetic
          if (Input.pressed("tas") && !savedTas)
          {
             // Save tas file
+            FP.tas.Write(FP.world as Level);
             this.bottomText.text = "ENTER - Restart                Saved TAS file!  ";
             this.bottomText.centerOO();
             savedTas = true;

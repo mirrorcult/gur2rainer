@@ -7,6 +7,7 @@ package game.tas
     import flash.filesystem.FileMode;
     import flash.html.__HTMLScriptArray;
     import net.flashpunk.FP;
+    import game.engine.Level;
 
     public class TAS
     {
@@ -32,6 +33,8 @@ package game.tas
 
         public function Update() : void
         {
+            if (!_playingBack && !_recording) return;
+
             _frameCount++;
 
             if (_recording)
@@ -45,14 +48,14 @@ package game.tas
                 // Don't overwrite
             }
 
-            if (_idx >= PlaybackBuffer.length)
-            {
-                StopPlayback();
-                return;
-            }
-
             if (_playingBack)
             {
+                if (_idx >= PlaybackBuffer.length)
+                {
+                    StopPlayback();
+                    return;
+                }
+
                 Execute();
 
                 // Is there a next command to process?
@@ -111,12 +114,20 @@ package game.tas
 
         /* Write/Read/Start/Stop API */
 
-        // Writes the record buffer into a GTAS file, then flushes it.
-        public function Write(file:File) : void
+        // Writes the record buffer into a GTAS file for this level, then flushes it.
+        public function Write(level:Level) : void
         {
+            var file:File = TASUtility.GetGTASFile(level, _frameCount);
+
+            // Don't overwrite a file that might have manual comments or formatting.
+            if (file.exists)
+                return;
+
+            file.parent.createDirectory();
+            
             var fileStream:FileStream = new FileStream();
             fileStream.open(file, FileMode.WRITE);
-            fileStream.writeUTF(TASParser.EmitGTAS(PlaybackBuffer));
+            fileStream.writeUTF(TASParser.EmitGTAS(RecordBuffer));
             fileStream.close();
             FlushRecording();
         }
@@ -136,8 +147,17 @@ package game.tas
 
         // Loads a GTAS file into the playback buffer.
         // Flushes playback but does not start playback.
-        public function Load(file:File) : void
+        // Loads the fastest file it can find.
+        public function Load(level:Level) : void
         {
+            var file:File = TASUtility.GetFastestGTASFile(level);
+
+            if (file == null)
+                return;
+
+            if (!file.exists)
+                return;
+
             FlushPlayback();
             var fileStream:FileStream = new FileStream();
             fileStream.open(file, FileMode.READ);
@@ -156,6 +176,7 @@ package game.tas
         {
             PlaybackBuffer = new Vector.<TASCommand>();
             StopPlayback();
+            _frameCount = 0;
         }
 
         public function StopPlayback() : void

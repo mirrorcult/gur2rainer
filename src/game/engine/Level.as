@@ -105,6 +105,8 @@ package game.engine
       public var countTime:Boolean;
 
       public var tasWatermark:TASWatermark;
+
+      private var tasNextRestart:Boolean = false;
       
       public function Level(mode:uint, num:uint, alwaysPractice:Boolean = false, str:String = null)
       {
@@ -225,10 +227,18 @@ package game.engine
                add(new Transition(Main.getLevel()));
             }
          }
+         if(Input.pressed("tas") && !Options.tasAutomaticPlayback)
+         {
+            player.die()
+            tasNextRestart = true;
+         }
       }
       
       public function restart(transition:Transition = null) : void
       {
+         FP.tas.FlushPlayback();
+         FP.tas.FlushRecording();
+
          var o:XML = null;
          var oo:XML = null;
          var s:StartUp = null;
@@ -425,6 +435,14 @@ package game.engine
          this.setMusic(world);
          add(this.tasWatermark = new TASWatermark());
          this.changing = false;
+
+         FP.tas.StartRecording();
+         if (Options.tasAutomaticPlayback || tasNextRestart)
+         {
+            tasNextRestart = false;
+            FP.tas.Load(this);
+            FP.tas.StartPlayback();
+         }
       }
       
       public function spawn() : void
@@ -586,7 +604,7 @@ package game.engine
          }
       }
 
-      public function toString() : String
+      public function getPrefix(): String
       {
          var prefix:String;
          if (this is StartLevel)
@@ -606,6 +624,12 @@ package game.engine
             prefix = "H";
          }
 
+         return prefix;
+      }
+
+      public function toString() : String
+      {
+         var prefix:String = getPrefix();
          return prefix + levelNum;
       }
 
