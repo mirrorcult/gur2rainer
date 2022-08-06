@@ -119,40 +119,6 @@ package
 
          // player vars
          FP.console.watch("hSpeed", "vSpeed", "momentum", "radius", "canGrapple", "timeLeft", "coinsLeft", "endY", "startY", "counter", "thrust", "health");
-
-         MC_MEMORY_WATCH = new MovieClip();
-			MC_MEMORY_WATCH.MC_LIST = new MovieClip();
-			MC_MEMORY_WATCH.MC_MASK = new MovieClip();
-			MC_MEMORY_WATCH.TEXT_FIELD = new TextField();
-			MC_MEMORY_WATCH.TEXT_FORMAT = new TextFormat("default",12,16777215,null,null,null,null,null,"left",null,null,null,null);
-			MC_MEMORY_WATCH.TEXT_FIELD.autoSize = "left";
-			MC_MEMORY_WATCH.TEXT_FIELD.embedFonts = true;
-			MC_MEMORY_WATCH.TEXT_FIELD.selectable = false;
-			MC_MEMORY_WATCH.TEXT_FIELD.text = "Memory Watch";
-			MC_MEMORY_WATCH.TEXT_FIELD.textColor = 16777215;
-			MC_MEMORY_WATCH.TEXT_FIELD.setTextFormat(MC_MEMORY_WATCH.TEXT_FORMAT);
-			MC_MEMORY_WATCH.visible = false;
-			MC_MEMORY_WATCH.MC_LIST.mask = MC_MEMORY_WATCH.MC_MASK;
-			MC_MEMORY_WATCH.MC_LIST.TEXT_FIELD = new TextField();
-			MC_MEMORY_WATCH.MC_LIST.TEXT_FORMAT = new TextFormat("default",12,16777215,null,null,null,null,null,"left",null,null,null,null);
-			MC_MEMORY_WATCH.MC_LIST.TEXT_FIELD.autoSize = "left";
-			MC_MEMORY_WATCH.MC_LIST.TEXT_FIELD.embedFonts = true;
-			MC_MEMORY_WATCH.MC_LIST.TEXT_FIELD.selectable = false;
-			MC_MEMORY_WATCH.MC_LIST.TEXT_FIELD.x = 0;
-			MC_MEMORY_WATCH.MC_LIST.TEXT_FIELD.y = MC_MEMORY_WATCH.TEXT_FIELD.height;
-			MC_MEMORY_WATCH.graphics.beginFill(0,0.75);
-			MC_MEMORY_WATCH.graphics.drawRect(0,0,480 * 0.5,640 * 0.22 * 0.75);
-			MC_MEMORY_WATCH.graphics.endFill();
-			MC_MEMORY_WATCH.x = 640 - MC_MEMORY_WATCH.width;
-			MC_MEMORY_WATCH.y = 0;
-			MC_MEMORY_WATCH.MC_MASK.graphics.beginFill(0,0);
-			MC_MEMORY_WATCH.MC_MASK.graphics.drawRect(0,0,480 * 0.5,640 * 0.22 * 0.75);
-			MC_MEMORY_WATCH.MC_MASK.graphics.endFill();
-			MC_MEMORY_WATCH.addChild(MC_MEMORY_WATCH.MC_LIST);
-			MC_MEMORY_WATCH.addChild(MC_MEMORY_WATCH.MC_MASK);
-			MC_MEMORY_WATCH.addChild(MC_MEMORY_WATCH.TEXT_FIELD);
-			MC_MEMORY_WATCH.MC_LIST.addChild(MC_MEMORY_WATCH.MC_LIST.TEXT_FIELD);
-			stage.addChild(MC_MEMORY_WATCH);
       }
       
       public static function submitFacebook() : void
