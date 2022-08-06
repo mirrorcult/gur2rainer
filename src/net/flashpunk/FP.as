@@ -12,6 +12,7 @@
 	import flash.utils.getTimer;
 	import net.flashpunk.*;
 	import net.flashpunk.debug.Console;
+	import game.tas.TAS;
 	
 	/**
 	 * Static catch-all class used to access global properties and functions.
@@ -77,6 +78,8 @@
 		 * Point used to determine drawing offset in the render loop.
 		 */
 		public static var camera:Point = new Point;
+
+		public static var tas:TAS;
 		
 		/**
 		 * The currently active World object. When you set this, the World is flagged

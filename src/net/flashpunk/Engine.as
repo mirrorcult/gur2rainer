@@ -14,6 +14,7 @@
 	import flash.utils.Timer;
 	import net.flashpunk.utils.Draw;
 	import net.flashpunk.utils.Input;
+	import game.tas.TAS;
 	
 	/**
 	 * Main game Sprite class, added to the Flash Stage. Manages the game loop.
@@ -45,6 +46,7 @@
 			FP.screen = new Screen;
 			FP.bounds = new Rectangle(0, 0, width, height);
 			FP._world = new World;
+			FP.tas = new TAS;
 			
 			// miscellanious startup stuff
 			if (FP.randomSeed == 0) FP.randomizeSeed();
@@ -72,6 +74,8 @@
 			var t:Number = getTimer();
 			if (!_frameLast) _frameLast = t;
 			
+			FP.tas.Update();
+
 			// update loop
 			if (FP._world.active)
 			{
