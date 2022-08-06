@@ -227,7 +227,7 @@ package game.engine
                add(new Transition(Main.getLevel()));
             }
          }
-         if(Input.pressed("tas") && !Options.tasAutomaticPlayback)
+         if(Input.pressed("tas") && !Options.tasAutomaticPlayback && player.active)
          {
             player.die()
             tasNextRestart = true;

@@ -16,13 +16,13 @@ package game.cosmetic
    {
        
       
-      private var C_BG:uint = 6729505;
+      private var C_BG:uint = 0x1a7574;
       
       private var bg:Image;
       
       private var coins:Text;
       
-      private var C_TEXT:uint = 16777013;
+      private var C_TEXT:uint = 0xffffff;
       
       private var time:Text;
 

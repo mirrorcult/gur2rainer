@@ -8,6 +8,7 @@ package game.tas
     import flash.html.__HTMLScriptArray;
     import net.flashpunk.FP;
     import game.engine.Level;
+    import game.engine.SaveData;
 
     public class TAS
     {
@@ -17,10 +18,8 @@ package game.tas
         // Stores the commands currently being played back.
         public var PlaybackBuffer:Vector.<TASCommand>;
 
-        // The current index into the playback buffer. Not necessarily related to framecount.
+        // The current index into the playback buffer. Not necessarily related to framecount/time.
         private var _idx:uint;
-
-        private var _frameCount:uint;
 
         private var _recording:Boolean = false;
         private var _playingBack:Boolean = false;
@@ -34,8 +33,6 @@ package game.tas
         public function Update() : void
         {
             if (!_playingBack && !_recording) return;
-
-            _frameCount++;
 
             if (_recording)
             {
@@ -117,7 +114,7 @@ package game.tas
         // Writes the record buffer into a GTAS file for this level, then flushes it.
         public function Write(level:Level) : void
         {
-            var file:File = TASUtility.GetGTASFile(level, _frameCount);
+            var file:File = TASUtility.GetGTASFile(level, Main.saveData.time);
 
             // Don't overwrite a file that might have manual comments or formatting.
             if (file.exists)
@@ -176,7 +173,6 @@ package game.tas
         {
             PlaybackBuffer = new Vector.<TASCommand>();
             StopPlayback();
-            _frameCount = 0;
         }
 
         public function StopPlayback() : void

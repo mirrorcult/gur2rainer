@@ -19,23 +19,25 @@ package game.tas
             return "";
         }
 
-        public static function GetGTASFileName(level:Level, framecount:uint) : String
+        public static function GetGTASFileName(level:Level, time:uint) : String
         {
-            return level.toString() + "_" + framecount + ".gtas";
+            return level.toString() + "_" + time + ".gtas";
         }
 
+        // Does not create the directory.
         public static function GetGTASFileDirectory(level:Level) : File
         {
             var prefix:String = level.getPrefix();
-            var parentDir:File = File.applicationDirectory;
+            var parentDir:File = File.applicationStorageDirectory;
             var desiredDir:File = parentDir.resolvePath("TAS").resolvePath(prefix);
             return desiredDir;
         }
 
-        public static function GetGTASFile(level:Level, framecount:uint) : File
+        // Does not create its directory.
+        public static function GetGTASFile(level:Level, time:uint) : File
         {
             var dir:File = GetGTASFileDirectory(level);
-            var name:String = GetGTASFileName(level, framecount);
+            var name:String = GetGTASFileName(level, time);
             return dir.resolvePath(name);
         }
 
@@ -50,14 +52,14 @@ package game.tas
             for each (var file:File in dir.getDirectoryListing())
             {
                 if (file.extension != "gtas") continue;
-                var fc:uint = GetFrameCountFromFile(file);
+                var fc:uint = GetTimeFromFile(file);
                 if (fc > highest) fastest = file;
             }
 
             return fastest;
         }
 
-        public static function GetFrameCountFromFile(file:File) : uint
+        public static function GetTimeFromFile(file:File) : uint
         {
             var name:String = file.name;
             if (name.lastIndexOf("_") == -1)
