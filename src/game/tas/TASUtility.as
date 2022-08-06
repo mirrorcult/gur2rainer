@@ -4,19 +4,68 @@ package game.tas
     import game.tas.TASParser;
     import flash.filesystem.File;
     import game.engine.Level;
+    import flash.utils.Dictionary;
+    import net.flashpunk.utils.Key;
 
     public class TASUtility
-    {       
-         // Converts a string of GTAS inputs to a vector of uint keycodes.
-        public static function FromGTASInputs(gtas:String) : Vector.<uint>
+    {
+        public static var FromKey:Dictionary = new Dictionary();
         {
-            return new Vector.<uint>();
+            FromKey["R"] = Key.RIGHT;
+            FromKey["L"] = Key.LEFT;
+            FromKey["U"] = Key.UP;
+            FromKey["D"] = Key.DOWN;
+            FromKey["A"] = Key.A;
+            FromKey["Z"] = Key.Z;
+            FromKey["X"] = Key.X;
+            FromKey["S"] = Key.S;
         }
 
-        // Converts a vector of uint keycodes to a string of GTAS inputs.
-        public static function ToGTASInputs(inputs:Vector.<uint>) : String
+        public static var ToKey:Dictionary = new Dictionary();
         {
-            return "";
+            FromKey[Key.RIGHT] = "R";
+            FromKey[Key.LEFT] = "L";
+            FromKey[Key.UP] = "U";
+            FromKey[Key.DOWN] = "D";
+            FromKey[Key.A] = "A";
+            FromKey[Key.Z] = "Z";
+            FromKey[Key.X] = "X";
+            FromKey[Key.S] = "S";
+        }
+
+        // Converts a string of GTAS inputs to a vector of int keycodes.
+        public static function FromGTASInputs(gtas:String) : Vector.<int>
+        {
+            gtas = gtas.toUpperCase();
+
+            var seen:Vector.<String> = new Vector.<String>();
+            var keys:Vector.<int> = new Vector.<int>();
+
+            for (var i:int = 0; i < gtas.length; i++)
+            {
+                var c:String = gtas.charAt(i);
+                if (!FromKey[c] || seen.indexOf(c) < 0) continue;
+                keys.push(FromKey[c]);
+                seen.push(c);
+            }
+
+            return keys;
+        }
+
+        // Converts a vector of int keycodes to a string of GTAS inputs.
+        public static function ToGTASInputs(keys:Vector.<int>) : String
+        {
+            var seen:Vector.<int> = new Vector.<int>();
+            var names:String = ""
+
+            for each (var key:int in keys)
+            {
+                if (!ToKey[key] || seen.indexOf(key) < 0) continue;
+                names += ToKey[key];
+                seen.push(key);
+            }
+
+            return names;
         }
 
         public static function GetGTASFileName(level:Level, time:uint) : String

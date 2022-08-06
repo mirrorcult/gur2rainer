@@ -226,6 +226,11 @@
 				keyString += char;
 			}
 			
+			recordKeyDown(code);
+		}
+
+		public static function recordKeyDown(code:int):void
+		{
 			// update the keystate
 			if (!_key[code])
 			{
@@ -238,8 +243,13 @@
 		/** @private Event handler for key release. */
 		private static function onKeyUp(e:KeyboardEvent):void
 		{
-			// get the keycode and update the keystate
 			var code:int = e.keyCode;
+			recordKeyUp(code);
+		}
+
+		public static function recordKeyUp(code:int):void
+		{
+			// get the keycode and update the keystate
 			if (_key[code])
 			{
 				_key[code] = false;
@@ -274,6 +284,11 @@
 		{
 		    mouseWheel = true;
 		    _mouseWheelDelta = e.delta;
+		}
+
+		public static function get allKeys():Vector.<Boolean>
+		{
+			return _key;
 		}
 		
 		// Max amount of characters stored by the keystring.

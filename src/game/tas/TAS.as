@@ -9,6 +9,7 @@ package game.tas
     import net.flashpunk.FP;
     import game.engine.Level;
     import game.engine.SaveData;
+    import net.flashpunk.utils.Input;
 
     public class TAS
     {
@@ -43,6 +44,22 @@ package game.tas
 
                 // Take inputs from flashpunk, if there are any.
                 // Don't overwrite
+
+                var inp:Vector.<int> = new Vector.<int>;
+                for (var i:int = 0; i < Input.allKeys.length; i++)
+                {
+                    if (!Input.allKeys[i]) continue;
+                    if (!TASUtility.ToKey[i]) continue;
+                    inp.push(i);
+                }
+
+                var gtas:String = TASUtility.ToGTASInputs(inp);
+
+                // Only push if we aren't overwriting anything.
+                if (gtas != "" && !_playingBack)
+                {
+                    RecordBuffer.push(new TASCommand(TASCommand.INPUT, gtas));
+                }
             }
 
             if (_playingBack)
@@ -90,7 +107,19 @@ package game.tas
                 case TASCommand.INPUT:
                 {
                     // Convert current command to inputs, then send to flashpunk.
-                    var v:Vector.<uint> = TASUtility.FromGTASInputs(c.Data as String);
+                    var v:Vector.<int> = TASUtility.FromGTASInputs(c.Data as String);
+                    for each (var n:int in v)
+                    {
+                        if (Input.check(n))
+                        {
+                            Input.recordKeyUp(n);
+                        }
+                        else
+                        {
+                            Input.recordKeyDown(n);
+                        }
+                    }
+
                     break;
                 }
                 case TASCommand.TIMESCALE:
@@ -102,6 +131,7 @@ package game.tas
                     }
                     else
                     {
+                        if (FP.engine.paused) FP.engine.paused = false;
                         FP.engine.setFrameRate(desired);
                     }
                     break;
