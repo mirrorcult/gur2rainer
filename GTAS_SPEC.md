@@ -69,7 +69,7 @@ Comments are entirely ignored and the next input is processed immediately with n
 - `S` (world start): 2 to 3
 - `E` (world end): 1 to 3
 
-`FRAMECOUNT` is the exact number of frames required to complete the level. This is not checked or enforced by playback, but will always be set when a TAS file is saved.
+`FRAMECOUNT` is the exact number of in-game measured frames (not TAS frames) required to complete the level. This is not checked or enforced by playback, but will always be set when a TAS file is saved. When written, this will always be equal to 60 * the amount of time taken to beat the level.
 
 ## Example `.gtas` file
 
