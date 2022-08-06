@@ -61,7 +61,7 @@ package game.tas
             for (var i:int = 0; i < gtas.length; i++)
             {
                 var c:String = gtas.charAt(i);
-                if (!FromKey[c] || seen.indexOf(c) < 0) continue;
+                if (!FromKey[c] || seen.indexOf(c) > 0) continue;
                 keys.push(FromKey[c]);
                 seen.push(c);
             }
@@ -77,7 +77,7 @@ package game.tas
 
             for each (var key:int in keys)
             {
-                if (!ToKey[key] || seen.indexOf(key) < 0) continue;
+                if (!ToKey[key] || seen.indexOf(key) > 0) continue;
                 names += ToKey[key];
                 seen.push(key);
             }
@@ -111,15 +111,21 @@ package game.tas
         public static function GetFastestGTASFile(level:Level) : File
         {
             var dir:File = GetGTASFileDirectory(level);
+            var str:String = level.toString();
             dir.createDirectory();
 
-            var highest:uint = 0;
+            var lowest:uint = 0;
             var fastest:File = null;
             for each (var file:File in dir.getDirectoryListing())
             {
+                if (file.name.indexOf(str) == -1) continue;
                 if (file.extension != "gtas") continue;
                 var fc:uint = GetTimeFromFile(file);
-                if (fc > highest) fastest = file;
+                if (fc < lowest) 
+                {
+                    fastest = file;
+                    lowest = fc;
+                }
             }
 
             return fastest;
