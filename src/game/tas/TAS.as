@@ -152,7 +152,7 @@ package game.tas
             
             var fileStream:FileStream = new FileStream();
             fileStream.open(file, FileMode.WRITE);
-            fileStream.writeUTF(TASParser.EmitGTAS(RecordBuffer));
+            fileStream.writeUTFBytes(TASParser.EmitGTAS(RecordBuffer));
             fileStream.close();
             FlushRecording();
         }
@@ -167,6 +167,11 @@ package game.tas
         public function FlushRecording() : void
         {
             RecordBuffer = new Vector.<TASCommand>();
+            StopRecording();
+        }
+
+        public function StopRecording() : void
+        {
             _recording = false;
         }
 
@@ -186,7 +191,7 @@ package game.tas
             FlushPlayback();
             var fileStream:FileStream = new FileStream();
             fileStream.open(file, FileMode.READ);
-            PlaybackBuffer = TASParser.ParseGTAS(fileStream.readUTF());
+            PlaybackBuffer = TASParser.ParseGTAS(fileStream.readUTFBytes(fileStream.bytesAvailable));
             fileStream.close();
         }
 

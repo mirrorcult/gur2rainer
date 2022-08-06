@@ -751,6 +751,8 @@ package game
             Main.saveData.advanceLevels(this.coins,this.level.time, 1);
          }
          FP.world.add(new Win());
+         FP.tas.StopRecording();
+         FP.tas.StopPlayback();
          if(this.level.levelNum == 6 && this.level.mode == 0)
          {
             Assets.playVoice(Assets.VcPlayerWin1);
