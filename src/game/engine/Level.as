@@ -435,7 +435,11 @@ package game.engine
          this.setMusic(world);
          add(this.tasWatermark = new TASWatermark());
          this.changing = false;
-
+      }
+      
+      public function spawn() : void
+      {
+         this.player.active = true;
          FP.tas.StartRecording();
          if (Options.tasAutomaticPlayback || tasNextRestart)
          {
@@ -443,11 +447,6 @@ package game.engine
             FP.tas.Load(this);
             FP.tas.StartPlayback();
          }
-      }
-      
-      public function spawn() : void
-      {
-         this.player.active = true;
       }
       
       private function initTiles(world:uint) : void
