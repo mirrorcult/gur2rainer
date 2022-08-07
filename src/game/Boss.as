@@ -285,7 +285,7 @@ package game
             this.thrust = mine.x < x?Number(this.START_THRUST):Number(-this.START_THRUST);
          }
          this.thrust = this.thrust - 0.05;
-         this.thrust = this.thrust + 0.1 * Math.random();
+         //this.thrust = this.thrust + 0.1 * Math.random();
          this.alarm.reset(160);
          this.alarm.start();
          this.face.play("angry_talk");
