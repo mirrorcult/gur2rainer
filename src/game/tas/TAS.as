@@ -254,6 +254,13 @@ package game.tas
         // Set the next input command's data to whatever. Not necessarily the 'next' command.
         public function set NextInput(data:String) : void
         {
+            // Are we at the end of playback? If so, expand.
+            if (_idx == PlaybackBuffer.length - 1)
+            {
+                PlaybackBuffer.push(new TASCommand(TASCommand.INPUT, data));
+                return;
+            }
+
             for (var i:int = _idx + 1; i < PlaybackBuffer.length - 1; i++)
             {
                 if (PlaybackBuffer[i].Type != TASCommand.INPUT) continue;

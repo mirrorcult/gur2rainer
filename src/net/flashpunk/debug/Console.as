@@ -366,6 +366,8 @@ package net.flashpunk.debug
 		private function stepFrame():void
 		{
 			FP.tas.Update();
+			_tasConsole.CurrentFrameField.text = FP.tas.CurInput;
+			_tasConsole.NextFrameField.text = FP.tas.NextInput;
 			FP.engine.update();
 			FP.engine.render();
 			updateEntityCount();
@@ -753,9 +755,12 @@ package net.flashpunk.debug
 			_butOutput.visible = true;
 			_butPlay.visible = FP.engine.paused;
 			_butPause.visible = !FP.engine.paused;
+
+			var wasVisible:Boolean = _tasConsole.visible;
 			_tasConsole.visible = FP.engine.paused && FP.tas._playingBack;
 
-			if (_tasConsole.visible)
+			// Changed visibility this frame.
+			if (!wasVisible && _tasConsole.visible)
 			{
 				_tasConsole.CurrentFrameField.text = FP.tas.CurInput;
 				_tasConsole.NextFrameField.text = FP.tas.NextInput;
@@ -807,6 +812,8 @@ package net.flashpunk.debug
 				_tasConsole.SaveButton.alpha = 1;
 				if (Input.mousePressed)
 				{
+					_tasConsole.CurrentFrameField.text = _tasConsole.CurrentFrameField.text.toUpperCase();
+					_tasConsole.NextFrameField.text = _tasConsole.NextFrameField.text.toUpperCase();
 					// Save inputs to tas state
 					if (TASUtility.ValidateGTASInputs(_tasConsole.CurrentFrameField.text))
 					{

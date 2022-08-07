@@ -23,14 +23,14 @@ package game.tas
 
         public static var ToKey:Dictionary = new Dictionary();
         {
-            FromKey[Key.RIGHT] = "R";
-            FromKey[Key.LEFT] = "L";
-            FromKey[Key.UP] = "U";
-            FromKey[Key.DOWN] = "D";
-            FromKey[Key.A] = "A";
-            FromKey[Key.Z] = "Z";
-            FromKey[Key.X] = "X";
-            FromKey[Key.S] = "S";
+            ToKey[Key.RIGHT] = "R";
+            ToKey[Key.LEFT] = "L";
+            ToKey[Key.UP] = "U";
+            ToKey[Key.DOWN] = "D";
+            ToKey[Key.A] = "A";
+            ToKey[Key.Z] = "Z";
+            ToKey[Key.X] = "X";
+            ToKey[Key.S] = "S";
         }
 
         // Returns true if all keys are valid.
@@ -114,7 +114,7 @@ package game.tas
             var str:String = level.toString();
             dir.createDirectory();
 
-            var lowest:uint = 0;
+            var lowest:uint = uint.MAX_VALUE;
             var fastest:File = null;
             for each (var file:File in dir.getDirectoryListing())
             {

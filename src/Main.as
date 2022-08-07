@@ -118,7 +118,7 @@ package
          FP.console.visible = false;
 
          // player vars
-         FP.console.watch("hSpeed", "vSpeed", "momentum", "radius", "canGrapple", "timeLeft", "coinsLeft", "endY", "startY", "counter", "thrust", "health");
+         FP.console.watch("hSpeed", "vSpeed", "momentum", "radius", "canGrapple", "onGround", "active", "timeLeft", "coinsLeft", "endY", "startY", "counter", "thrust", "health");
       }
       
       public static function submitFacebook() : void
