@@ -217,6 +217,10 @@ package game.tas
         {
             _idx = 0;
             _playingBack = false;
+            for each (var n:int in _lastInputs)
+            {
+                Input.recordKeyUp(n);
+            }
             // Timescale modifier might change this so let's set it back juuuust in case
             FP.engine.setFrameRate(60);
         }
