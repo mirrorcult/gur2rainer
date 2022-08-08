@@ -2,6 +2,7 @@ package game.engine
 {
    import flash.net.SharedObject;
    import flash.utils.Dictionary;
+   import game.menus.MenuButton;
    
    public class Stats
    {
@@ -10,6 +11,13 @@ package game.engine
       public function Stats()
       {
          super();
+      }
+
+      public static function resetStats(button:MenuButton=null) : void
+      {
+         var obj:SharedObject = SharedObject.getLocal("data");
+         obj.data.stats = null;
+         initStats();
       }
 
       public static function logBestTime(key:String, time:uint) : void

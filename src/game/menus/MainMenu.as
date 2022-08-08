@@ -16,6 +16,9 @@ package game.menus
    import net.flashpunk.utils.Key;
    import flash.display.StageDisplayState;
    import flash.html.__HTMLScriptArray;
+   import flash.net.URLRequest;
+   import flash.net.navigateToURL;
+   import flash.filesystem.File;
    
    public class MainMenu extends MattWorld
    {
@@ -119,6 +122,14 @@ package game.menus
             default:
                return "Fastest";
          }
+      }
+
+      private function gotoTasDir(button:MenuButton) : void
+      {
+         var file:File = File.applicationStorageDirectory.resolvePath("TAS");
+         file.createDirectory();
+         var request : URLRequest = new URLRequest(file.nativePath);
+         navigateToURL(request);
       }
       
       override public function update() : void
@@ -389,6 +400,10 @@ package game.menus
          this.addButton(new MenuButton(160,170,"Fullscreen: " + this.getBoolName(Options.fullscreen),this.toggleFullscreen,Assets.instance.SndMenuSelect, true, 12));
          this.addButton(new MenuButton(160,185,"TAS Recording: " + getRecordingStateName(Options.tasRecordingState),this.toggleRecording,Assets.instance.SndMenuSelect, true, 12));
          this.addButton(new MenuButton(160,200,"TAS Playback: " + (Options.tasAutomaticPlayback ? "Automatic" : "Manual"),this.togglePlayback,Assets.instance.SndMenuSelect, true, 12));
+
+         // Side buttons.
+         this.addButton(new MenuButton(260,125,"Delete Stats",Stats.resetStats,Assets.SndDie, true, 10));
+         this.addButton(new MenuButton(260,140,"Open TAS Directory",this.gotoTasDir,Assets.SndCoin, true, 10));
       }
       
       private function gotoStats(m:MenuButton = null) : void
