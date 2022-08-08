@@ -748,7 +748,7 @@ package game
          }
          else
          {
-            Main.saveData.advanceLevels(this.coins,this.level.time, 1);
+            Main.saveData.advanceLevels(this.coins,this.level.time, 1, true);
          }
          FP.world.add(new Win());
          FP.tas.StopRecording();
