@@ -78,6 +78,10 @@ package game.tas
                     if (PlaybackBuffer[_idx].Type == TASCommand.INPUT) break;
 
                     _idx++;
+                    if (_recording)
+                    {
+                        RecordBuffer.push(PlaybackBuffer[_idx])
+                    }
                     Execute()
                     c = Peek();
                 }
