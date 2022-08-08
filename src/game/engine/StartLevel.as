@@ -20,6 +20,7 @@ package game.engine
          player.y = -6;
          player.vSpeed = player.MAX_FALL;
          add(new PlayerFly(480,250,true));
+         addTween(new Alarm(119,this.startTAS,Tween.ONESHOT), true);
          addTween(new Alarm(120,this.makePlayer,Tween.ONESHOT),true);
          addTween(new Alarm(150,this.makeRoof,Tween.ONESHOT),true);
          addTween(new Alarm(240,this.makeBG,Tween.ONESHOT),true);

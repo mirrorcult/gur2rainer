@@ -55,6 +55,7 @@ package game.tutorial
          {
             gotoText = "...";
             this.alarm.reset(20);
+            (FP.world as Level).startTAS();
          }
          else if(this.mode == 6)
          {

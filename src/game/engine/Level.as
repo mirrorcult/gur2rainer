@@ -421,6 +421,7 @@ package game.engine
          }
          if((this.levelNum != 1 || this.mode == 1 && this.attempt > 1) && !(this is StartLevel))
          {
+            addTween(new Alarm(19,this.startTAS, Tween.ONESHOT), true);
             addTween(new Alarm(20,this.spawn,Tween.ONESHOT),true);
          }
          this.player.cameraFollow();
@@ -440,6 +441,10 @@ package game.engine
       public function spawn() : void
       {
          this.player.active = true;
+      }
+
+      public function startTAS() : void
+      {
          FP.tas.StartRecording();
          if (Options.tasAutomaticPlayback || tasNextRestart)
          {

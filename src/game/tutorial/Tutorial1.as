@@ -169,6 +169,7 @@ package game.tutorial
                this.skipText = null;
             }
             (FP.world as Level).countTime = true;
+            (FP.world as Level).startTAS();
          }
          else if(this.mode == 25)
          {
