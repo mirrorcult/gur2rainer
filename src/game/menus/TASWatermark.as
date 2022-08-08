@@ -13,12 +13,24 @@ package game.menus
       {
          super(0,0);
          Text.size = 8;
-         graphic = this.text = new Text("> TAS <");
-         this.text.x = 160 - this.text.width / 2;
-         this.text.y = 235 - this.text.height / 2;
+         graphic = this.text = new Text("> RECORDING <", 160, 235);
          this.text.scrollX = this.text.scrollY = 0;
+         this.text.centerOO();
          this.text.color = 16777215;
          layer = Main.DEPTH_LINK;
+      }
+
+      public function updateState() : void
+      {
+         if (FP.tas._playingBack)
+         {
+            this.text.text = "> PLAYBACK <";
+         }
+         else
+         {
+            this.text.text = "> RECORDING <";
+         }
+         this.text.centerOO();
       }
    }
 }

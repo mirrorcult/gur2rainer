@@ -452,6 +452,7 @@ package game.engine
             FP.tas.Load(this);
             FP.tas.StartPlayback();
          }
+         tasWatermark.updateState();
       }
       
       private function initTiles(world:uint) : void
