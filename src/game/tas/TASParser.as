@@ -37,7 +37,7 @@ package game.tas
                     {
                         // Empty case, but with a framehold.
                         var emptyFramehold:int = GetFrameholdValue(line);
-                        for (var i:int = 0; i < emptyFramehold - 1; i++)
+                        for (var i:int = 0; i < emptyFramehold; i++)
                         {
                             commands.push(new TASCommand(TASCommand.INPUT, ""));
                         }
@@ -51,7 +51,7 @@ package game.tas
 
                 if (!TASUtility.ValidateGTASInputs(chars)) continue;
 
-                for (var j:int = 0; j < framehold - 1; j++)
+                for (var j:int = 0; j < framehold; j++)
                 {
                     commands.push(new TASCommand(TASCommand.INPUT, chars));
                 }
@@ -76,7 +76,7 @@ package game.tas
         private static function GetFrameholdValue(line:String):int
         {
             var commaPlace:int = line.indexOf(",");
-            if (commaPlace == -1) return 2; // it gets -1 so this is intended i swear!!
+            if (commaPlace == -1) return 1; // it gets -1 so this is intended i swear!!
 
             return parseInt(line.substring(commaPlace + 1));
         }

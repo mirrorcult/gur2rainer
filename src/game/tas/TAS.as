@@ -239,7 +239,6 @@ package game.tas
 
         public function set CurInput(data:String) : void
         {
-            // This shouldn't actually be possible, but might as well.
             // We set the record buffer here because that's what matters.
             // Setting the playback buffer in nextinput functions the same, as that cascades down to record buffer anyway.
             // But this has already passed, so we need to set it ourselves.
@@ -251,7 +250,9 @@ package game.tas
         // Find whatever the next input command's data is. Not necessarily the 'next' command.
         public function get NextInput() : String
         {
-            for (var i:int = _idx + 1; i < PlaybackBuffer.length - 1; i++)
+            // We start from the current index, not the next:
+            // TAS runs before FP update, so the idx will already be incremented by that point.
+            for (var i:int = _idx; i < PlaybackBuffer.length - 1; i++)
             {
                 if (PlaybackBuffer[i].Type != TASCommand.INPUT) continue;
                 return PlaybackBuffer[i].Data as String;
@@ -264,13 +265,13 @@ package game.tas
         public function set NextInput(data:String) : void
         {
             // Are we at the end of playback? If so, expand.
-            if (_idx == PlaybackBuffer.length - 1)
+            if (_idx == PlaybackBuffer.length)
             {
                 PlaybackBuffer.push(new TASCommand(TASCommand.INPUT, data));
                 return;
             }
 
-            for (var i:int = _idx + 1; i < PlaybackBuffer.length - 1; i++)
+            for (var i:int = _idx; i < PlaybackBuffer.length - 1; i++)
             {
                 if (PlaybackBuffer[i].Type != TASCommand.INPUT) continue;
                 PlaybackBuffer[i].Data = data;
