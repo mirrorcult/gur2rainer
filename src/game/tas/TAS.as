@@ -25,6 +25,8 @@ package game.tas
         public var _recording:Boolean = false;
         public var _playingBack:Boolean = false;
 
+        private var _lastInputs:Vector.<int>;
+
         public function TAS()
         {
             RecordBuffer = new Vector.<TASCommand>;
@@ -44,8 +46,6 @@ package game.tas
                 else
                 {
                     // Take inputs from flashpunk, if there are any.
-                    // Don't overwrite
-
                     var inp:Vector.<int> = new Vector.<int>;
                     for (var i:int = 0; i < Input.allKeys.length - 1; i++)
                     {
@@ -106,17 +106,22 @@ package game.tas
                 {
                     // Convert current command to inputs, then send to flashpunk.
                     var v:Vector.<int> = TASUtility.FromGTASInputs(c.Data as String);
-                    for each (var n:int in v)
+
+                    for each (var o:int in _lastInputs)
                     {
-                        if (Input.check(n))
+                        if (v.indexOf(o) < 0)
                         {
-                            Input.recordKeyUp(n);
-                        }
-                        else
-                        {
-                            Input.recordKeyDown(n);
+                            // An input was done last frame that was not present this frame.
+                            Input.recordKeyUp(o);
                         }
                     }
+                    
+                    for each (var n:int in v)
+                    {
+                        Input.recordKeyDown(n);
+                    }
+
+                    _lastInputs = v;
 
                     break;
                 }
