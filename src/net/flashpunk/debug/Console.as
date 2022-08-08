@@ -827,7 +827,7 @@ package net.flashpunk.debug
 			}
 			else _butStep.alpha = .5;
 
-			if (!_tasConsole.SaveButton) return;
+			if (!_tasConsole.SaveButton || !_tasConsole.StopButton) return;
 
 			if (_tasConsole.SaveButton.bitmapData.rect.contains(_tasConsole.SaveButton.mouseX, _tasConsole.SaveButton.mouseY))
 			{
@@ -848,6 +848,17 @@ package net.flashpunk.debug
 				}
 			}
 			else _tasConsole.SaveButton.alpha = .5;
+
+			if (_tasConsole.StopButton.bitmapData.rect.contains(_tasConsole.StopButton.mouseX, _tasConsole.StopButton.mouseY))
+			{
+				_tasConsole.StopButton.alpha = 1;
+				if (Input.mousePressed)
+				{
+					FP.tas.FlushPlayback();
+					_tasConsole.visible = false;
+				}
+			}
+			else _tasConsole.StopButton.alpha = .5;
 		}
 		
 		/** @private Gets a TextFormat object with the formatting. */

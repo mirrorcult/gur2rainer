@@ -30,6 +30,7 @@ package net.flashpunk.debug
         public var TasFramesLeftField:TextField = new TextField;
 
         public var SaveButton:Bitmap;
+        public var StopButton:Bitmap;
 
         public function TASConsole()
         {
@@ -91,7 +92,7 @@ package net.flashpunk.debug
 
             addChild(CurInputLabel);
             CurInputLabel.defaultTextFormat = console.format(12, 0xFFFFFF, "left");
-            CurInputLabel.text = "Current Frame: ";
+            CurInputLabel.text = "Current Input: ";
             CurInputLabel.embedFonts = true;
             CurInputLabel.selectable = false;
             CurInputLabel.width = 100;
@@ -135,9 +136,15 @@ package net.flashpunk.debug
             SaveButton.x = 120;
             SaveButton.y = 80;
             SaveButton.alpha = .5;
+
+            addChild(StopButton = new CONSOLE_STOP);
+            StopButton.x = 4;
+            StopButton.y = 80;
+            StopButton.alpha = .5;
         }
 
         [Embed(source = 'console_save.png')] private const CONSOLE_SAVE:Class;
+        [Embed(source = 'console_stop.png')] private const CONSOLE_STOP:Class;
     }
 
 }

@@ -22,7 +22,8 @@ package game.tas
         // The current index into the playback buffer. Not necessarily related to framecount/time.
         private var _idx:uint;
 
-        public function get curCommand():uint { return _idx + 1 }
+        // no idea why this isnt _idx + 1 but o well.
+        public function get curCommand():uint { return _idx }
         public function get commandCount():uint { return PlaybackBuffer ? PlaybackBuffer.length : 0 }
 
         public var _recording:Boolean = false;
