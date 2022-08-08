@@ -249,6 +249,12 @@ package net.flashpunk.debug
 							if (_panning) updatePanning();
 						}
 						
+						if (tasConsoleShouldBeVisible())
+						{
+							updateDebugRead()
+							return;
+						}
+
 						// Select all Entities
 						if (Input.pressed(Key.A)) selectAll();
 						
@@ -366,7 +372,7 @@ package net.flashpunk.debug
 		private function stepFrame():void
 		{
 			FP.engine.update();
-			if (_tasConsole.visible)
+			if (tasConsoleShouldBeVisible())
 			{
 				_tasConsole.CurrentFrameField.text = FP.tas.CurInput;
 				_tasConsole.NextFrameField.text = FP.tas.NextInput;
@@ -748,6 +754,11 @@ package net.flashpunk.debug
 		{
 			_entReadText.text = String(FP.world.count) + " Entities";
 		}
+
+		private function tasConsoleShouldBeVisible():Boolean
+		{
+			return FP.engine.paused && FP.tas.PlaybackBuffer.length > 0 && FP.tas.RecordBuffer.length > 0;
+		}
 		
 		/** @private Updates the Button panel. */
 		private function updateButtons():void
@@ -759,7 +770,7 @@ package net.flashpunk.debug
 			_butPause.visible = !FP.engine.paused;
 
 			var wasVisible:Boolean = _tasConsole.visible;
-			_tasConsole.visible = FP.engine.paused && FP.tas.PlaybackBuffer.length > 0 && FP.tas.RecordBuffer.length > 0;
+			_tasConsole.visible = tasConsoleShouldBeVisible();
 
 			// Changed visibility this frame.
 			if (!wasVisible && _tasConsole.visible)
