@@ -223,7 +223,7 @@ package game
          if(this.vSpeed != 0)
          {
             perc = (y - this.startY) / (this.endY - this.startY);
-            Assets.music.volume = Math.max(0,1 - perc * 2);
+            if (Assets.musicPlaying) Assets.music.volume = Math.max(0,1 - perc * 2);
             Assets.MusPowerOn.volume = Math.max(0,perc - 0.5) * 1.8;
          }
          if(this.vSpeed > 0 && y >= this.endY)
