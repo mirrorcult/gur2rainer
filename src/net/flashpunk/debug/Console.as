@@ -224,8 +224,8 @@ package net.flashpunk.debug
 				// While in debug mode.
 				if (_debug)
 				{
-					// While the game is paused.
-					if (FP.engine.paused)
+					// While the game is paused, and we aren't interfering with the TAS console.
+					if (FP.engine.paused && !_tasConsole.visible)
 					{
 						// When the mouse is pressed.
 						if (Input.mousePressed)
@@ -248,26 +248,23 @@ package net.flashpunk.debug
 							if (_dragging) updateDragging();
 							if (_panning) updatePanning();
 						}
+
+						// Select all Entities
+						if (Input.pressed(Key.A)) selectAll();
 						
-						if (!_tasConsole.visible)
+						// If the shift key is held.
+						if (Input.check(Key.SHIFT))
 						{
-							// Select all Entities
-							if (Input.pressed(Key.A)) selectAll();
-							
-							// If the shift key is held.
-							if (Input.check(Key.SHIFT))
+							// If Entities are selected.
+							if (SELECT_LIST.length)
 							{
-								// If Entities are selected.
-								if (SELECT_LIST.length)
-								{
-									// Move Entities with the arrow keys.
-									if (Input.pressed("_ARROWS")) updateKeyMoving();
-								}
-								else
-								{
-									// Pan the camera with the arrow keys.
-									if (Input.check("_ARROWS")) updateKeyPanning();
-								}
+								// Move Entities with the arrow keys.
+								if (Input.pressed("_ARROWS")) updateKeyMoving();
+							}
+							else
+							{
+								// Pan the camera with the arrow keys.
+								if (Input.check("_ARROWS")) updateKeyPanning();
 							}
 						}
 					}
