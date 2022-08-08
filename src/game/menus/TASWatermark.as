@@ -13,7 +13,7 @@ package game.menus
       {
          super(0,0);
          Text.size = 8;
-         graphic = this.text = new Text("> RECORDING <", 160, 235);
+         graphic = this.text = new Text("> PLAYER <", 160, 235);
          this.text.scrollX = this.text.scrollY = 0;
          this.text.centerOO();
          this.text.color = 16777215;
@@ -24,11 +24,11 @@ package game.menus
       {
          if (FP.tas._playingBack)
          {
-            this.text.text = "> PLAYBACK <";
+            this.text.text = "> TAS <";
          }
          else
          {
-            this.text.text = "> RECORDING <";
+            this.text.text = "> PLAYER <";
          }
          this.text.centerOO();
       }
