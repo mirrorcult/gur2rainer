@@ -204,6 +204,8 @@ package game.engine
          if(Input.pressed("return"))
          {
             Assets.MusPowerOn.stop();
+            FP.tas.FlushPlayback();
+            FP.tas.FlushRecording();
             add(new Transition(new MainMenu()));
          }
 
