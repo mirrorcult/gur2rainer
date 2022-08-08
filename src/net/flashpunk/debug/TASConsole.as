@@ -20,10 +20,14 @@ package net.flashpunk.debug
 	
 	public class TASConsole extends Sprite
     {
-        public var CurrentFrameLabel:TextField = new TextField;
-        public var NextFrameLabel:TextField = new TextField;
-        public var CurrentFrameField:TextField = new TextField;
-        public var NextFrameField:TextField = new TextField;
+        public var CurInputLabel:TextField = new TextField;
+        public var NextInputLabel:TextField = new TextField;
+        public var CurInputField:TextField = new TextField;
+        public var NextInputField:TextField = new TextField;
+        public var CurTasFramesLabel:TextField = new TextField;
+        public var CurTasFramesField:TextField = new TextField;
+        public var TasFramesLeftLabel:TextField = new TextField;
+        public var TasFramesLeftField:TextField = new TextField;
 
         public var SaveButton:Bitmap;
 
@@ -38,53 +42,98 @@ package net.flashpunk.debug
 
             graphics.clear();
             graphics.beginFill(0, .75);
-            graphics.drawRoundRectComplex(0, 0, 140, 60, 5, 5, 5, 5);
+            graphics.drawRoundRectComplex(0, 0, 140, 100, 5, 5, 5, 5);
 
-            addChild(CurrentFrameLabel);
-            CurrentFrameLabel.defaultTextFormat = console.format(12, 0xFFFFFF, "left");
-            CurrentFrameLabel.text = "Current Frame: ";
-            CurrentFrameLabel.embedFonts = true;
-            CurrentFrameLabel.selectable = false;
-            CurrentFrameLabel.width = 100;
-            CurrentFrameLabel.height = 16;
-            CurrentFrameLabel.x = 4;
-            CurrentFrameLabel.y = 4;
 
-            addChild(CurrentFrameField);
-            CurrentFrameField.defaultTextFormat = console.format(12, 0xFFFFFF, "right");
-            CurrentFrameField.text = "...";
-            CurrentFrameField.embedFonts = true;
-            CurrentFrameField.selectable = true;
-            CurrentFrameField.type = TextFieldType.INPUT;
-            CurrentFrameField.width = 40;
-            CurrentFrameField.height = 16;
-            CurrentFrameField.x = 100;
-            CurrentFrameField.y = 4;
+            addChild(CurTasFramesLabel);
+            CurTasFramesLabel.defaultTextFormat = console.format(12, 0xFFFFFF, "left");
+            CurTasFramesLabel.text = "Current Frame: ";
+            CurTasFramesLabel.embedFonts = true;
+            CurTasFramesLabel.selectable = false;
+            CurTasFramesLabel.width = 100;
+            CurTasFramesLabel.height = 16;
+            CurTasFramesLabel.x = 4;
+            CurTasFramesLabel.y = 4;
 
-            addChild(NextFrameLabel);
-            NextFrameLabel.defaultTextFormat = console.format(12, 0xFFFFFF, "left");
-            NextFrameLabel.text = "Next Frame: ";
-            NextFrameLabel.embedFonts = true;
-            NextFrameLabel.selectable = false;
-            NextFrameLabel.width = 100;
-            NextFrameLabel.height = 16;
-            NextFrameLabel.x = 4;
-            NextFrameLabel.y = 24;
+            addChild(CurTasFramesField);
+            CurTasFramesField.defaultTextFormat = console.format(12, 0xFFFFFF, "right");
+            CurTasFramesField.text = "...";
+            CurTasFramesField.embedFonts = true;
+            CurTasFramesField.selectable = false;
+            CurTasFramesField.type = TextFieldType.INPUT;
+            CurTasFramesField.width = 40;
+            CurTasFramesField.height = 16;
+            CurTasFramesField.x = 100;
+            CurTasFramesField.y = 4;
 
-            addChild(NextFrameField);
-            NextFrameField.defaultTextFormat = console.format(12, 0xFFFFFF, "right");
-            NextFrameField.text = "...";
-            NextFrameField.embedFonts = true;
-            NextFrameField.selectable = true;
-            NextFrameField.type = TextFieldType.INPUT;
-            NextFrameField.width = 40;
-            NextFrameField.height = 16;
-            NextFrameField.x = 100;
-            NextFrameField.y = 24;
+            addChild(TasFramesLeftLabel);
+            TasFramesLeftLabel.defaultTextFormat = console.format(12, 0xFFFFFF, "left");
+            TasFramesLeftLabel.text = "Frames Left: ";
+            TasFramesLeftLabel.embedFonts = true;
+            TasFramesLeftLabel.selectable = false;
+            TasFramesLeftLabel.width = 100;
+            TasFramesLeftLabel.height = 16;
+            TasFramesLeftLabel.x = 4;
+            TasFramesLeftLabel.y = 24;
+
+            addChild(TasFramesLeftField);
+            TasFramesLeftField.defaultTextFormat = console.format(12, 0xFFFFFF, "right");
+            TasFramesLeftField.text = "...";
+            TasFramesLeftField.embedFonts = true;
+            TasFramesLeftField.selectable = false;
+            TasFramesLeftField.type = TextFieldType.INPUT;
+            TasFramesLeftField.width = 40;
+            TasFramesLeftField.height = 16;
+            TasFramesLeftField.x = 100;
+            TasFramesLeftField.y = 24;
+
+            /* Inputs */
+
+            addChild(CurInputLabel);
+            CurInputLabel.defaultTextFormat = console.format(12, 0xFFFFFF, "left");
+            CurInputLabel.text = "Current Frame: ";
+            CurInputLabel.embedFonts = true;
+            CurInputLabel.selectable = false;
+            CurInputLabel.width = 100;
+            CurInputLabel.height = 16;
+            CurInputLabel.x = 4;
+            CurInputLabel.y = 44;
+
+            addChild(CurInputField);
+            CurInputField.defaultTextFormat = console.format(12, 0xFFFFFF, "right");
+            CurInputField.text = "...";
+            CurInputField.embedFonts = true;
+            CurInputField.selectable = true;
+            CurInputField.type = TextFieldType.INPUT;
+            CurInputField.width = 40;
+            CurInputField.height = 16;
+            CurInputField.x = 100;
+            CurInputField.y = 44;
+
+            addChild(NextInputLabel);
+            NextInputLabel.defaultTextFormat = console.format(12, 0xFFFFFF, "left");
+            NextInputLabel.text = "Next Input: ";
+            NextInputLabel.embedFonts = true;
+            NextInputLabel.selectable = false;
+            NextInputLabel.width = 100;
+            NextInputLabel.height = 16;
+            NextInputLabel.x = 4;
+            NextInputLabel.y = 64;
+
+            addChild(NextInputField);
+            NextInputField.defaultTextFormat = console.format(12, 0xFFFFFF, "right");
+            NextInputField.text = "...";
+            NextInputField.embedFonts = true;
+            NextInputField.selectable = true;
+            NextInputField.type = TextFieldType.INPUT;
+            NextInputField.width = 40;
+            NextInputField.height = 16;
+            NextInputField.x = 100;
+            NextInputField.y = 64;
 
             addChild(SaveButton = new CONSOLE_SAVE);
             SaveButton.x = 120;
-            SaveButton.y = 40;
+            SaveButton.y = 80;
             SaveButton.alpha = .5;
         }
 

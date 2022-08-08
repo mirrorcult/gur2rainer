@@ -214,7 +214,7 @@ package net.flashpunk.debug
 		{
 			// Quit if the console isn't enabled.
 			if (!_enabled) return;
-			
+
 			// If the console is paused.
 			if (_paused)
 			{
@@ -293,6 +293,8 @@ package net.flashpunk.debug
 				updateFPSRead();
 				updateEntityCount();
 			}
+
+			_wasPaused = FP.engine.paused;
 			
 			// Console toggle.
 			if (Input.pressed(toggleKey))
@@ -306,6 +308,8 @@ package net.flashpunk.debug
 			if (Input.pressed("frameadvance1")) stepFrame();
 			else if (Input.check("frameadvance")) stepFrame();
 			if (Input.pressed("hitboxes")) _renderBoxes = !_renderBoxes;
+
+			
 		}
 		
 		/**
@@ -368,8 +372,7 @@ package net.flashpunk.debug
 			FP.engine.update();
 			if (tasConsoleShouldBeVisible())
 			{
-				_tasConsole.CurrentFrameField.text = FP.tas.CurInput;
-				_tasConsole.NextFrameField.text = FP.tas.NextInput;
+				updateTASConsole();
 			}
 			FP.engine.render();
 			updateEntityCount();
@@ -751,7 +754,17 @@ package net.flashpunk.debug
 
 		private function tasConsoleShouldBeVisible():Boolean
 		{
-			return FP.engine.paused && FP.tas.PlaybackBuffer.length > 0 && FP.tas.RecordBuffer.length > 0;
+			return FP.tas.PlaybackBuffer.length > 0 && FP.tas.RecordBuffer.length > 0;
+		}
+
+		private function updateTASConsole():void
+		{
+			_tasConsole.CurInputField.text = FP.tas.CurInput;
+			_tasConsole.CurInputField.selectable = FP.engine.paused;
+			_tasConsole.NextInputField.text = FP.tas.NextInput;
+			_tasConsole.NextInputField.selectable = FP.engine.paused;
+			_tasConsole.CurTasFramesField.text = "" + FP.tas.curCommand;
+			_tasConsole.TasFramesLeftField.text = "" + (FP.tas.commandCount - FP.tas.curCommand);
 		}
 		
 		/** @private Updates the Button panel. */
@@ -766,11 +779,13 @@ package net.flashpunk.debug
 			var wasVisible:Boolean = _tasConsole.visible;
 			_tasConsole.visible = tasConsoleShouldBeVisible();
 
-			// Changed visibility this frame.
-			if (!wasVisible && _tasConsole.visible)
+			if (_tasConsole.visible)
 			{
-				_tasConsole.CurrentFrameField.text = FP.tas.CurInput;
-				_tasConsole.NextFrameField.text = FP.tas.NextInput;
+				// Updatea text if we aren't paused, or if we are paused but weren't last frame.
+				if (!FP.engine.paused || !_wasPaused)
+				{
+					updateTASConsole();
+				}
 			}
 
 			if (_butOutput.bitmapData.rect.contains(_butOutput.mouseX, _butOutput.mouseY))
@@ -819,16 +834,16 @@ package net.flashpunk.debug
 				_tasConsole.SaveButton.alpha = 1;
 				if (Input.mousePressed)
 				{
-					_tasConsole.CurrentFrameField.text = _tasConsole.CurrentFrameField.text.toUpperCase();
-					_tasConsole.NextFrameField.text = _tasConsole.NextFrameField.text.toUpperCase();
+					_tasConsole.CurInputField.text = _tasConsole.CurInputField.text.toUpperCase();
+					_tasConsole.NextInputField.text = _tasConsole.NextInputField.text.toUpperCase();
 					// Save inputs to tas state
-					if (TASUtility.ValidateGTASInputs(_tasConsole.CurrentFrameField.text))
+					if (TASUtility.ValidateGTASInputs(_tasConsole.CurInputField.text))
 					{
-						FP.tas.CurInput = _tasConsole.CurrentFrameField.text;
+						FP.tas.CurInput = _tasConsole.CurInputField.text;
 					}
-					if (TASUtility.ValidateGTASInputs(_tasConsole.NextFrameField.text))
+					if (TASUtility.ValidateGTASInputs(_tasConsole.NextInputField.text))
 					{
-						FP.tas.NextInput = _tasConsole.NextFrameField.text;
+						FP.tas.NextInput = _tasConsole.NextInputField.text;
 					}
 				}
 			}
@@ -903,6 +918,8 @@ package net.flashpunk.debug
 		private var _renderBoxes:Boolean = true;
 
 		private var _tasConsole:TASConsole = new TASConsole;
+
+		private var _wasPaused:Boolean = false;
 		
 		// Log information.
 		/** @private */ private var _logLines:uint = 33;
