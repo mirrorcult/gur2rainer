@@ -28,6 +28,7 @@ package
    import net.flashpunk.utils.Input;
    import net.flashpunk.utils.Key;
    import flash.display.MovieClip;
+   import flash.filesystem.File;
    
    public class Main extends Engine
    {
@@ -113,6 +114,12 @@ package
          particles = new ParticleSystem(Assets_ImgParticles,6,6);
          particles.y = -3;
          particles.x = -3;
+
+         var tasPath:File = File.applicationStorageDirectory.resolvePath("TAS");
+         tasPath.resolvePath("L").createDirectory();
+         tasPath.resolvePath("H").createDirectory();
+         tasPath.resolvePath("E").createDirectory();
+         tasPath.resolvePath("S").createDirectory();
 
          FP.console.enable();
          FP.console.visible = false;
