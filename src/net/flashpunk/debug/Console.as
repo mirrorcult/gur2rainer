@@ -366,8 +366,12 @@ package net.flashpunk.debug
 		private function stepFrame():void
 		{
 			FP.tas.Update();
-			_tasConsole.CurrentFrameField.text = FP.tas.CurInput;
-			_tasConsole.NextFrameField.text = FP.tas.NextInput;
+
+			if (_tasConsole.visible)
+			{
+				_tasConsole.CurrentFrameField.text = FP.tas.CurInput;
+				_tasConsole.NextFrameField.text = FP.tas.NextInput;
+			}
 			FP.engine.update();
 			FP.engine.render();
 			updateEntityCount();
@@ -757,7 +761,7 @@ package net.flashpunk.debug
 			_butPause.visible = !FP.engine.paused;
 
 			var wasVisible:Boolean = _tasConsole.visible;
-			_tasConsole.visible = FP.engine.paused && FP.tas._playingBack;
+			_tasConsole.visible = FP.engine.paused && FP.tas.PlaybackBuffer.length > 0 && FP.tas.RecordBuffer.length > 0;
 
 			// Changed visibility this frame.
 			if (!wasVisible && _tasConsole.visible)
