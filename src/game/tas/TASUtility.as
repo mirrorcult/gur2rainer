@@ -111,7 +111,7 @@ package game.tas
         public static function GetFastestGTASFile(level:Level) : File
         {
             var dir:File = GetGTASFileDirectory(level);
-            var str:String = level.toString();
+            var str:String = level.toString() + "_";
             dir.createDirectory();
 
             var lowest:uint = uint.MAX_VALUE;
