@@ -249,28 +249,25 @@ package net.flashpunk.debug
 							if (_panning) updatePanning();
 						}
 						
-						if (tasConsoleShouldBeVisible())
+						if (!_tasConsole.visible)
 						{
-							updateDebugRead()
-							return;
-						}
-
-						// Select all Entities
-						if (Input.pressed(Key.A)) selectAll();
-						
-						// If the shift key is held.
-						if (Input.check(Key.SHIFT))
-						{
-							// If Entities are selected.
-							if (SELECT_LIST.length)
+							// Select all Entities
+							if (Input.pressed(Key.A)) selectAll();
+							
+							// If the shift key is held.
+							if (Input.check(Key.SHIFT))
 							{
-								// Move Entities with the arrow keys.
-								if (Input.pressed("_ARROWS")) updateKeyMoving();
-							}
-							else
-							{
-								// Pan the camera with the arrow keys.
-								if (Input.check("_ARROWS")) updateKeyPanning();
+								// If Entities are selected.
+								if (SELECT_LIST.length)
+								{
+									// Move Entities with the arrow keys.
+									if (Input.pressed("_ARROWS")) updateKeyMoving();
+								}
+								else
+								{
+									// Pan the camera with the arrow keys.
+									if (Input.check("_ARROWS")) updateKeyPanning();
+								}
 							}
 						}
 					}
