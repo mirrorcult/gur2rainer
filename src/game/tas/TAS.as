@@ -131,6 +131,7 @@ package game.tas
                     if (desired == 0)
                     {
                         FP.engine.paused = true;
+                        FP.engine.setFrameRate(60);
                     }
                     else
                     {
