@@ -98,7 +98,7 @@ package game.menus
 
       private function toggleRecording(button:MenuButton) : void
       {
-         Options.tasRecordingState = (Options.tasRecordingState + 1) % 4;
+         Options.tasRecordingState = (Options.tasRecordingState + 1) % 3;
          button.setText("TAS Recording: " + getRecordingStateName(Options.tasRecordingState))
       }
 
@@ -112,8 +112,6 @@ package game.menus
       {
          switch(state)
          {
-            case Options.tasRecordingStateNone:
-               return "None";
             case Options.tasRecordingStateManual:
                return "Manual";
             case Options.tasRecordingStateAll:

@@ -8,10 +8,9 @@ package game
    public class Options
    {
       // tas recording state enum
-      public static const tasRecordingStateNone:int    = 0;
-      public static const tasRecordingStateManual:int  = 1;
-      public static const tasRecordingStateAll:int      = 2;
-      public static const tasRecordingStateFastest:int = 3;
+      public static const tasRecordingStateManual:int  = 0;
+      public static const tasRecordingStateAll:int      = 1;
+      public static const tasRecordingStateFastest:int = 2;
       // end enum
 
       public static var voices:Boolean;

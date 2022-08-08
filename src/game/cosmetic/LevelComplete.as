@@ -104,11 +104,6 @@ package game.cosmetic
             this.bottomText.text = "ENTER - Restart                Saved TAS file!  ";
             this.bottomText.centerOO();
          }
-         else if (Options.tasRecordingState == Options.tasRecordingStateNone)
-         {
-            this.bottomText.text = "ENTER - Restart                                 ";
-            this.bottomText.centerOO();
-         }
       }
       
       override public function update() : void
