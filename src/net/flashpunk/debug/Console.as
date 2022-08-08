@@ -365,14 +365,12 @@ package net.flashpunk.debug
 		/** @private Steps the frame ahead. */
 		private function stepFrame():void
 		{
-			FP.tas.Update();
-
+			FP.engine.update();
 			if (_tasConsole.visible)
 			{
 				_tasConsole.CurrentFrameField.text = FP.tas.CurInput;
 				_tasConsole.NextFrameField.text = FP.tas.NextInput;
 			}
-			FP.engine.update();
 			FP.engine.render();
 			updateEntityCount();
 			updateEntityLists();
