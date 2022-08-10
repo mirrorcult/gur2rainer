@@ -36,17 +36,17 @@ GUR2exe is a completely stripped down fork of GUR2rainer with no special feature
 
 ---
 
-### GUR2aser (W.I.P)
+### GUR2aser
 
 **Branch:** `tas`
 
-**Latest release:** *N/A*
+**Latest release:** [t1.0-pre](https://github.com/mirrorcult/gur2rainer/releases/tag/t1.0-pre)
 
 **Valid for full runs:** *No*
 
 **Valid for IL runs:** *No*
 
-GUR2aser is a work-in-progress fork of GUR2rainer featuring TAS tools. It can save TAS files after successfully completed runs, and it can play back custom TAS files on any level in the game. **GUR2aser is watermarked and is not considered valid for ANY runs of Give Up Robot, 2.**
+GUR2aser is fork of GUR2rainer featuring TAS tools. It can save TAS files after successfully completed runs, and it can play back custom TAS files on any level in the game. It features a TAS debugger, frame advance, timescale modification, and much more. **GUR2aser is watermarked and is not considered valid for ANY runs of Give Up Robot, 2.**
 
 v1.0 of the file specification for the `gtas` files used by GUR2aser is located [here](https://github.com/mirrorcult/gur2rainer/blob/tas/GTAS_SPEC.md).
 
