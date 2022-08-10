@@ -74,13 +74,48 @@ package
       
       public static const DEPTH_ENVIRON:int = -5;
       
-      public static var pause:Pauser;
+      public static var _pause:Pauser;
+
+      public static function get pause():Pauser
+      {
+         return _pause;
+      }
+
+      public static function set pause(pause:Pauser):void
+      {
+         _pause = pause;
+         if (pause == null)
+         {
+            GameState = STATE_LEVEL_RUNNING;
+         }
+         else
+         {
+            GameState = STATE_LEVEL_PAUSED;
+         }
+      }
       
       public static const DEPTH_SPEECH:int = -7;
        
       public static var instance:Main;
       
       private var focus:Boolean = true;
+
+      /* AUTOSPLITTER QOL */
+
+      public static var GameState:uint;
+      public static var LevelType:uint;
+      public static var TotalTime:uint;
+
+      // Magics for easy autosplitting.
+      public static const STATE_MAIN_MENU:uint = 0xABCDEF;
+      public static const STATE_LEVEL_START:uint = 0xBCDEFA;
+      public static const STATE_LEVEL_RUNNING:uint = 0xCDEFAB;
+      public static const STATE_LEVEL_PAUSED:uint = 0xDEFABC;
+      public static const STATE_LEVEL_TRANSITION:uint = 0xFABCDE;
+      public static const STATE_FINISH:uint = 0xFFFFFF;
+
+      public static const TYPE_START_OR_END:uint = 0xAABBCC;
+      public static const TYPE_NORMAL:uint = 0xDDEEFF;
       
       public function Main()
       {

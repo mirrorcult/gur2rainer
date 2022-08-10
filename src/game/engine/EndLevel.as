@@ -5,11 +5,10 @@ package game.engine
    
    public class EndLevel extends Level
    {
-       
-      
       public function EndLevel(num:uint)
       {
          super(0,num);
+         Main.LevelType = Main.TYPE_START_OR_END;
       }
       
       override protected function specifics() : void
@@ -30,7 +29,7 @@ package game.engine
             world = 1;
          }
          load(new Assets["E" + world]());
-         countTime = false;
+         _countTime = false;
       }
    }
 }

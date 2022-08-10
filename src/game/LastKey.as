@@ -188,7 +188,8 @@ package game
          }
          Assets.SndGetKey.play();
          Assets.setMusic();
-         (FP.world as Level).countTime = false;
+         (FP.world as Level)._countTime = false;
+         Main.GameState = Main.STATE_FINISH;
          this.sprite.frame = 0;
          this.glow.alpha = 1;
          this.player.grabLastKey();

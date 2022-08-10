@@ -22,6 +22,7 @@ package game.menus
       override public function begin() : void
       {
          super.begin();
+         Main.GameState = Main.STATE_FINISH;
          Main.clearGame();
          if(Main.saveData.mode == 0)
          {

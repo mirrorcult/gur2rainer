@@ -47,6 +47,7 @@ package game.menus
       
       private function gotoMain(m:MenuButton = null) : void
       {
+         Main.GameState = Main.STATE_MAIN_MENU;
          var hard:MenuButton = null;
          var load:MenuButton = null;
          var stats:MenuButton = null;
@@ -91,6 +92,7 @@ package game.menus
       
       override public function update() : void
       {
+         //Main.GameState = Main.STATE_MAIN_MENU;
          super.update();
          if(this.options && Input.pressed(Key.DELETE) && Input.check(Key.CONTROL) && Input.check(Key.SHIFT))
          {

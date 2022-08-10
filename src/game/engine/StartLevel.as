@@ -13,6 +13,7 @@ package game.engine
       public function StartLevel(num:uint)
       {
          super(0,num);
+         Main.LevelType = Main.TYPE_START_OR_END;
       }
       
       override protected function specifics() : void
@@ -47,7 +48,7 @@ package game.engine
             world = 2;
          }
          load(new Assets["S" + world]());
-         countTime = false;
+         _countTime = false;
       }
       
       private function makePlayer() : void

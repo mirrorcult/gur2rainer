@@ -100,11 +100,35 @@ package game.engine
       
       public var practice:Boolean;
       
-      public var countTime:Boolean;
+      public var _countTime:Boolean;
+
+      public function get countTime():Boolean
+      {
+         return _countTime;
+      }
+
+      public function set countTime(value:Boolean):void
+      {
+         _countTime = value;
+         if (value && player && player.active)
+         {
+            Main.GameState = Main.STATE_LEVEL_RUNNING;
+         }
+         else if (value)
+         {
+            // Level just started.
+            Main.GameState = Main.STATE_LEVEL_START;
+         }
+         else
+         {
+            Main.GameState = Main.STATE_LEVEL_PAUSED;
+         }
+      }
       
       public function Level(mode:uint, num:uint, practice:Boolean = false, str:String = null)
       {
          super();
+         Main.LevelType = Main.TYPE_NORMAL;
          this.mode = mode;
          this.levelNum = num;
          this.practice = practice;
@@ -189,6 +213,11 @@ package game.engine
          if(this.player && this.player.active && this.countTime)
          {
             this.time++;
+            Main.TotalTime = Main.saveData.time + this.time;
+            if (!changing)
+            {
+               Main.GameState = Main.STATE_LEVEL_RUNNING;
+            }
             if(this.drawTime)
             {
                this.drawTime.updateTotal();

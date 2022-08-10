@@ -14,6 +14,7 @@ package game.cosmetic
       
       public function Win()
       {
+         Main.GameState = Main.STATE_LEVEL_TRANSITION;
          this.timer = new Alarm(20,this.done,Tween.ONESHOT);
          super();
          addTween(this.timer,true);
