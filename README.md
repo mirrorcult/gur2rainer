@@ -26,13 +26,13 @@ GUR2rainer is the primary project contained in this repository, and its commits 
 
 **Branch:** `exe`
 
-**Latest release:** [e1.0](https://github.com/mirrorcult/gur2rainer/releases/tag/e1.0)
+**Latest release:** [e2.0](https://github.com/mirrorcult/gur2rainer/releases/tag/e2.0)
 
 **Valid for full runs:** *Yes*
 
 **Valid for IL runs:** *Yes, but recommended to use GUR2rainer*
 
-GUR2exe is a completely stripped down fork of GUR2rainer with no special features, outside of simple visual QoL like fullscreen mode and removal of Adult Swim branding.
+GUR2exe is a completely stripped down fork of GUR2rainer with no special features, outside of simple visual QoL like fullscreen mode and removal of Adult Swim branding. It also is the only version that works with the official autosplitter for LiveSplit (`e2.0` and above)
 
 ---
 
