@@ -244,7 +244,7 @@ package game
       
       public function cameraFollow() : void
       {
-         FP.camera.x = Math.min(Math.max(x - 160,0),this.level.width - 320);
+         FP.camera.x = Math.min(Math.max(x - 160,0),this.level.width - 320) + FP.cameraOffset;
          FP.camera.y = Math.min(Math.max(y + this.cameraOffsetY - 120,0),this.level.height - 240);
       }
       

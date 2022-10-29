@@ -309,7 +309,16 @@ package net.flashpunk.debug
 			else if (Input.check("frameadvance")) stepFrame();
 			if (Input.pressed("hitboxes")) _renderBoxes = !_renderBoxes;
 
-			
+			if (Input.pressed("camleft"))
+			{
+				FP.cameraOffset -= 20;
+				if (paused) panCamera(-20, 0);
+			}
+			else if (Input.pressed("camright"))
+			{
+				FP.cameraOffset += 20;
+				if (paused) panCamera(20, 0);
+			}
 		}
 		
 		/**
@@ -426,7 +435,7 @@ package net.flashpunk.debug
 			_entRect.x = Input.mouseX;
 			_entRect.y = Input.mouseY;
 		}
-		
+
 		/** @private Pans the camera. */
 		private function panCamera(xDelta:int, yDelta:int):void
 		{

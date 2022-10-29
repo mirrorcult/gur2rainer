@@ -89,6 +89,7 @@ package
 
       public static var instance:Main;
       
+      
       public function Main()
       {
          super(320,240,60,true);
@@ -104,6 +105,9 @@ package
          Input.define("next", Key.TAB);
          Input.define("restart", Key.R);
          Input.define("tas", Key.T);
+         Input.define("camleft", Key.Q);
+         Input.define("camright", Key.E);
+
    
          instance = this;
          BDScreen = new ImgScreen().bitmapData;

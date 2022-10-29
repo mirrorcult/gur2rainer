@@ -79,6 +79,8 @@
 		 */
 		public static var camera:Point = new Point;
 
+		public static var cameraOffset:Number = 0;
+
 		public static var tas:TAS;
 		
 		/**
