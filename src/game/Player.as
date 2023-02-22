@@ -131,6 +131,9 @@ package game
       private var varJump:uint = 0;
       
       private const C_FLIP:uint = 65535;
+
+      public var grappleHSpeed:Number = 0;
+      public var grappleVSpeed:Number = 0;
       
       public function Player(level:Level, x:int, y:int)
       {
@@ -193,6 +196,8 @@ package game
          this.hSpeed = FP.point2.x - FP.point.x;
          this.vSpeed = FP.point2.y - FP.point.y;
          this.momentum = 0;
+         this.grappleHSpeed = 0;
+         this.grappleVSpeed = 0;
       }
       
       public function startWarp() : void
@@ -527,6 +532,12 @@ package game
                   this.momentum = 0;
                }
             }
+
+            // cache expected h/v-speed on release for variable watch & display
+            FP.angleXY(FP.point,FP.angle(this.grapple.x,this.grapple.y,x,y),this.radius);
+            FP.angleXY(FP.point2,FP.angle(this.grapple.x,this.grapple.y,x,y) + this.momentum,this.radius);
+            this.grappleHSpeed = FP.point2.x - FP.point.x;
+            this.grappleVSpeed = FP.point2.y - FP.point.y;
             distance = FP.distance(x,y,this.grapple.x,this.grapple.y);
             if(distance > this.BREAK_RADIUS)
             {
