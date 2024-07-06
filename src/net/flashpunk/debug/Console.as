@@ -17,6 +17,7 @@ package net.flashpunk.debug
 	import net.flashpunk.utils.Key;
 	import game.tas.TASUtility;
 	import game.Player;
+	import flash.geom.Point;
 	
 	/**
 	 * FlashPunk debug console; can use to log information or pause the game and view/move Entities and step the frame.
@@ -305,20 +306,44 @@ package net.flashpunk.debug
 			if (Input.pressed("pause")) 
 			{
 				FP.engine.paused = !FP.engine.paused; _butPlay.visible = FP.engine.paused; _butPause.visible = !FP.engine.paused;
+				if (FP.engine.paused) FP.oldCamera = FP.camera.clone();
+				else FP.oldCamera = new Point;
 			}
 			if (Input.pressed("frameadvance1")) stepFrame();
 			else if (Input.check("frameadvance")) stepFrame();
 			if (Input.pressed("hitboxes")) _renderBoxes = !_renderBoxes;
 
-			if (Input.pressed("camleft"))
+			var mod:Number = 3;
+
+			if (Input.check("cam_right"))
 			{
-				FP.cameraOffset -= 20;
-				if (paused) panCamera(-20, 0);
+				FP.cameraOffset.x += mod;
+				if (FP.engine.paused) panCamera(mod, 0);
 			}
-			else if (Input.pressed("camright"))
+			else if (Input.check("cam_left"))
 			{
-				FP.cameraOffset += 20;
-				if (paused) panCamera(20, 0);
+				FP.cameraOffset.x += -mod;
+				if (FP.engine.paused) panCamera(-mod, 0);
+			}
+
+			if (Input.check("cam_up"))
+			{
+				FP.cameraOffset.y += -mod;
+				if (FP.engine.paused) panCamera(0, -mod);
+			}
+			else if (Input.check("cam_down"))
+			{
+				FP.cameraOffset.y += mod;
+				if (FP.engine.paused) panCamera(0, mod);
+			}
+			
+			if (Input.pressed("cam_reset"))
+			{
+				FP.cameraOffset = new Point;
+				if (FP.engine.paused) 
+				{
+					panCamera(FP.oldCamera.x - FP.camera.x, FP.oldCamera.y - FP.camera.y)
+				}
 			}
 		}
 		

@@ -105,9 +105,12 @@ package
          Input.define("next", Key.TAB);
          Input.define("restart", Key.R);
          Input.define("tas", Key.T);
-         Input.define("camleft", Key.Q);
-         Input.define("camright", Key.E);
 
+         Input.define("cam_up", Key.I);
+         Input.define("cam_left", Key.J);
+         Input.define("cam_down", Key.K);
+         Input.define("cam_right", Key.L);
+         Input.define("cam_reset", Key.Q);
    
          instance = this;
          BDScreen = new ImgScreen().bitmapData;
