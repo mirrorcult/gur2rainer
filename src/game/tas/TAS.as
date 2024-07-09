@@ -19,6 +19,12 @@ package game.tas
         // Stores the commands currently being played back.
         public var PlaybackBuffer:Vector.<TASCommand>;
 
+        // GUR2-specific: boss thrusts have an extra random
+        // amount added, between 0 and 0.1.
+        // The boss will use the thrusts in this array in order.
+        // If it thrusts more times than there are entries, it defaults to zero (at least with how its written now)
+        public var SeededBossThrusts:Vector.<Number> = null;
+
         // The current index into the playback buffer. Not necessarily related to framecount/time.
         private var _idx:uint;
 
@@ -94,6 +100,15 @@ package game.tas
             _idx++;
         }
 
+        // Allows gameplay to manually record commands  i.e. not through inputs to be placed at the start of the file
+        public function TryRecordStartCommand(command: TASCommand):void
+        {
+            if (_recording)
+            {
+                RecordBuffer.insertAt(0, command);
+            }
+        }
+
         private function Peek() : TASCommand
         {
             if (_idx < PlaybackBuffer.length - 1)
@@ -148,6 +163,12 @@ package game.tas
                     }
                     break;
                 }
+                case TASCommand.THRUSTS:
+                {
+                    var thrusts: Vector.<Number> = c.Data as Vector.<Number>;
+                    SeededBossThrusts = thrusts;
+                    break;
+                }
             }
         }
 
@@ -181,6 +202,7 @@ package game.tas
         public function FlushRecording() : void
         {
             RecordBuffer = new Vector.<TASCommand>();
+            SeededBossThrusts = null;
             StopRecording();
         }
 
@@ -219,6 +241,7 @@ package game.tas
         public function FlushPlayback() : void
         {
             PlaybackBuffer = new Vector.<TASCommand>();
+            SeededBossThrusts = null;
             StopPlayback();
         }
 

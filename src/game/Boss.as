@@ -13,6 +13,7 @@ package game
    import net.flashpunk.graphics.Graphiclist;
    import net.flashpunk.graphics.Spritemap;
    import net.flashpunk.tweens.misc.Alarm;
+   import game.tas.TASCommand;
    
    public class Boss extends Grabbable
    {
@@ -67,6 +68,8 @@ package game
       private var face:Spritemap;
       
       public var thrust:Number = 0;
+
+      public var timesThrusted:Number = 0;
       
       private const MAX_PULL:Number = 0.4;
       
@@ -285,10 +288,33 @@ package game
             this.thrust = mine.x < x?Number(this.START_THRUST):Number(-this.START_THRUST);
          }
          this.thrust = this.thrust - 0.05;
-         //this.thrust = this.thrust + 0.1 * Math.random();
+
+         // TAS EDIT
+         if (FP.tas.SeededBossThrusts == null)
+         {
+            var thrusts:Vector.<Number> = new Vector.<Number>();
+            thrusts.push(0);
+            FP.tas.TryRecordStartCommand(new TASCommand(TASCommand.THRUSTS, thrusts));
+            FP.tas.SeededBossThrusts = thrusts;
+         }
+
+         var extraThrustAmt:Number = 0;
+         if (FP.tas.SeededBossThrusts != null)
+         {
+            if (timesThrusted >= FP.tas.SeededBossThrusts.length)
+            {
+               extraThrustAmt = 0;
+            }
+            else
+            {
+               extraThrustAmt = FP.tas.SeededBossThrusts[timesThrusted];
+            }
+         }
+         this.thrust = this.thrust + 0.1 * extraThrustAmt;
          this.alarm.reset(160);
          this.alarm.start();
          this.face.play("angry_talk");
+         timesThrusted += 1;
          Assets.playGrappleBoss();
       }
       

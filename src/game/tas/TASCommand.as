@@ -13,5 +13,6 @@ package game.tas
 
         public static const INPUT:uint = 0;
         public static const TIMESCALE:uint = 1;
+        public static const THRUSTS:uint = 2;
     }
 }

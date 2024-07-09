@@ -21,6 +21,30 @@ package game.tas
                     continue;
                 }
 
+                // should probably integrate this better but whatever.
+                if (line.indexOf(TOKEN_SEED_BOSS_THRUST) == 0)
+                {
+                    var thrusts: Vector.<Number> = new Vector.<Number>;
+                    // cut 1 more to cut the comma
+                    var nums: String = line.substring(TOKEN_SEED_BOSS_THRUST.length + 1);
+
+                    while (nums.length != 0)
+                    {
+                        // expected format is like
+                        // thrusts,0.3,0.54,0.1,0.9999
+                        // which gets cut to 0.3,0.54,0.1,0.9999 before it gets here
+                        var commaPlace:int = nums.indexOf(",");
+                        if (commaPlace == -1) commaPlace = nums.length;
+                        var n:Number = parseFloat(nums.substring(0, commaPlace));
+                        // clamp to {0, 0.1}
+                        thrusts.push(Math.min(Math.max(n, 0), 0.1));
+                        nums = nums.substring(Number.min(commaPlace + 1, nums.length));
+                    }
+
+                    commands.push(new TASCommand(TASCommand.THRUSTS, thrusts));
+                    continue;
+                }
+
                 var first:String = line.charAt(0);
 
                 switch (first)
@@ -88,6 +112,16 @@ package game.tas
 
             for (var i:int = 0; i < buffer.length - 1; i++)
             {
+                if (buffer[i].Type == TASCommand.THRUSTS)
+                {
+                    gtas += TOKEN_SEED_BOSS_THRUST;
+                    var t:Vector.<Number> = buffer[i].Data as Vector.<Number>;
+                    for each (var n:Number in t)
+                    {
+                        gtas += ",";
+                        gtas += n.toString();
+                    }
+                }
                 if (buffer[i].Type == TASCommand.TIMESCALE)
                 {
                     gtas += ("*" + (buffer[i].Data as Number));
@@ -118,5 +152,6 @@ package game.tas
         public static const TOKEN_COMMENT:String = "#";
         public static const TOKEN_TIMESCALE:String = "*";
         public static const TOKEN_FRAMEHOLD:String = ",";
+        public static const TOKEN_SEED_BOSS_THRUST:String = "seedBossThrusts"
     }
 }
