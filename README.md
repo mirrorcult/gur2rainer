@@ -40,7 +40,7 @@ GUR2exe is a completely stripped down fork of GUR2rainer with no special feature
 
 **Branch:** `tas`
 
-**Latest release:** [t1.1](https://github.com/mirrorcult/gur2rainer/releases/tag/t1.1)
+**Latest release:** [t1.3-boss](https://github.com/mirrorcult/gur2rainer/releases/tag/t1.3-boss)
 
 **Valid for full runs:** *No*
 
